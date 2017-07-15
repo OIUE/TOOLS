@@ -15,7 +15,7 @@ import java.io.IOException;
  *		复制文件公用类
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version WMWFileCopyFile 1.0  Apr 17, 2009 11:17:06 PM
+ *  WMWFileCopyFile 1.0  Apr 17, 2009 11:17:06 PM
  */
 public class FileCopy {
 	private static final int BUFFEREDSIZE = 1024;
@@ -32,7 +32,7 @@ public class FileCopy {
 	 *CreateTime Apr 17, 2009 11:22:21 PM
 	 * @param sourceDir 原文件
 	 * @param targetDir 复制到路径
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public static void CopyOFFile(String sourceDir, String targetDir) throws IOException {
 		File file=new File(sourceDir);
@@ -63,7 +63,7 @@ public class FileCopy {
 	 *CreateTime Apr 17, 2009 11:23:15 PM
 	 * @param sourceFile 源文件
 	 * @param targetFile 新文件
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public static void copyFile(File sourceFile,File targetFile) throws IOException{ 
         // 新建文件输入流并对它进行缓冲 
@@ -96,7 +96,7 @@ public class FileCopy {
 	 *CreateTime Apr 17, 2009 11:24:53 PM
 	 * @param sourceDir 源目录
 	 * @param targetDir 复制到的目录
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public static void copyDirectiory(String sourceDir, String targetDir) throws IOException { 
         // 新建目标目录 
@@ -121,44 +121,5 @@ public class FileCopy {
         } 
     }
 	
-
-	/*public List CopyOFFiles(String sourceDir, String targetDir) throws IOException {
-    	FileSearch fileSearch = new FileSearch();
-    	(new File(targetDir)).mkdirs();
-    	List list=fileSearch.ParallelFile(sourceDir, targetDir);
-    	if (list.size()==0) {
-			this.CopyOFFile(sourceDir, targetDir);
-			return null;
-		}else {
-			return list;
-		}
-	}
-	
-	public List CopyOFFiles(String sourceDir, String targetDir,boolean whether) throws IOException {
-    	FileSearch fileSearch = new FileSearch();
-    	(new File(targetDir)).mkdirs();
-    	List list=fileSearch.ParallelFile(sourceDir, targetDir);
-    	if (list.size()==0) {
-			this.CopyOFFile(sourceDir, targetDir);
-			return null;
-		}else {
-			if (whether) {
-				this.CopyOFFile(sourceDir, targetDir);
-				return null;
-			}
-			return list;
-		}
-	}*/
-	
-	/**
-	 * 方法说明：
-	 *			
-	 *CreateTime Apr 17, 200911:17:06 PM
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

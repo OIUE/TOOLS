@@ -23,8 +23,8 @@ public class FileMd5Utils {
 	 * 计算文件的MD5
 	 * 
 	 * @param fileName 文件的绝对路径
-	 * @return
-	 * @throws IOException
+	 * @return 字符串
+	 * @throws IOException io异常
 	 */
 	public static String getFileMD5String(String fileName) throws IOException {
 		File f = new File(fileName);
@@ -35,8 +35,8 @@ public class FileMd5Utils {
 	 * 计算文件的MD5，重载方法
 	 * 
 	 * @param file 文件对象
-	 * @return
-	 * @throws IOException
+	 * @return 字符串
+	 * @throws IOException io 异常
 	 */
 	@SuppressWarnings("resource")
 	public static String getFileMD5String(File file) throws IOException {

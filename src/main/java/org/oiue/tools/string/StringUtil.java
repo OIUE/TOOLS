@@ -23,7 +23,7 @@ import javax.script.ScriptEngineManager;
  *		
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version StringUtil 1.0  Apr 18, 2009 2:06:54 PM
+ *  StringUtil 1.0  Apr 18, 2009 2:06:54 PM
  * StringUtil
  */
 @SuppressWarnings( { "unchecked","rawtypes"})
@@ -73,8 +73,8 @@ public class StringUtil {
 	}
 	/**
 	 * 转换逻辑词汇true
-	 * @param bool
-	 * @return
+	 * @param bool 值
+	 * @return 是否为true
 	 */
 	public static boolean isTrue(String bool) {
 		if (bool==null) {
@@ -91,8 +91,8 @@ public class StringUtil {
 	}
 	/**
 	 * 转换逻辑词汇false
-	 * @param bool
-	 * @return
+	 * @param bool 值
+	 * @return 是否为false
 	 */
 	public static boolean isFalse(String bool) {
 		if (bool==null) {
@@ -241,7 +241,7 @@ public class StringUtil {
 	 * @param sourceEncoding 源字符集名称
 	 * @param targetEncoding 目标字符集名称
 	 * @return 转换结果, 如果有错误发生, 则返回原来的值
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public static String changeEncoding(String sourceStr, String sourceEncoding,String targetEncoding) throws UnsupportedEncodingException {
 		if (isEmpty(sourceStr)) {
@@ -257,7 +257,7 @@ public class StringUtil {
 	 *CreateTime Apr 18, 2009 7:40:54 PM
 	 * @param sourceStr 源字符串
 	 * @return 转码后的字符串
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public static String toUTF8(String sourceStr) throws UnsupportedEncodingException {
 		return changeEncoding(sourceStr,"ISO8859-1", "UTF-8");
@@ -269,7 +269,7 @@ public class StringUtil {
 	 *CreateTime Apr 18, 2009 7:46:15 PM
 	 * @param sourceStr 源字符串
 	 * @return 转码后的字符串
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public static String toISO(String sourceStr) throws UnsupportedEncodingException {
 		return changeEncoding(sourceStr, "UTF-8", "ISO8859-1");
@@ -308,9 +308,9 @@ public class StringUtil {
 	/**
 	 * 方法说明：
 	 * 获取license授权
-	 * @param license
-	 * @param index
-	 * @return
+	 * @param license license
+	 * @param index 下标
+	 * @return 是否有权限
 	 */
 	public static boolean License(String license,int index){
 		if (license==null||license.length()<=index) {
@@ -326,9 +326,9 @@ public class StringUtil {
 	/**
 	 * 方法说明：
 	 * 获取license授权
-	 * @param license
-	 * @param index
-	 * @return
+	 * @param license license
+	 * @param index 下标
+	 * @return 是否有权限
 	 */
 	public static boolean LicenseArray(String license,int index){
 		if (license==null||license.length()<1) {
@@ -340,9 +340,9 @@ public class StringUtil {
 	/**
 	 * 方法说明：
 	 * 获取license授权
-	 * @param license
-	 * @param index
-	 * @return
+	 * @param license license
+	 * @param index 下标
+	 * @return 是否有权限
 	 */
 	public static boolean LicenseArray(String[] license,int index){
 		if (license==null||license.length==0) {
@@ -357,8 +357,8 @@ public class StringUtil {
 	}
 	/**
 	 * 首字母大写
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 值
 	 */
 	public static String firstToUpper(String str){
 		return str.substring(0,1).toUpperCase()+str.substring(1);
@@ -369,7 +369,7 @@ public class StringUtil {
 	 * @param par 参数串
 	 * @param firstSeparator 一维分割符
 	 * @param secondSeparator 键值分割符
-	 * @return
+	 * @return 结果
 	 */
 	public static Map parStr2Map(String par,String firstSeparator,String secondSeparator) {
 		Map map=new HashMap();
@@ -386,10 +386,10 @@ public class StringUtil {
 	 * 功能:解析以为参数串到二维数组
 	 * 作者: Every
 	 * 创建日期:2012-2-9
-	 * @param par
-	 * @param firstSeparator
-	 * @param secondSeparator
-	 * @return
+	 * @param par 字符串
+	 * @param firstSeparator 一维分隔符
+	 * @param secondSeparator 二维分隔符
+	 * @return 结果
 	 */
 	public static List parStr2Arr(String par,String firstSeparator,String secondSeparator) {
 		List list=new ArrayList();
@@ -409,10 +409,10 @@ public class StringUtil {
 	 * 功能:解析以为参数串到二维数组 键值相反
 	 * 作者: Every
 	 * 创建日期:2012-2-13
-	 * @param par
-	 * @param firstSeparator
-	 * @param secondSeparator
-	 * @return
+	 * @param par 字符串
+	 * @param firstSeparator 一维分隔符
+	 * @param secondSeparator 二维分隔符
+	 * @return 结果
 	 */
 	public static List parStr2ArrR(String par,String firstSeparator,String secondSeparator) {
 		List list=new ArrayList();
@@ -433,7 +433,7 @@ public class StringUtil {
 	 * @param par 参数串
 	 * @param firstSeparator 一维分割符
 	 * @param secondSeparator 键值分割符
-	 * @return
+	 * @return 结果
 	 */
 	public static Map parStr2MapR(String par,String firstSeparator,String secondSeparator) {
 		Map map=new HashMap();
@@ -449,9 +449,9 @@ public class StringUtil {
 	
 	/**
 	 * 分割字符串为list 暂时只支持一维分割
-	 * @param source
-	 * @param separator
-	 * @return
+	 * @param source 源
+	 * @param separator 分割符
+	 * @return 结果
 	 */
 	public static List Str2List(String source,String separator){
 		if(StringUtil.isEmptys(source)||StringUtil.isEmptys(separator)){
@@ -463,8 +463,8 @@ public class StringUtil {
 	/**
 	 * 括号匹配
 	 * 		括号{{},[],()}是否匹配
-	 * @param source 检查字符串
-	 * @return
+	 * @param sourceStr 检查字符串
+	 * @return 结果
 	 */
 	public static boolean BracketMatching(String sourceStr){
 		if (isEmpty(sourceStr))
@@ -507,22 +507,12 @@ public class StringUtil {
 		return flag;
 	}
 
-	/**
-	 * 
-	 * @param object
-	 * @param name
-	 */
 	public static void checkNull(Object object, String name) {   
         if (null == object) {   
             String message = MessageFormat.format("t", new String(name));   
             throw new NullPointerException(message);   
         }   
     }
-	/**
-	 * 
-	 * @param string
-	 * @param name
-	 */
     public static void checkString(String string, String name) {
 		if (StringUtil.isEmpty(string)) {
 			String message = MessageFormat.format("t", new String(name));
@@ -533,8 +523,8 @@ public class StringUtil {
      * 表达式运算
      * @param epStr 表达式
      * @param per 值
-     * @return
-     * @throws Throwable
+     * @return 对象
+     * @throws Throwable 异常
      */
     public static Object scriptEngine(String epStr,Map per) throws Throwable{
     	ScriptEngineManager manager = new ScriptEngineManager();
@@ -545,18 +535,4 @@ public class StringUtil {
 		}
         return engine.eval(epStr);
     }
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 2:06:54 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String sString="00010010101";
-		sString="1,5,11";
-		System.out.println(StringUtil.LicenseArray(sString, 11));
-		System.out.println(StringUtil.LicenseArray(sString, 4));
-		System.out.println(StringUtil.LicenseArray(sString, 5));
-	}
-
 }

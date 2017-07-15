@@ -26,11 +26,6 @@ public class Date {
 	public Date() {
 	    localTime = Calendar.getInstance();
 	}
-	
-	public static void main(String[] args){
-		Date test = new Date();
-		test.today();
-	}
 	/**
 	 * 功能：得到当前日期 格式为：xxxx-yy-zz (eg: 2007-12-05)
 	 * @return String
@@ -157,7 +152,7 @@ public class Date {
 	
 	/**
 	  * 功能：判断输入年份是否为闰年<br>
-	  * @param year
+	  * @param year 年
 	  * @return 是：true  否：false
 	  * @author pure
 	  */

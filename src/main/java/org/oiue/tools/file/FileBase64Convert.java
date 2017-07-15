@@ -9,16 +9,10 @@ import java.io.InputStream;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-@SuppressWarnings({ "resource", "unused"})
+@SuppressWarnings({ "resource", "unused", "restriction"})
 public class FileBase64Convert {
 
-    /**
-     * 
-     * @param fileName
-     * @return
-     * @throws IOException
-     */
-    public static String ioToBase64(String fileName) throws IOException {
+	public static String ioToBase64(String fileName) throws IOException {
         String strBase64 = null;
         InputStream in = new FileInputStream(fileName);
         // in.available()返回文件的字节长度
@@ -29,14 +23,7 @@ public class FileBase64Convert {
         in.close();
         return strBase64;
     }
-
-    /**
-     * 
-     * @param strBase64
-     * @param fileName
-     * @throws IOException
-     */
-    public static void base64ToIo(String strBase64, String fileName) throws IOException {
+	public static void base64ToIo(String strBase64, String fileName) throws IOException {
         String string = strBase64;
         // 解码，然后将字节转换为文件
         byte[] bytes = new BASE64Decoder().decodeBuffer(string); // 将字符串转换为byte数组

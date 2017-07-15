@@ -16,7 +16,7 @@ import javax.servlet.ServletContext;
  *		
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version StringForPage 1.0  Apr 18, 2009 2:03:02 PM
+ *  StringForPage 1.0  Apr 18, 2009 2:03:02 PM
  * StringToPage
  */
 public class StringForPage {
@@ -151,7 +151,7 @@ public class StringForPage {
 	
 	/**
 	 * 方法说明：
-	 *			替换<,>替换为网页上显示的文本
+	 *			替换 替换为网页上显示的文本
 	 *CreateTime Apr 18, 2009 2:50:53 PM
 	 * @param sourceStr 源字符串
 	 * @return  滤除后的字符串
@@ -188,8 +188,8 @@ public class StringForPage {
 	 * 方法说明：
 	 *			滤除 HTML 代码 为文本代码.
 	 *CreateTime Apr 18, 2009 3:33:46 PM
-	 * @param sourceStr
-	 * @return
+	 * @param sourceStr 源串
+	 * @return 结果
 	 */
 	public static String replaceHtmlToText(String sourceStr) {
 		if (StringUtil.isEmpty(sourceStr)) {
@@ -376,7 +376,7 @@ public class StringForPage {
 	 *CreateTime Apr 18, 2009 7:01:04 PM
 	 * @param src 需编码的字符串
 	 * @return 编码后的字符串
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public static String encode(String src) throws UnsupportedEncodingException {
 		if (StringUtil.isEmpty(src)) {
@@ -391,7 +391,7 @@ public class StringForPage {
 	 *CreateTime Apr 18, 2009 7:09:05 PM
 	 * @param src 需解码的字符串
 	 * @return 解码后的字符串
-	 * @throws UnsupportedEncodingException
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public static String decode(String src) throws UnsupportedEncodingException {
 		if (StringUtil.isEmpty(src)) {
@@ -406,7 +406,7 @@ public class StringForPage {
 	 *CreateTime Apr 18, 2009 10:33:44 PM
 	 * @param application JSP/Servlet 的 ServletContext
 	 * @param filePath 相对文件路径
-	 * @return  
+	 * @return   结果
 	 */
 	public static boolean createFile(ServletContext application, String filePath) {
 		if (!StringUtil.isEmpty(filePath)) {
@@ -516,17 +516,4 @@ public class StringForPage {
 		return "<SCRIPT language=\"JavaScript\">alert(\"" + message + "\");</SCRIPT>";
 	}
 	
-	
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 2:03:02 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
-	
-
 }

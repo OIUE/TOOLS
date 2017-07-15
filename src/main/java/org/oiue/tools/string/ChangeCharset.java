@@ -29,6 +29,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成US-ASCII码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toASCII(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, US_ASCII);
@@ -36,6 +39,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成ISO-8859-1码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toISO_8859_1(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, ISO_8859_1);
@@ -43,6 +49,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成UTF-8码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toUTF_8(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, UTF_8);
@@ -50,6 +59,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成UTF-16BE码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toUTF_16BE(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, UTF_16BE);
@@ -57,6 +69,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成UTF-16LE码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toUTF_16LE(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, UTF_16LE);
@@ -64,6 +79,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成UTF-16码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toUTF_16(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, UTF_16);
@@ -71,6 +89,9 @@ public class ChangeCharset {
 
 	/**
 	 * 将字符编码转换成GBK码
+	 * @param str 字符串
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String toGBK(String str) throws UnsupportedEncodingException {
 		return this.changeCharset(str, GBK);
@@ -83,8 +104,8 @@ public class ChangeCharset {
 	 *            待转换编码的字符串
 	 * @param newCharset
 	 *            目标编码
-	 * @return
-	 * @throws UnsupportedEncodingException
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String changeCharset(String str, String newCharset)
 			throws UnsupportedEncodingException {
@@ -106,8 +127,8 @@ public class ChangeCharset {
 	 *            原编码
 	 * @param newCharset
 	 *            目标编码
-	 * @return
-	 * @throws UnsupportedEncodingException
+	 * @return 值
+	 * @throws UnsupportedEncodingException 异常
 	 */
 	public String changeCharset(String str, String oldCharset, String newCharset)
 			throws UnsupportedEncodingException {

@@ -4,7 +4,7 @@ public class DigitalTrans {
     /**
      * 数字字符串转ASCII码字符串
      * 
-     * @param String
+     * @param content
      *            字符串
      * @return ASCII字符串
      */
@@ -129,7 +129,7 @@ public class DigitalTrans {
     /**
      * ASCII码字符串转数字字符串
      * 
-     * @param String
+     * @param content
      *            ASCII字符串
      * @return 字符串
      */
@@ -295,7 +295,7 @@ public class DigitalTrans {
     }
     /**
      * 十六进制串转化为byte数组
-     * 
+     * @param hex 十六进制串
      * @return the array of byte
      */
     public static final byte[] hex2byte(String hex)

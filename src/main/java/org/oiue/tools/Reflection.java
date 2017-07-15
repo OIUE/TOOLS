@@ -10,8 +10,8 @@ import java.lang.reflect.Method;
  * Java Reflection 
  *
  * @author Every(王勤)
- * @since 2008-8-23
- * @version v0.1
+ *  2008-8-23
+ *  v0.1
  */
 @SuppressWarnings( { "unchecked", "serial" ,"rawtypes"})
 public class Reflection implements Serializable {
@@ -22,7 +22,7 @@ public class Reflection implements Serializable {
 	 * @param methodName  方法名
 	 * @param args 参数数组
 	 * @return 执行方法返回的结果
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object invokeStaticMethod(String className, String methodName, Object[] args)
 			throws Exception {
@@ -47,7 +47,7 @@ public class Reflection implements Serializable {
 	 * @param className 类名
 	 * @param args 构造函数的参数
 	 * @return 新建的实例
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object newInstance(String className, Object... args) throws Exception {
 		Class newoneClass = Class.forName(className);
@@ -65,7 +65,7 @@ public class Reflection implements Serializable {
 	 * @param methodName  方法名
 	 * @param args   参数
 	 * @return 方法返回值
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object invokeMethod(Object owner, String methodName, Object[] args)
 			throws Exception {
@@ -87,8 +87,9 @@ public class Reflection implements Serializable {
 	 * @param owner  对象
 	 * @param methodName  方法名
 	 * @param args   参数
+	 * @param argsClass   参数
 	 * @return 方法返回值
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object invokeMethod(Object owner, String methodName, Object[] args,Class[] argsClass) throws Exception {
 		Class ownerClass = owner.getClass();
@@ -98,9 +99,10 @@ public class Reflection implements Serializable {
 
 	/**
 	 * 得到某个对象的公共属性
-	 * @param owner, fieldName
+	 * @param owner owner
+	 * @param fieldName fieldName
 	 * @return 该属性对象
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object getProperty(Object owner, String fieldName) throws Exception {
 		Class ownerClass = owner.getClass();
@@ -114,7 +116,7 @@ public class Reflection implements Serializable {
 	 * @param className   类名
 	 * @param fieldName   属性名
 	 * @return 该属性对象
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public Object getStaticProperty(String className, String fieldName)
 			throws Exception {

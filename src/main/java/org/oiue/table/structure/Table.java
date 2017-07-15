@@ -88,9 +88,9 @@ public class Table extends TableModel implements Serializable{
 	private boolean createPK=false;
 	/**
 	 * 
-	 * @param name
-	 * @param id
-	 * @param idGenerator
+	 * @param name 表名
+	 * @param id id
+	 * @param idGenerator 序列
 	 */
 	public Table(String name, String id, String idGenerator) {
 		this.setName(name);

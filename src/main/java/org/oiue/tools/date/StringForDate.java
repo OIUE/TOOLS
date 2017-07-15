@@ -15,7 +15,7 @@ import org.oiue.tools.string.StringUtil;
  *		
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version OIUEFile 1.0  Apr 18, 2009 4:06:03 PM
+ *  OIUEFile 1.0  Apr 18, 2009 4:06:03 PM
  * StringForDate
  */
 public class StringForDate {
@@ -178,8 +178,8 @@ public class StringForDate {
 	 *			将 14 位的字符串(格式为yyyyMMddHHmmss)转换为日期.
 	 *CreateTime Apr 18, 2009 4:40:54 PM
 	 * @param sourceStr String需转换的源字符串
-	 * @returnDate 日期对象
-	 * @throws ParseException
+	 * @return Date 日期对象
+	 * @throws ParseException 转换异常
 	 */
 	public static Date string14ToDate(String sourceStr) throws ParseException {
 		if (StringUtil.isEmpty(sourceStr)) {
@@ -201,7 +201,7 @@ public class StringForDate {
 	 *CreateTime Apr 18, 2009 4:29:13 PM
 	 * @param sourceStr String需转换的源字符串
 	 * @return  Date 日期对象
-	 * @throws ParseException
+	 * @throws ParseException 转换异常
 	 */
 	public static Date parseStringToMysqlDate(String sourceStr) throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -214,7 +214,7 @@ public class StringForDate {
 	 *CreateTime Apr 18, 2009 4:29:13 PM
 	 * @param sourceStr String需转换的源字符串
 	 * @return  Date 日期对象
-	 * @throws ParseException
+	 * @throws ParseException 转换异常
 	 */
 	public static Date parseStringToYMD(String sourceStr) throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -227,21 +227,11 @@ public class StringForDate {
 	 *CreateTime Apr 18, 2009 4:23:08 PM
 	 * @param sourceStr String需转换的源字符串
 	 * @return Date 日期对象HH:mm:ss(Date)
-	 * @throws ParseException
+	 * @throws ParseException 转换异常
 	 */
 	public static Date parseHMSStringToDate(String sourceStr) throws ParseException {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
 		return dateFormat.parse(sourceStr);
-	}
-	
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 4:06:03 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

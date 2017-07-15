@@ -15,7 +15,7 @@ import org.oiue.tools.list.ListUtil;
 import org.oiue.tools.string.StringUtil;
 
 /**
- * 
+ *
  * @author Every
  *
  */
@@ -23,21 +23,21 @@ import org.oiue.tools.string.StringUtil;
 public class MapUtil {
 	/**
 	 * 将对象的key转换成
-	 * @param object
-	 * @return
+	 * @param object 对象
+	 * @return 结果对象
 	 */
 	public static Object toLowerCaseKey(Object object){
 		if (object instanceof Iterable<?>) {
 			List rtnL=new ArrayList();
 			for (Iterator iterator = ((Iterable)object).iterator(); iterator.hasNext();) {
-				Object type = (Object) iterator.next();
+				Object type = iterator.next();
 				rtnL.add(toLowerCaseKey(type));
 			}
 			return rtnL;
 		} else if (object instanceof Map<?, ?>) {
 			Map rtnM=new HashMap();
 			for (Iterator iterator = ((Map)object).keySet().iterator(); iterator.hasNext();) {
-				Object key = (Object) iterator.next();
+				Object key = iterator.next();
 				rtnM.put((key instanceof String)?(key!=null?key.toString().toLowerCase():key):key, toLowerCaseKey(((Map)object).get(key)));
 			}
 			return rtnM;
@@ -45,12 +45,12 @@ public class MapUtil {
 			return object;
 		}
 	}
-	
+
 	/**
 	 * 忽略键大小写获取map对应的值
-	 * @param map
-	 * @param key
-	 * @return
+	 * @param map map
+	 * @param key key
+	 * @return 值
 	 */
 	public static Object getVauleMatchCase(Map map,Object key){
 		if(map==null){
@@ -63,19 +63,19 @@ public class MapUtil {
 			return map.get(key);
 		}
 		for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();) {
-			Object keys = (Object) iterator.next();
+			Object keys = iterator.next();
 			if(keys!=null&&(keys.getClass().getName().equals("String")||keys.getClass().getName().equals("java.lang.String"))&&((String)keys).equalsIgnoreCase(key+"")){
 				return map.get(keys);
 			}
 		}
 		return null;
 	}
-	
+
 	/**
 	 * 忽略键大小写移除map对应的值
-	 * @param map
-	 * @param key
-	 * @return
+	 * @param map map
+	 * @param key key
+	 * @return 值
 	 */
 	public static Object removeMatchCase(Map map,Object key){
 		if(map==null){
@@ -86,7 +86,7 @@ public class MapUtil {
 			return map;
 		}
 		for (Iterator iterator = map.keySet().iterator(); iterator.hasNext();) {
-			Object keys = (Object) iterator.next();
+			Object keys = iterator.next();
 			if(keys!=null&&(keys.getClass().getName().equals("String")||keys.getClass().getName().equals("java.lang.String"))&&((String)keys).equalsIgnoreCase(key+"")){
 				map.remove(keys);
 				break;
@@ -94,13 +94,13 @@ public class MapUtil {
 		}
 		return map;
 	}
-	
+
 	/**
 	 * 方法说明：
 	 * 			将map的key按指定的分隔符分割拼接成字符串
 	 * @param map 源Map对象
 	 * @param split 分隔符
-	 * @return
+	 * @return 字符串
 	 */
 	public static String mapKeyStr(Map map,String split) {
 		if (map==null) {
@@ -113,13 +113,13 @@ public class MapUtil {
 		}
 		return ListUtil.ListJoin(keyList, split);
 	}
-	
+
 	/**
 	 * 方法说明:
 	 * 			将map的value按mysql sql的方式拼接
-	 * @param map
-	 * @param split
-	 * @return String
+	 * @param map map
+	 * @param split 分隔符
+	 * @return String 值
 	 */
 	public static String mapValueStrForMysql(Map map,String split) {
 		if (map==null) {
@@ -136,9 +136,9 @@ public class MapUtil {
 	/**
 	 * 方法说明:
 	 * 			将map以key=value按mysql sql的方式拼接
-	 * @param map
-	 * @param split
-	 * @return String
+	 * @param map map
+	 * @param split 分隔符
+	 * @return String 值
 	 */
 	public static String mapKeyValueForMysql(Map map,String split){
 		if (map==null) {
@@ -155,10 +155,11 @@ public class MapUtil {
 	/**
 	 * 将map转换成字符串
 	 * @param map 转换的map
-	 * @param firstSeparator 一维分割符 
+	 * @param firstSeparator 一维分割符
 	 * @param secondSeparator 二维分割符
-	 * @return
-	 * @throws Throwable
+	 * @param thrs 字符串数组
+	 * @return 值
+	 * @throws Throwable 异常
 	 */
 	public static String map2Str(Map map,String firstSeparator,String secondSeparator,String... thrs ) throws Throwable{
 		if(map==null||StringUtil.isEmpty(firstSeparator)||StringUtil.isEmpty(secondSeparator)){
@@ -182,16 +183,7 @@ public class MapUtil {
 		}
 		return sb.toString();
 	}
-	
-	/**
-	 * 方法说明:
-	 * 
-	 * @param grant
-	 * @param gm
-	 * @param split
-	 * @param type
-	 * @return
-	 */
+
 	public static Map grantSum(Object grant,Map<String,String> gm,String split,boolean type){
 		if (gm==null) {
 			gm=new HashMap();
@@ -224,44 +216,46 @@ public class MapUtil {
 					gm.put(its[0], ListUtil.ArrayJoin(gms, ":"));
 				}
 			}
-			
+
 		}else {
-			
+
 		}
 		return gm;
 	}
-	
+
 	public static Object get(Map map,String keys){
 		if(map==null)
 			return null;
 		Object rtn=map.get(keys);
-		if(rtn!=null)
+		if(rtn!=null){
+			if(rtn instanceof String)
+				rtn = ((String) rtn).trim();
 			return rtn;
+		}
 		String[] ks=keys.split("\\.",2);
-		if(ks.length==1){
-			return rtn;
-		}else{
+		if(ks.length!=1){
 			Object ov=map.get(ks[0]);
 			if(ov instanceof Map){
 				return get((Map) ov, ks[1]);
 			}else if(ov instanceof List){
-//				ks=ks[1].split("\\.",2);
-//				int key=Integer.valueOf(ks[0]);
-//				if(ks.length==1){
-//					return ((List)ov).get(key);
-//				}else{
-//					Object ove=((List)ov).get(key);
-//					if(ove instanceof Map){
-//						return get((Map) ove, ks[1]);
-//					}
-//				}
+				//				ks=ks[1].split("\\.",2);
+				//				int key=Integer.valueOf(ks[0]);
+				//				if(ks.length==1){
+				//					return ((List)ov).get(key);
+				//				}else{
+				//					Object ove=((List)ov).get(key);
+				//					if(ove instanceof Map){
+				//						return get((Map) ove, ks[1]);
+				//					}
+				//				}
 				return ListUtil.get((List)ov, ks[1]);
 			}else{
 				throw new RuntimeException("The type of cannot be parsed");
 			}
-		}
+		}else
+			return null;
 	}
-	
+
 	public static void put(Map map, String keys, Object object) {
 		if (map == null) {
 			return;
@@ -337,19 +331,19 @@ public class MapUtil {
 		return result;
 	}
 
-//	public static Object get(Map<String, Object> map, String key) {
-//		if (map == null) {
-//			return null;
-//		}
-//		return map.get(key);
-//	}
+	//	public static Object get(Map<String, Object> map, String key) {
+	//		if (map == null) {
+	//			return null;
+	//		}
+	//		return map.get(key);
+	//	}
 
-//	public static void put(Map<String, Object> map, String key, Object object) {
-//		if (map == null) {
-//			return;
-//		}
-//		map.put(key, object);
-//	}
+	//	public static void put(Map<String, Object> map, String key, Object object) {
+	//		if (map == null) {
+	//			return;
+	//		}
+	//		map.put(key, object);
+	//	}
 
 	public static Object get(Map<String, Object> map, List<Object> keyStep) {
 		return get(map, keyStep.toArray(new Object[0]));

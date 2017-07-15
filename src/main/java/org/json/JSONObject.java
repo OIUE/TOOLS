@@ -102,7 +102,7 @@ public class JSONObject extends HashMap{
      * @param key   A key string.
      * @param value A Map value.
      * @return      this.
-     * @throws JSONException
+     * @throws JSONException  If o is a non-finite number.
      */
     public JSONObject put(String key, Map value) throws JSONException {
         put(key, new JSONObject(value));
@@ -224,7 +224,7 @@ public class JSONObject extends HashMap{
     }
     /**
      * Produce a string in double quotes with backslash sequences in all the
-     * right places. A backslash will be inserted within </, allowing JSON
+     * right places. A backslash will be inserted within &gt;/, allowing JSON
      * text to be delivered in HTML. In JSON text, a string cannot contain a
      * control character or an unescaped quote or backslash.
      * @param string A String

@@ -14,7 +14,7 @@ package org.oiue.tools.unarranged;
  * Dependencies: Servlet/JSP API.
  *
  * @author beansoft
- * @version 1.2 2006-07-31
+ *  1.2 2006-07-31
  */
 public class StringUtil {
 	/**
@@ -187,7 +187,7 @@ public class StringUtil {
 //	 * Get the current page's full path of this request. 获取当前页的完整访问 URL 路径.
 //	 *
 //	 * @author BeanSoft
-//	 * @date 2005-08-01
+//	 *  2005-08-01
 //	 * @param request - HttpServletRequest
 //	 * @return String - the full url path, eg: http://www.abc.com:8000/someApp/index.jsp?param=abc
 //	 */
@@ -207,7 +207,7 @@ public class StringUtil {
 //	 * Get the current page's full path of this request. 获取当前页的完整访问 URI 路径.
 //	 *
 //	 * @author BeanSoft
-//	 * @date 2005-08-01
+//	 *  2005-08-01
 //	 * @param request - HttpServletRequest
 //	 * @return String - the full uri path, eg: /someApp/index.jsp?param=abc
 //	 */
@@ -253,7 +253,7 @@ public class StringUtil {
 //	 * 获取表单参数并做默认转码, 从 ISO8859-1 转换到 GBK.
 //	 *
 //	 * @author BeanSoft
-//	 * @date 2005-08-01
+//	 *  2005-08-01
 //	 *
 //	 * @param request HttpServletRequest 对象
 //	 * @param fieldName 参数名
@@ -443,7 +443,7 @@ public class StringUtil {
 //				LinkText += "<a href='" + LinkPageName + "&page=";
 //				LinkText += i + "' title='" + i + "页'>";
 //				if (i == page) {
-//					LinkText += "<b>[" + i + "]</b>";
+//					LinkText += "[" + i + "]";
 //				} else {
 //					LinkText += "[" + i + "]";
 //				}
@@ -507,7 +507,7 @@ public class StringUtil {
 //
 //	// Test only.
 //	public static void main(String[] args) throws Exception {
-//		//System.out.println(textToHtml("1<2\r\n<b>Bold</b>"));
+//		//System.out.println(textToHtml("1<2\r\nBold"));
 //		//System.out.println(scriptAlert("oh!"));
 //		//System.out.println(scriptRedirect("http://localhost/"));
 //		//    System.out.println(StringUtil.getPath("/databaseconfig.properties"));

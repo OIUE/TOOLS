@@ -10,19 +10,12 @@ import java.io.File;
  *		
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version FileHandle 1.0  Apr 17, 2009 11:33:00 PM
+ *  FileHandle 1.0  Apr 17, 2009 11:33:00 PM
  * FileHandle
  */
 public class FileHandle {
 	static boolean flag;
 	static File file;
-//	Application application=new Application();
-	/**
-	 * 
-	 */
-	public FileHandle() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * 方法说明：
@@ -120,46 +113,5 @@ public class FileHandle {
 	        return false;   
 	    }   
 	}
-	
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 17, 2009 11:33:00 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-	
-	/*public String CreateFolderByName(String FolderName){
-		FolderName=application.getRootPath()+File.separator+"Themes"+File.separator+FolderName;
-		(new File(FolderName)).mkdirs();
-		return FolderName;
-	}
-	
-	public boolean purview(String filePath) {
-		String pathString=application.getRootPath()+"/Themes.{5,}";
-		pathString=pathString.replace("%20", " ");
-		filePath=filePath.replace("\\", "/");
-		
-		Pattern p=Pattern.compile(pathString); 
-		Matcher m=p.matcher(filePath);
-		
-		String temp="";
-		boolean havapurview=false;
-		
-		while (m.find()) {
-			int start = m.start();
-			int end=m.end();
-			temp = filePath.substring(start,end);
-			if (temp!=null&&!temp.trim().equals("")) {
-				havapurview = true;
-			}
-		}
-		if (havapurview) {
-			return true;
-		}
-		return false;
-	}*/
 
 }

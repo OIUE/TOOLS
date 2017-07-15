@@ -81,7 +81,7 @@ public class BeanUtils {
 	 * @author Every
 	 * @param target 拷贝对象
 	 * @param source 源对象
-	 * @throws Exception
+	 * @throws Exception 异常
 	 */
 	public static void copyPropertiesExt(Object target, Object source) throws Exception {
 		/**

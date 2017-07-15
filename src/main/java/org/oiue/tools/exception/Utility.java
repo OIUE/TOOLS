@@ -7,14 +7,14 @@ import org.oiue.tools.date.DateUtil;
 
 
 /**
- * @ClassName: Utility
- * @version
- * @Description: <B>类说明:</B><br/>
+ *  Utility
  * 
- * <pre>
- * </pre>
+ * 类说明:
+ * 
+ * 
+ * 
  * @author Every(王勤)
- * @date Jan 17, 2011 12:03:20 PM
+ *  Jan 17, 2011 12:03:20 PM
  */
 public class Utility {
     public static String getExceptionString(Throwable ex) {

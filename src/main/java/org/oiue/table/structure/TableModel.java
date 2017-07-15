@@ -24,18 +24,17 @@ public abstract class TableModel extends Model_map implements Serializable {
 	}
 
 	/**
-	 * @Title: put
-	 * @Description: <B>方法说明:</B><br/>
+	 * put
+	 * 方法说明:
 	 * 
-	 *               <pre>
+	 * 
 	 * 给对象赋值 将map中对应的key的值赋值给当前对象对应的成员变量 暂未考数据类型差异转换
-	 * </pre>
+	 * 
 	 * @author Every(王勤)
-	 * @version
-	 * @date Feb 21, 2011 12:26:25 PM
-	 * @param map
-	 * @return
-	 * @throws Throwable
+	 *  Feb 21, 2011 12:26:25 PM
+	 * @param map 转换对象
+	 * @return 当前对象
+	 * @throws Throwable 处理过程可能会有异常
 	 */
 	public Object put(Map map) throws Throwable {
 		String key;
@@ -108,7 +107,7 @@ public abstract class TableModel extends Model_map implements Serializable {
 	/**
 	 * 设置属性
 	 * 
-	 * @param tm
+	 * @param tm 数据对象
 	 */
 	public void putProperties(TableModel tm) {
 		try {
@@ -123,8 +122,8 @@ public abstract class TableModel extends Model_map implements Serializable {
 	/**
 	 * 获取字段集合的值集合
 	 * @param fields 字段名称集合
-	 * @return
-	 * @throws Throwable
+	 * @return 字段值的集合
+	 * @throws Throwable 过程中可能会有为知异常
 	 */
 	public List<Object> getValueList(String[] fields) throws Throwable{
 		List rtnLt=new ArrayList();

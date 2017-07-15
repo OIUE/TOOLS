@@ -6,9 +6,9 @@ public class ListForPage {
 
 	/**
 	 * java二维数组转js数组
-	 * @param javaList
-	 * @param jsObjName
-	 * @return
+	 * @param javaList 列表
+	 * @param jsObjName 对象名
+	 * @return  结果
 	 */
 	@SuppressWarnings("rawtypes")
 	public static String List2JsArray(List javaList,String jsObjName ) {

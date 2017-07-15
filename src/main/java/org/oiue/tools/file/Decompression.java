@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.tools.tar.TarEntry;
@@ -29,10 +28,10 @@ import com.github.junrar.rarfile.FileHeader;
  * 		压缩、解压文件公用类
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *   QQ:30130942
- * @version 创建时间：Feb 26, 2009 6:01:11 PM 
+ *  创建时间：Feb 26, 2009 6:01:11 PM 
  *
  */
-@SuppressWarnings( { "unchecked","rawtypes","static-access"})
+@SuppressWarnings( { "unchecked","rawtypes"})
 public class Decompression {
 	private static final int BUFFEREDSIZE = 1024;
 	public Decompression() {
@@ -41,8 +40,8 @@ public class Decompression {
 
 	/**
      * 解压zip格式的压缩文件到当前文件夹
-     * @param zipFileName
-     * @throws Exception
+     * @param zipFileName 文件名
+     * @throws Exception 异常
      * @author Every
      */
     public static void unzipFile(String zipFileName) throws Exception {
@@ -101,7 +100,7 @@ public class Decompression {
 	 * 解压zip格式的压缩文件到指定位置
 	 * @param zipFileName 压缩文件
 	 * @param extPlace 解压目录
-	 * @throws Exception
+	 * @throws Exception 异常
      * @author Every
 	 */
 	public static void unzip(String zipFileName, String extPlace) throws Exception {
@@ -161,7 +160,8 @@ public class Decompression {
 	 * 解压zip格式的压缩文件到指定位置
 	 * @param zipFileName 压缩文件
 	 * @param extPlace 解压目录
-	 * @throws Exception
+	 * @param recursive 是否
+	 * @throws Exception 异常
      * @author Every
 	 */
 	public static void unzip(String zipFileName, String extPlace,boolean recursive) throws Exception {
@@ -220,7 +220,7 @@ public class Decompression {
 	 * 压缩zip格式的压缩文件
 	 * @param inputFilename 压缩的文件或文件夹及详细路径
 	 * @param zipFilename 输出文件名称及详细路径
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	public static void zip(String inputFilename, String zipFilename) throws IOException {
@@ -231,7 +231,7 @@ public class Decompression {
 	 * 压缩zip格式的压缩文件
 	 * @param inputFile 需压缩文件
 	 * @param zipFilename 输出文件及详细路径
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	public static void zip(File inputFile, String zipFilename) throws IOException {
@@ -250,7 +250,7 @@ public class Decompression {
 	 * @param inputFile 需压缩文件
 	 * @param out 输出压缩文件
 	 * @param base 结束标识
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	private static void zip(File inputFile, ZipOutputStream out, String base) throws IOException {
@@ -293,7 +293,7 @@ public class Decompression {
      * 解压tar格式的压缩文件到指定目录下
      * @param tarFileName 压缩文件
      * @param extPlace 解压目录
-     * @throws Exception
+     * @throws Exception 异常
      * @author Every
      */
 	public static void untar(String tarFileName, String extPlace) throws Exception{
@@ -347,7 +347,7 @@ public class Decompression {
 	 * 压缩tar格式的压缩文件
 	 * @param inputFilename 压缩文件
 	 * @param tarFilename 输出路径
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	public static void tar(String inputFilename, String tarFilename) throws IOException{
@@ -358,7 +358,7 @@ public class Decompression {
 	 * 压缩tar格式的压缩文件
 	 * @param inputFile 压缩文件
 	 * @param tarFilename 输出路径
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	public static void tar(File inputFile, String tarFilename) throws IOException{
@@ -377,7 +377,7 @@ public class Decompression {
 	 * @param inputFile 压缩文件
 	 * @param out 输出文件 
 	 * @param base 结束标识
-	 * @throws IOException
+	 * @throws IOException IO异常
      * @author Every
 	 */
 	private static void tar(File inputFile, TarOutputStream out, String base) throws IOException {
@@ -415,7 +415,7 @@ public class Decompression {
 	 * @param extPlace 解压目录
 	 * @param repeatFile 重复路径
 	 * @param del 解压后是否删除文件
-	 * @throws Exception
+	 * @throws Exception 异常
 	 * @author Every
 	 */
 	@SuppressWarnings("hiding")
@@ -501,7 +501,7 @@ public class Decompression {
 	 * @param rarFileName 压缩文件
 	 * @param extPlace 解压目录
 	 * @param repeatFile 重复路径
-	 * @throws Exception
+	 * @throws Exception 异常
 	 * @author Every
 	 */
 	public void unrar(String rarFileName, String extPlace,List repeatFile) throws Exception{
@@ -512,7 +512,7 @@ public class Decompression {
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
      * @param repeatFile 重复路径
-     * @throws Exception
+     * @throws Exception 异常
      * @author Every
      */
 	public void unrar(String rarFileName,List repeatFile) throws Exception{
@@ -523,7 +523,7 @@ public class Decompression {
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
      * @param extPlace 解压目录
-     * @throws Exception
+     * @throws Exception 异常
      * @author Every
      */
 	public void unrar(String rarFileName,String extPlace) throws Exception{
@@ -533,28 +533,11 @@ public class Decompression {
 	/**
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
-     * @param delete 是否删除源文件
-     * @throws Exception
+     * @throws Exception 异常
      * @author Every
      */
 	public void unrar(String rarFileName) throws Exception{
 		unrar(rarFileName,null,null,false);
 	}
 	
-	/**
-	 * 执行实例
-	 * @param args
-	 */
-	public static void main(String[] args) throws Exception {
-		Decompression decompression=new Decompression();
-//		decompression.unzipFile("c:/test.zip");
-//		decompression.unzip("c:/test.zip","c:/test22");
-//		decompression.zip("c:/test22", "c:/test222.zip");
-		List d=new ArrayList();
-//		decompression.unrar("c:/新建文件夹.rar",null,d,true);
-//		decompression.tar("c:/照片/照片 004.jpg", "c:/t.tar");
-		decompression.untar("c:/test2.tar", "c:");
-//		decompression.untar("c:/t.tar", "c:");
-		System.out.println(d);
-	}
 }

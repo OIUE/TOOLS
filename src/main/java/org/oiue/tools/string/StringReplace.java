@@ -8,7 +8,7 @@ package org.oiue.tools.string;
  *		
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version StringReplace 1.0  Apr 18, 2009 12:15:14 PM
+ *  StringReplace 1.0  Apr 18, 2009 12:15:14 PM
  * StringReplace
  */
 public class StringReplace {
@@ -112,14 +112,5 @@ public class StringReplace {
 		return sourceStr.replaceAll(oldStr, newStr);
 	}
 	
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 12:15:14 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.print(StringReplace.replaceString("tTjhgjh据估计换个环境非官方合格tt", "非", "s"));
-	}
 
 }

@@ -18,7 +18,7 @@ import java.util.Map;
 public class liense  implements Serializable{
 	/**
 	 * 获取机器IP地址
-	 * @return
+	 * @return map
 	 */
 	public static Map<Integer, String> getLocalIP() { 
 		Map<Integer, String> macList = new HashMap<Integer, String>();
@@ -88,7 +88,7 @@ public class liense  implements Serializable{
 
 	/**
 	 * 根据硬件中的网卡列表来进行配置获取
-	 * @return
+	 * @return map
 	 */
 	public static Map<Integer, String> getLocalMACAddress() { 
 		Map<Integer, String> macList = new HashMap<Integer, String>();

@@ -40,13 +40,13 @@ SOFTWARE.
  * and <code>endArray</code> methods that make and bound array values, and
  * <code>object</code> and <code>endObject</code> methods which make and bound
  * object values. All of these methods return the JSONWriter instance,
- * permitting a cascade style. For example, <pre>
+ * permitting a cascade style. For example, 
  * new JSONWriter(myWriter)
  *     .object()
  *         .key("JSON")
  *         .value("Hello, World!")
- *     .endObject();</pre> which writes <pre>
- * {"JSON":"Hello, World!"}</pre>
+ *     .endObject(); which writes 
+ * {"JSON":"Hello, World!"}
  * <p>
  * The first method called must be <code>array</code> or <code>object</code>.
  * There are no methods for adding commas or colons. JSONWriter adds them for
@@ -54,7 +54,7 @@ SOFTWARE.
  * <p>
  * This can sometimes be easier than using a JSONObject to build a string.
  * @author JSON.org
- * @version 2
+ *  2
  */
 public class JSONWriter {
     private static final int maxdepth = 20;
@@ -92,6 +92,7 @@ public class JSONWriter {
 
     /**
      * Make a fresh JSONWriter. It can be used to build one JSON text.
+     * @param w w
      */
     public JSONWriter(Writer w) {
         this.comma = false;
@@ -277,7 +278,7 @@ public class JSONWriter {
      * <code>false</code>.
      * @param b A boolean.
      * @return this
-     * @throws JSONException
+     * @throws JSONException If the json init error
      */
     public JSONWriter value(boolean b) throws JSONException {
         return this.append(b ? "true" : "false");
@@ -297,7 +298,7 @@ public class JSONWriter {
      * Append a long value.
      * @param l A long.
      * @return this
-     * @throws JSONException
+     * @throws JSONException If the json init error
      */
     public JSONWriter value(long l) throws JSONException {
         return this.append(Long.toString(l));

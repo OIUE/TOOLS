@@ -20,7 +20,7 @@ import java.util.Vector;
 import org.oiue.tools.string.StringUtil;
 
 /**
- * @author
+ * @author Every
  *
  */
 @SuppressWarnings({ "rawtypes" })
@@ -90,7 +90,9 @@ public abstract class Model_root implements Serializable {
     }
 
     /**
-     * Method 复制对象
+     *  Method 复制对象
+     * @return 复制的对象
+     * @throws Throwable 序列化异常
      */
     public Object deepCopy() throws Throwable {
         // 将该对象序列化成流,因为写在流里的是对象的一个拷贝，而原对象仍然存在于JVM里面。所以利用这个特性可以实现对象的深拷贝
@@ -112,7 +114,8 @@ public abstract class Model_root implements Serializable {
      * 根据结果集设定表单的单一记录数据的初始化
      * 
      * @param rs 输入结果集
-     * @return
+     * @return 设置是否成功
+     * @throws Exception 可能的异常
      */
     public abstract boolean set(ResultSet rs) throws Exception;
 
@@ -120,13 +123,10 @@ public abstract class Model_root implements Serializable {
      * 将表数据按照指定的分隔符输出
      * 
      * @param specDelimiterRecord 数据间特殊的分隔符
-     * @return
+     * @return 转换成字符串
      */
     public abstract String toString(String specDelimiterRecord);
 
-    /**
-     * 换行作为默认的分隔符进行数据输出
-     */
     @Override
     public String toString() {
         return toString(_delimiterRecord);
@@ -135,7 +135,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 操作编码
      * 
-     * @return
+     * @return cmd key
      */
     public int getCmdKey() {
         return _cmdKey;
@@ -144,7 +144,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 操作编码
      * 
-     * @param cmdKey
+     * @param cmdKey cmd key
      */
     public void setCmdKey(int cmdKey) {
         this._cmdKey = cmdKey;
@@ -153,7 +153,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表名
      * 
-     * @return
+     * @return 表名
      */
     public String getTableName() {
         if (_tableName == null || _tableName.equals("")) {
@@ -165,7 +165,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表名
      * 
-     * @param tableName
+     * @param tableName 表名
      */
     public void setTableName(String tableName) {
         this._tableName = tableName;
@@ -174,7 +174,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表主键
      * 
-     * @return
+     * @return 获取表主键
      */
     public String getTableIDFieldName() {
         if (_tableIDFieldNames != null && _tableIDFieldNames.size() == 1) {
@@ -189,7 +189,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表主键
      * 
-     * @param tableIDFieldName
+     * @param tableIDFieldName 表主键
      */
     public void setTableIDFieldName(String tableIDFieldName) {
         _tableIDFieldNames = new Vector<String>();
@@ -199,7 +199,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表主键集合
      * 
-     * @return
+     * @return 表主键集合
      */
     public List<String> getTableIDFieldNames() {
         return _tableIDFieldNames;
@@ -208,7 +208,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 表主键集合
      * 
-     * @param tableIDFieldNames
+     * @param tableIDFieldNames 表主键
      */
     public void setTableIDFieldNames(List<String> tableIDFieldNames) {
         this._tableIDFieldNames = tableIDFieldNames;
@@ -217,7 +217,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 层次结构字段集合
      * 
-     * @return
+     * @return 字段集合
      */
     public List<String> getStructureFieldNames() {
         return _structureFieldNames;
@@ -226,7 +226,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 层次结构字段集合
      * 
-     * @param structure
+     * @param structure 字段
      */
     public void setStructureFieldNames(List<String> structure) {
         this._structureFieldNames = structure;
@@ -235,7 +235,7 @@ public abstract class Model_root implements Serializable {
     /**
      * name和value之间的分隔符
      * 
-     * @return
+     * @return 值
      */
     public String getDelimiterNameValue() {
         return _delimiterNameValue;
@@ -244,7 +244,7 @@ public abstract class Model_root implements Serializable {
     /**
      * name和value之间的分隔符
      * 
-     * @param delimiterNameValue
+     * @param delimiterNameValue 分隔符
      */
     public void setDelimiterNameValue(String delimiterNameValue) {
         this._delimiterNameValue = delimiterNameValue;
@@ -253,7 +253,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 每对 name value之间的分隔符
      * 
-     * @return
+     * @return 分割后的值
      */
     public String getDelimiterRecord() {
         return _delimiterRecord;
@@ -262,7 +262,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 每对 name value之间的分隔符
      * 
-     * @param delimiterRecord
+     * @param delimiterRecord 分隔符
      */
     public void setDelimiterRecord(String delimiterRecord) {
         this._delimiterRecord = delimiterRecord;
@@ -271,7 +271,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 对象修改影响的记录数
      * 
-     * @return
+     * @return 记录数
      */
     public int getRowNum() {
         return _rowNum;
@@ -280,7 +280,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 对象修改影响的记录数
      * 
-     * @param rowNum
+     * @param rowNum 记录数
      */
     public void setRowNum(int rowNum) {
         this._rowNum = rowNum;
@@ -289,7 +289,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 异常信息
      * 
-     * @return
+     * @return 消息
      */
     public String getMsg() {
         return _msg;
@@ -298,7 +298,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 异常信息
      * 
-     * @param msg
+     * @param msg 消息
      */
     public void setMsg(String msg) {
         this._msg = msg;
@@ -307,7 +307,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 用户自定义的参数
      * 
-     * @return
+     * @return 参数
      */
     public Map getUdfParMap() {
         return _udfParMap;
@@ -316,7 +316,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 用户自定义的参数 未初始化则自动初始化
      * 
-     * @return
+     * @return 参数
      */
     public Map getUdfParMapInitialize() {
         if (_udfParMap == null) {
@@ -328,7 +328,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 用户自定义的参数
      * 
-     * @param udfParMap
+     * @param udfParMap 参数
      */
     public void setUdfParMap(Map udfParMap) {
         this._udfParMap = udfParMap;
@@ -337,7 +337,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 授权信息
      * 
-     * @return
+     * @return 授权
      */
     public String getGrant() {
         return _grant;
@@ -346,7 +346,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 授权信息
      * 
-     * @param grant
+     * @param grant 授权
      */
     public void setGrant(String grant) {
         this._grant = grant;
@@ -355,7 +355,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 数据过滤条件
      * 
-     * @return
+     * @return 授权
      */
     public String getDataWhere() {
         return _dataWhere;
@@ -364,7 +364,7 @@ public abstract class Model_root implements Serializable {
     /**
      * 数据过滤条件
      * 
-     * @param dataWhere
+     * @param dataWhere 条件
      */
     public void setDataWhere(String dataWhere) {
         this._dataWhere = dataWhere;
@@ -407,17 +407,17 @@ public abstract class Model_root implements Serializable {
     }
 
     /**
-     * @Title: put
-     * @Description: <B>方法说明:</B><br/>
+     * put
+     * 方法说明:
      * 
-     *               <pre>
+     *               
      * 设定对象属性值 暂未考数据类型差异转换
-     * </pre>
+     * 
      * @author Every(王勤)
-     * @version
-     * @date Feb 21, 2011 12:26:26 PM
-     * @param key
-     * @param value
+     * 
+     *  Feb 21, 2011 12:26:26 PM
+     * @param felidName  字段
+     * @param value 值
      */
     @SuppressWarnings("unchecked")
     public void put(String felidName, Object value) {

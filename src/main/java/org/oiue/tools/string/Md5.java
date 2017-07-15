@@ -368,23 +368,4 @@ public class Md5 {
         state[3] = 0x10325476;
     }
 
-    public static void main (String args[])
-        throws IOException
-    {
-/*
-        if ( args.length != 1) {
-            System.out.println ("Md5 <file>") ;
-            System.exit (1) ;
-        }
-        Md5 md5 = new Md5 (new FileInputStream(new File(args[0]))) ;
-*/
-        if ( args.length != 1) {
-            System.out.println ("Md5 <string>") ;
-            System.exit (1) ;
-        }
-        Md5 md5 = new Md5 (args[0].getBytes()) ;
-        byte b[]= md5.getDigest();
-        System.out.println (stringify(b)) ;
-    }
-
 }

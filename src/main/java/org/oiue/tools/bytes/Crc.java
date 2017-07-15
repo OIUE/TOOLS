@@ -3,11 +3,11 @@ package org.oiue.tools.bytes;
 public class Crc {
     /**
      * 获得CRC校验结果，除校验位字节外，其他所有字节的异或值
-     * @param crcing
-     * @param pos
-     * @param len
-     * @return
-     * @throws IllegalArgumentException
+     * @param crcing 校验源
+     * @param pos 起始下标
+     * @param len 长度
+     * @return 校验码
+     * @throws IllegalArgumentException 校验失败
      */
     public static byte crc(byte[] crcing, int pos, int len) throws IllegalArgumentException {
         if(crcing == null) {

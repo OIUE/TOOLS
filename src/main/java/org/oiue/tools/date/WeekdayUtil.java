@@ -26,8 +26,8 @@ public class WeekdayUtil {
 	}
 
 	/**
-	 * @title 判断两个日期是否在指定工作日内
-	 * @detail (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
+	 *  判断两个日期是否在指定工作日内
+	 *  (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
 	 * @author chanson
 	 * @param beforeDate 前时间
 	 * @param afterDate 后时间
@@ -63,13 +63,13 @@ public class WeekdayUtil {
 		}
 	}
 	/**
-	 * @title 获取两个日期的工作日
-	 * @detail (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
+	 *  获取两个日期的工作日
+	 *  (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
 	 * @author chanson
 	 * @param beforeDate 前时间
 	 * @param afterDate 后时间
 	 * @return 返回工作日天数
-	 * @throws ParseException 
+	 * @throws ParseException 转换异常
 	 */
 	public int getWeekday(java.util.Date beforeDate, java.util.Date afterDate) throws ParseException {
 			// 工作日
@@ -90,10 +90,10 @@ public class WeekdayUtil {
 	}
 
 	/**
-	 * @title 判断是否为工作日
-	 * @detail 工作日计算: 1、正常工作日，并且为非假期 2、周末被调整成工作日
+	 *  判断是否为工作日
+	 *  工作日计算: 1、正常工作日，并且为非假期 2、周末被调整成工作日
 	 * @author chanson
-	 * @param date 日期
+	 * @param calendar 日期
 	 * @return 是工作日返回true，非工作日返回false
 	 */
 	public boolean isWeekday(GregorianCalendar calendar) {
@@ -108,7 +108,7 @@ public class WeekdayUtil {
 	}
 
 //	/**
-//	 * @title 获取周六和周日是工作日的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
+//	 *  获取周六和周日是工作日的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
 //	 * @author chanson
 //	 * @return 周末是工作日的列表
 //	 */
@@ -124,7 +124,7 @@ public class WeekdayUtil {
 //	}
 //
 //	/**
-//	 * @title 获取周一到周五是假期的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
+//	 *  获取周一到周五是假期的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
 //	 * @author chanson
 //	 * @return 平时是假期的列表
 //	 */
@@ -143,12 +143,5 @@ public class WeekdayUtil {
 //		list.add("2009-10-07");
 //		list.add("2009-10-08");
 //		return list;
-//	}
-//
-//	public static void main(String[] args) {
-//
-//		WeekdayUtil dateUtils = new WeekdayUtil();
-//		boolean ok = dateUtils.compareWeekday("2009-10-1", "2009-10-15", 5);
-//		System.out.println("是否在五个工作日内：" + ok);
 //	}
 }

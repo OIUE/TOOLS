@@ -17,7 +17,7 @@ import org.apache.tools.zip.ZipFile;
  *		ZIP压缩文件检查
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version ZipSearch 1.0  Apr 18, 2009 12:46:22 AM
+ *  ZipSearch 1.0  Apr 18, 2009 12:46:22 AM
  * ZipSearch
  */
 @SuppressWarnings( { "unchecked","rawtypes"})
@@ -66,11 +66,10 @@ public class ZipSearch {
 				}
 			} else {
 				if (slf_zipEntry.getSize() < 0) {
-					System.out.println("压缩包内的文件大小不符合规范");
+//					System.out.println("压缩包内的文件大小不符合规范");
 					try {
 						slf_file.close();
 					} catch (IOException e1) {
-						// TODO 自动生成 catch 块
 						e1.printStackTrace();
 					}
 					return null;
@@ -117,10 +116,10 @@ public class ZipSearch {
 	 * 方法说明：
 	 *			目录比对
 	 *CreateTime May 18, 2009 3:24:00 PM
-	 * @param list 
-	 * @param userIndex
-	 * @param fileList
-	 * @return
+	 * @param list 列表
+	 * @param userIndex 开始索引
+	 * @param fileList 比较列表
+	 * @return 比较结果
 	 */
 	public static List compare(List list, int userIndex, List fileList) {
 		List slf_noTreeList = new ArrayList();
@@ -154,9 +153,9 @@ public class ZipSearch {
 	 * 方法说明：
 	 *			文件名比对
 	 *CreateTime May 18, 2009 3:25:26 PM
-	 * @param fileName
-	 * @param fileRoot
-	 * @return
+	 * @param fileName 文件名
+	 * @param fileRoot 目录
+	 * @return 结果
 	 */
 	public static List fileNameCheck(String[] fileName, String fileRoot) {
 		List slf_dirFilesList = new ArrayList();
@@ -176,9 +175,9 @@ public class ZipSearch {
 	 * 方法说明：
 	 *			结果集处理
 	 *CreateTime May 18, 2009 3:26:39 PM
-	 * @param userInfoSeach
-	 * @param fileName
-	 * @return
+	 * @param userInfoSeach 列表
+	 * @param fileName 文件名
+	 * @return 结果
 	 */
 	public static List SeacherResult(List userInfoSeach, String fileName) {
 		int needTreeNum = userInfoSeach.size();
@@ -224,15 +223,6 @@ public class ZipSearch {
 		}else{
 			return resultlist;
 		}
-	}
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 12:46:22 AM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

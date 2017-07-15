@@ -23,7 +23,7 @@ import org.oiue.tools.bytes.ByteUtil;
  *		序列化对象
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version SerializObject 1.0：Feb 11, 2010 10:02:00 AM 
+ *  SerializObject 1.0：Feb 11, 2010 10:02:00 AM 
  */
 public class SerializObject {
 
@@ -31,8 +31,8 @@ public class SerializObject {
 	 * 将对象序列化保存为文件
 	 * @param o 实现了Serializable接口的对象
 	 * @param path 文件保存路径
-	 * @return
-	 * @throws IOException
+	 * @return 结果
+	 * @throws IOException IO异常
 	 */
 	public static boolean serializObj2File(Object o,String path) throws IOException{
 		// 将该对象序列化成流,因为写在流里的是对象的一个拷贝，而原对象仍然存在于JVM里面。所以利用这个特性可以实现对象的深拷贝
@@ -51,7 +51,7 @@ public class SerializObject {
 	 * 将对象序列化成字符串
 	 * @param o 实现了Serializable接口的对象
 	 * @return 序列化的字符串
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public static String serializObj2String(Object o) throws IOException{
 		// 将该对象序列化成流,因为写在流里的是对象的一个拷贝，而原对象仍然存在于JVM里面。所以利用这个特性可以实现对象的深拷贝
@@ -64,9 +64,9 @@ public class SerializObject {
 	/**
 	 * 将文件反序列化成对实例化对象
 	 * @param path 文件路径
-	 * @return
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @return 对象
+	 * @throws IOException IO异常
+	 * @throws ClassNotFoundException 找不到类
 	 */
 	public static Object serializFile2Obj(String path) throws IOException, ClassNotFoundException{
 		File file = new File(path);
@@ -89,8 +89,8 @@ public class SerializObject {
 	 * 将字符串反序列化成对实例化对象
 	 * @param line 序列化字符串
 	 * @return 序列化的对象
-	 * @throws IOException
-	 * @throws ClassNotFoundException
+	 * @throws IOException IO异常
+	 * @throws ClassNotFoundException 找不到类
 	 */
 	public static Object serializString2Obj(String line) throws IOException, ClassNotFoundException{
 		// 将流序列化成对象
@@ -100,8 +100,8 @@ public class SerializObject {
 	}
 	/**
 	 * 将二进制转换成字符串
-	 * @param b
-	 * @return
+	 * @param b 数组
+	 * @return 字符串
 	 */
 	public static String byte2hex(byte[] b) {
 		StringBuffer sb = new StringBuffer();
@@ -118,8 +118,8 @@ public class SerializObject {
 	}
 	/**
 	 * 将字符串转换成二进制数组
-	 * @param str
-	 * @return
+	 * @param str 字符串
+	 * @return 数组
 	 */
 	public static byte[] hex2byte(String str) {
 		if (str == null) {

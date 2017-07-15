@@ -49,36 +49,19 @@ public class TableExt extends Table implements Serializable {
 //	public void setResTableID(Integer resTableID) {
 //		this.resTableID = resTableID;
 //	}
-	/**
-	 * 
-	 */
+
 	public TableExt() {
 		this("", "");
 	}
 
-	/**
-	 * 
-	 * @param name
-	 */
 	public TableExt(String name) {
 		this(name, "");
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * @param id
-	 */
 	public TableExt(String name, String id) {
 		this(name, id, "");
 	}
 
-	/**
-	 * 
-	 * @param name
-	 * @param id
-	 * @param idGenerator
-	 */
 	public TableExt(String name, String id, String idGenerator) {
 		super(name, id, idGenerator);
 	}
@@ -98,7 +81,7 @@ public class TableExt extends Table implements Serializable {
 	/**
 	 * 为表添加字段
 	 * @param key String
-	 * @param filed Field
+	 * @param field field
 	 */
 	public void addField(String key, Field field) {
 		super.getFields().put(key, field);
@@ -112,8 +95,8 @@ public class TableExt extends Table implements Serializable {
 	}
 	/**
 	 * 根据字段名查找字段
-	 * @param fieldName
-	 * @return Filed
+	 * @param fieldName 字段名
+	 * @return Filed 字段 
 	 */
 	public Field findField(String fieldName) {
 		return (Field) super.getFields().get(fieldName);
@@ -121,8 +104,8 @@ public class TableExt extends Table implements Serializable {
 	/**
 	 * 根据字段的名字查找字段
 	 * 此方式忽略字符串大小写
-	 * @param column
-	 * @return
+	 * @param fieldName 忽略字段
+	 * @return 字段
 	 */
 	public Field findFieldIgnoreCase(String fieldName) {
 		if (fieldName==null) {
@@ -137,8 +120,8 @@ public class TableExt extends Table implements Serializable {
 	}
 	/**
 	 * 获取指定的列字段
-	 * @param popertyName
-	 * @return
+	 * @param popertyName 指定字段
+	 * @return 字段
 	 */
 	public Field getField(String popertyName) {
 		Field filed=findField(popertyName);
@@ -148,7 +131,7 @@ public class TableExt extends Table implements Serializable {
 	/**
 	 * 获取所有的字段 这些字段中不仅有表的字段
 	 * 还包含关系字段
-	 * @return
+	 * @return 所有字段
 	 */
 	public Map<String, Field> getAllFields(){
 		Map<String, Field> ret=new HashMap<String, Field>(super.getFields());
@@ -170,8 +153,8 @@ public class TableExt extends Table implements Serializable {
 //	}
 	/**
 	 * 添加外键
-	 * @param name
-	 * @param Field
+	 * @param name 名字
+	 * @param Field 字段
 	 */
 	public void addForeignFiled(String name, ForeignField Field) {
 		super.getForeignField().put(name, Field);
@@ -179,8 +162,8 @@ public class TableExt extends Table implements Serializable {
 	
 	/**
 	 * 查找外键
-	 * @param popertyName
-	 * @return
+	 * @param popertyName 名字
+	 * @return 外键
 	 */
 	public ForeignField findForeignFiled(String popertyName) {
 		return (ForeignField) super.getForeignField().get(popertyName);
@@ -188,7 +171,7 @@ public class TableExt extends Table implements Serializable {
 	
 	/**
 	 * 添加主键
-	 * @param name
+	 * @param name 名字
 	 */
 	public void addPrimaryField(String name){
 		if(super.getPrimaryField().get(name)==null&&this.getFields().get(name)!=null){
@@ -198,8 +181,8 @@ public class TableExt extends Table implements Serializable {
 	}
 	/**
 	 * 添加主键
-	 * @param key
-	 * @param value
+	 * @param name 名字
+	 * @param field 字段
 	 */
 	public void addPrimaryField(String name,Field field) {
 		super.getPrimaryField().put(name, field);
@@ -207,8 +190,7 @@ public class TableExt extends Table implements Serializable {
 	
 	/**
 	 * 获取主键字符串 多主键用“,”分割
-	 * @return String
-	 * @throws
+	 * @return String 字段
 	 */
 	public String getPrimaryStr() {
 		if (getPrimaryField().size()>1) {
@@ -229,7 +211,7 @@ public class TableExt extends Table implements Serializable {
 	}
 	/**
 	 * 合并表格
-	 * @param table
+	 * @param table 表对象
 	 */
 	public void concat(Table table){
 		super.getFields().putAll(table.getFields());
@@ -241,8 +223,8 @@ public class TableExt extends Table implements Serializable {
 
 	/**
 	 * 根据操作码取得对应操作字段
-	 * @param key
-	 * @return
+	 * @param key key
+	 * @return 操作结果
 	 */
 	public Map getFields(int key) {
 		Map fieldMap = new java.util.LinkedHashMap();

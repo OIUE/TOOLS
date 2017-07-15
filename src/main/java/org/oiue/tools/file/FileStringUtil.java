@@ -9,7 +9,7 @@ package org.oiue.tools.file;
  *		文件路径操作类
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version FileStringUtil 1.0  Apr 18, 2009 12:46:50 AM
+ *  FileStringUtil 1.0  Apr 18, 2009 12:46:50 AM
  * FileStringUtil
  */
 public class FileStringUtil {
@@ -155,15 +155,6 @@ public class FileStringUtil {
             return filePath;
         }
 		return iconDirPath + "file.gif";
-	}
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 12:46:50 AM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }

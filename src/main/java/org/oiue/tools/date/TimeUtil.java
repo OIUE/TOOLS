@@ -38,13 +38,13 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * 字符型日期转化util.Date型日期
 	 * 
-	 * @Param:p_strDate 字符型日期
+	 * @param p_strDate 字符型日期
 	 * @param p_format
 	 *            格式:"yyyy-MM-dd" / "yyyy-MM-dd hh:mm:ss"
-	 * @Return:java.util.Date util.Date型日期
-	 * @Throws: ParseException
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @return java.util.Date util.Date型日期
+	 * @throws ParseException 转换异常
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.util.Date toUtilDateFromStrDateByFormat(String p_strDate, String p_format) throws ParseException {
 		java.util.Date l_date = null;
@@ -61,9 +61,9 @@ public class TimeUtil extends StringForDate {
 	 * @param p_strDate
 	 *            字符型日期
 	 * @return java.sql.Date sql.Date型日期
-	 * @throws ParseException
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @throws ParseException  转换异常
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.sql.Date toSqlDateFromStrDate(String p_strDate) throws ParseException {
 		java.sql.Date returnDate = null;
@@ -77,7 +77,7 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * util.Date型日期转化指定格式的字符串型日期
 	 * 
-	 * @param p_date
+	 * @param p_utilDate
 	 *            Date
 	 * @param p_format
 	 *            String 格式1:"yyyy-MM-dd"
@@ -85,8 +85,9 @@ public class TimeUtil extends StringForDate {
 	 *            格式3:"yyyy年MM月dd日 hh:mm:ss EE/yyyy年MM月dd日 HH:mm:ss EE" 说明:
 	 *            年-月-日 时:分:秒 星期 注意MM/mm大小写
 	 * @return String
-	 * @Author: Every
-	 * @Date: 2011-4-18
+	 * @throws ParseException  转换异常
+	 * @author Every 
+	 * : 2011-4-18
 	 */
 	public static String toStrDateFromUtilDateByFormat(java.util.Date p_utilDate, String p_format) throws ParseException {
 		String l_result = "";
@@ -117,8 +118,8 @@ public class TimeUtil extends StringForDate {
 	 * @param p_utilDate
 	 *            Date
 	 * @return Calendar
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static Calendar toCalendarFromUtilDate(java.util.Date p_utilDate) {
 		Calendar c = Calendar.getInstance();
@@ -129,10 +130,10 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * util.Date型日期转化sql.Date(年月日)型日期
 	 * 
-	 * @Param: p_utilDate util.Date型日期
-	 * @Return: java.sql.Date sql.Date型日期
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @param p_utilDate util.Date型日期
+	 * @return  java.sql.Date sql.Date型日期
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.sql.Date toSqlDateFromUtilDate(java.util.Date p_utilDate) {
 		java.sql.Date returnDate = null;
@@ -145,10 +146,10 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * util.Date型日期转化sql.Time(时分秒)型日期
 	 * 
-	 * @Param: p_utilDate util.Date型日期
-	 * @Return: java.sql.Time sql.Time型日期
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @param p_utilDate util.Date型日期
+	 * @return  java.sql.Time sql.Time型日期
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.sql.Time toSqlTimeFromUtilDate(java.util.Date p_utilDate) {
 		java.sql.Time returnDate = null;
@@ -161,10 +162,10 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * util.Date型日期转化sql.Date(时分秒)型日期
 	 * 
-	 * @Param: p_utilDate util.Date型日期
-	 * @Return: java.sql.Timestamp sql.Timestamp型日期
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @param p_utilDate util.Date型日期
+	 * @return  java.sql.Timestamp sql.Timestamp型日期
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.sql.Timestamp toSqlTimestampFromUtilDate(java.util.Date p_utilDate) {
 		java.sql.Timestamp returnDate = null;
@@ -177,10 +178,10 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * sql.Date型日期转化util.Date型日期
 	 * 
-	 * @Param: sqlDate sql.Date型日期
-	 * @Return: java.util.Date util.Date型日期
-	 * @Author: Every
-	 * @Date: 2009-12-9
+	 * @param p_sqlDate sql.Date型日期
+	 * @return  java.util.Date util.Date型日期
+	 * @author Every
+	 * : 2009-12-9
 	 */
 	public static java.util.Date toUtilDateFromSqlDate(java.sql.Date p_sqlDate) {
 		java.util.Date returnDate = null;
@@ -198,7 +199,7 @@ public class TimeUtil extends StringForDate {
 	 *            util.Date日期
 	 * @return int 年份
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getYearOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -213,7 +214,7 @@ public class TimeUtil extends StringForDate {
 	 *            util.Date日期
 	 * @return int 月份
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getMonthOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -227,7 +228,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_date util.Date日期
 	 * @return int 日份
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getDayOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -241,7 +242,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_date util.Date日期
 	 * @return int 日份
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getHourOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -255,7 +256,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_date util.Date日期
 	 * @return int 分钟
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getMinuteOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -269,7 +270,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_date util.Date日期
 	 * @return int 秒钟
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static int getSecondOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -283,7 +284,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_date util.Date日期
 	 * @return long 毫秒
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static long getMillisOfDate(java.util.Date p_date) {
 		java.util.Calendar c = java.util.Calendar.getInstance();
@@ -300,7 +301,7 @@ public class TimeUtil extends StringForDate {
 	 *            格式3:"yyyy年MM月dd日 hh:mm:ss EE" 说明: 年-月-日 时:分:秒 星期 注意MM/mm大小写
 	 * @return String 当前时间字符串
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static String getNowOfDateByFormat(String p_format) {
 		if (!TimeZone.getDefault().getID().equals("Asia/Shanghai")) {
@@ -314,8 +315,8 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * 获取指定utc时间的格式化字符串
 	 * @param utc 指定的时间
-	 * @param format
-	 * @return
+	 * @param format format
+	 * @return 格式化串
 	 */
 	public static String getStrTimeByUTC(long utc,String format) {
 		return new SimpleDateFormat(format).format(new Date(utc));
@@ -328,7 +329,7 @@ public class TimeUtil extends StringForDate {
 	 *            格式3:"yyyy年MM月dd日 hh:mm:ss EE" 说明: 年-月-日 时:分:秒 星期 注意MM/mm大小写
 	 * @return String 昨天的字符串日期
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static String getYesterdayOfDateByFormat(String p_format) {
 		if (!TimeZone.getDefault().getID().equals("Asia/Shanghai")) {
@@ -359,7 +360,7 @@ public class TimeUtil extends StringForDate {
 	 *            格式3:"yyyy年MM月dd日 hh:mm:ss EE" 说明: 年-月-日 时:分:秒 星期 注意MM/mm大小写
 	 * @return String 系统时间字符串
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static String getSystemOfDateByFormat(String p_format) {
 		long time = System.currentTimeMillis();
@@ -373,10 +374,11 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * 获取字符日期一个月的天数
 	 * 
-	 * @param p_date
+	 * @param p_date date
 	 * @return 天数
+	 * @throws ParseException 转换异常
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	@SuppressWarnings("static-access")
 	public static long getDayOfMonth(Date p_date) throws ParseException {
@@ -397,11 +399,12 @@ public class TimeUtil extends StringForDate {
 	 * 
 	 * @param p_strDate
 	 *            指定月份
-	 * @param p_formate
+	 * @param p_format
 	 *            日期格式
 	 * @return String 时间字符串
+	 * @throws ParseException 转换异常
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static String getDateOfMonthBegin(String p_strDate, String p_format) throws ParseException {
 		java.util.Date date = toUtilDateFromStrDateByFormat(p_strDate, p_format);
@@ -412,10 +415,11 @@ public class TimeUtil extends StringForDate {
 	 * 获取指定月份的最后一天
 	 * 
 	 * @param p_strDate 指定月份
-	 * @param p_formate 日期格式
+	 * @param p_format 日期格式
 	 * @return String 时间字符串
+	 * @throws ParseException 转换异常
 	 * @author Every
-	 * @Date: 2009-12-9
+	 * : 2009-12-9
 	 */
 	public static String getDateOfMonthEnd(String p_strDate, String p_format) throws ParseException {
 		java.util.Date date = toUtilDateFromStrDateByFormat(getDateOfMonthBegin(p_strDate, p_format), p_format);
@@ -434,7 +438,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 小时
-	 * @throws Throwable
+	 * @throws Throwable 为知异常
 	 */
 	public static long getHoursOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / (1000 * 60 * 60);
@@ -446,7 +450,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 分钟
-	 * @throws Throwable
+	 * @throws Throwable 为知异常
 	 */
 	public static long getMinutesOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / (1000 * 60);
@@ -458,7 +462,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 秒
-	 * @throws Throwable
+	 * @throws Throwable 为知异常
 	 */
 	public static long getSecondsOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / 1000;
@@ -470,7 +474,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 毫秒
-	 * @throws Throwable
+	 * @throws Throwable 为知异常
 	 */
 	public static long getMillisOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
 		Date l_startDate = toUtilDateFromStrDateByFormat(p_startDate, "yyyy-MM-dd HH:mm:ss");
@@ -485,7 +489,7 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 毫秒
-	 * @throws Throwable
+	 * @throws Throwable 为知异常
 	 */
 	public static long getMillisOfTowDiffDate(Date p_startDate, Date p_endDate) throws Throwable {
 		long l_startTime = getMillisOfDate(p_startDate);
@@ -495,8 +499,8 @@ public class TimeUtil extends StringForDate {
 	
 	/**
 	 * 获取当天的秒数
-	 * @return
-	 * @throws Throwable
+	 * @return long
+	 * @throws Throwable 为知异常
 	 */
 	public static long getSeconds() throws Throwable{
 		return getMillisOfTowDiffDate(getNowOfDateByFormat("yyyy-MM-dd 00:00:00"),getNowOfDateByFormat("yyyy-MM-dd HH:mm:ss"));

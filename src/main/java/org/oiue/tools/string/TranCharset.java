@@ -6,8 +6,8 @@ package org.oiue.tools.string;
 * [参考]判断字符编码以及转码的一个工具类
 * http://hi.baidu.com/pazhu/blog/item/efcce7a2034ae9a8caefd05b.html
 * 2008-07-01 08:55
-* @version 1.0
-* @author: SRH
+*  1.0
+* @author SRH
 */
 public class TranCharset {
 
@@ -64,8 +64,8 @@ public class TranCharset {
     /**
      * 将字符串编码格式转成GB2312
      *
-     * @param str
-     * @return
+     * @param str 字符串
+     * @return 结果
      */
     public static String TranEncodeTOGB(String str) {
         try {
@@ -101,8 +101,8 @@ public class TranCharset {
     /**
      * 判断字符串的编码
      *
-     * @param str
-     * @return
+     * @param str 字符串
+     * @return 结果
      */
     public static String getEncoding(String str) {
         String encode = "GB2312";

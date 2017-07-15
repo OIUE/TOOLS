@@ -10,7 +10,7 @@ import java.io.File;
  *		文件删除公用类
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version DeleteFileUtil 1.0  Apr 17, 2009 11:17:06 PM
+ *  DeleteFileUtil 1.0  Apr 17, 2009 11:17:06 PM
  */
 public class DeleteFileUtil {
 	/**	

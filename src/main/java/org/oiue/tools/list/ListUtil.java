@@ -6,9 +6,11 @@ package org.oiue.tools.list;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Vector;
 
 import org.apache.commons.beanutils.BeanComparator;
 import org.apache.commons.collections.ComparatorUtils;
@@ -23,18 +25,11 @@ import org.oiue.tools.map.MapUtil;
  *			List操作类
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version ListUtil 1.0  Apr 22, 2009 5:30:26 PM
+ *  ListUtil 1.0  Apr 22, 2009 5:30:26 PM
  * ListUtil
  */
 @SuppressWarnings( { "unchecked","rawtypes"})
 public class ListUtil {
-
-	/**
-	 * 
-	 */
-	public ListUtil() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * 方法说明：
@@ -178,10 +173,10 @@ public class ListUtil {
 	 * 方法说明：
 	 *		  获取结构数组，
 	 *		  filed.equals(data.get(index).toString())
-     * @param data
-     * @param filed
-     * @param index
-     * @return
+     * @param data 列表
+     * @param filed 字段
+     * @param index 下标
+     * @return 结果
      */
 	public static ArrayList getList(ArrayList data,String filed,int index){
 		ArrayList list=null;
@@ -241,7 +236,11 @@ public class ListUtil {
     	}
     	return sb.toString().substring(0,split==null?sb.toString().length():(sb.toString().length()-split.length()));
     }
-    
+    /**
+     * List 排序
+     * @param data 操作的原始对象
+     * @param comperator 排序规则   排序的字段  是否逆序
+     */
     public static void sort(List data,Map<String,Boolean> comperator){
 		ComparatorChain cc = new ComparatorChain();
 		for (Iterator iterator = comperator.keySet().iterator(); iterator.hasNext();) {
@@ -455,4 +454,88 @@ public class ListUtil {
 		}
 	}
 
+	/**
+	 * 不排序二维数据转换成树状结构
+	 * @param source
+	 * @param key
+	 * @param parentKey
+	 * @param childKey
+	 * @return
+	 */
+	public static List<Map> convertToTree(List<Map> source, String key, String parentKey, String childKey) {
+		return convertToTree(source, null, childKey, parentKey, childKey, null);
+	}
+	/**
+	 * 不排序二维数据转换成树状结构
+	 * @param source 原始数据
+	 * @param parent 所属父节点
+	 * @param key 主键
+	 * @param parentKey 父主键
+	 * @param childKey 子节点key
+	 * @return 树状数据
+	 */
+	public static List<Map> convertToTree(List<Map> source, Object parent, String key, String parentKey, String childKey) {
+		return convertToTree(source, parent, childKey, parentKey, childKey, null);
+	}
+	/**
+	 * 二维数据转换成树状结构
+	 * @param source 原始数据
+	 * @param parent 所属父节点
+	 * @param key 主键
+	 * @param parentKey 父主键
+	 * @param childKey 子节点key
+	 * @param sortKey 排序字段
+	 * @return 排序好的树状数据
+	 */
+	public static List<Map> convertToTree(List<Map> source, Object parent, String key, String parentKey, String childKey, String sortKey) {
+		if (source != null) {
+			List s = new Vector<>(source);
+			
+			Map<Object, Map> temp = new HashMap<>();
+			for (Iterator iterator = s.iterator(); iterator.hasNext();) {
+				Map map = (Map) iterator.next();
+				temp.put(map.get(key), map);
+			}
+			for (Iterator iterator = s.iterator(); iterator.hasNext();) {
+				Map map = (Map) iterator.next();
+				Object parentK = map.get(parentKey);
+				if (parentK != null) {
+					Map tp = temp.get(parentK);
+					if (tp != null) {
+						Object child = tp.get(childKey);
+						if (child == null) {
+							List tc = new ArrayList<>();
+							tc.add(map);
+							tp.put(childKey, tc);
+						} else if (child instanceof List) {
+							((List) child).add(map);
+						} else {
+							throw new RuntimeException("childKey[" + childKey + "] error.");
+						}
+					}
+				}
+			}
+			List<Map> vs = new ArrayList<>(temp.values());
+			for (Iterator iterator = vs.iterator(); iterator.hasNext();) {
+				Map map = (Map) iterator.next();
+				if (parent == null ? parent != map.get(parentKey) : !parent.equals(map.get(parentKey))) {
+					iterator.remove();
+				}
+			}
+			if (sortKey != null) {
+				Map comperator = new HashMap<>();
+				comperator.put(sortKey, false);
+				for (Iterator iterator = s.iterator(); iterator.hasNext();) {
+					Map map = (Map) iterator.next();
+					Object child = map.get(childKey);
+					if (child != null && child instanceof List) {
+						ListUtil.sort((List)child, comperator);
+					}
+				}
+				ListUtil.sort(vs, comperator);
+			}
+			return vs;
+		}
+		return null;
+	}
 }

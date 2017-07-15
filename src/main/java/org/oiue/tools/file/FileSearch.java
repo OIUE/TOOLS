@@ -17,7 +17,7 @@ import org.oiue.tools.string.StringUtil;
  *		文件查找
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version FileSearch 1.0  Apr 18, 2009 12:20:53 AM
+ *  FileSearch 1.0  Apr 18, 2009 12:20:53 AM
  * FileSearch
  */
 @SuppressWarnings( { "unchecked","unused","rawtypes"})
@@ -28,7 +28,7 @@ public class FileSearch {
 	 *			返回路径下的文件
 	 *CreateTime Apr 18, 2009 12:26:12 AM
 	 * @param fileName 目录
-	 * @return
+	 * @return 列表
 	 */
 	public static List FileDirectorySearch(String fileName) {
 		List fileList=new ArrayList();
@@ -158,9 +158,9 @@ public class FileSearch {
 	}
 	/**
 	 * 查找文件 并处理
-	 * @param parentPath
-	 * @param itask
-	 * @return
+	 * @param parentPath 父目录
+	 * @param itask 处理
+	 * @return 处理结果
 	 */
 	public static boolean searchFile(String parentPath,ITask itask){
 		File[] file = null;
@@ -191,9 +191,9 @@ public class FileSearch {
 	
 	/**
 	 * 返回指定路径下的指定文件类型的文件集合
-	 * @param fileName
-	 * @param fileType
-	 * @return
+	 * @param fileName 文件名
+	 * @param fileType 文件类型
+	 * @return 列表
 	 */
 	public static List FileDirectorySearch(String fileName,List fileType) {
 		List list=FileDirectorySearch(fileName);
@@ -210,44 +210,22 @@ public class FileSearch {
 		return listList;
 	}
 	
-	/**
-	 * 返回指定文件路径下指定文件类型
-	 * @param dir
-	 * @param extension
-	 * @return
-	 */
-	public static List<File> GetFileByExtension(String dir,String extension){
-		File file = new File(dir);
-		List list = new ArrayList();
-		
-		return list;
-	}
-	/**
-	 * 
-	 * @param dir
-	 * @param extension
-	 * @param list
-	 * @return
-	 */
-	public static List<File> GetFileByExtension(String dir,String extension,List list){
-		File file = new File(dir);
-		if(list==null)list = new ArrayList();
-		
-		return list;
-	}
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 18, 2009 12:20:53 AM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		String dir = Application.getRootPath();   // directory of your choice
-		File file = new File(dir);
-		System.out.println(dir);
-		File[] files = file.listFiles(new ExtensionFileFilter(".jsp"));
-		for(File f:files){
-			System.out.println(f.getAbsolutePath());
-		}
-	}
+//	/**
+//	 * 返回指定文件路径下指定文件类型
+//	 * @param dir 目录
+//	 * @param extension 扩展名
+//	 * @return
+//	 */
+//	public static List<File> GetFileByExtension(String dir,String extension){
+//		File file = new File(dir);
+//		List list = new ArrayList();
+//		
+//		return list;
+//	}
+//	public static List<File> GetFileByExtension(String dir,String extension,List list){
+//		File file = new File(dir);
+//		if(list==null)list = new ArrayList();
+//		
+//		return list;
+//	}
 }

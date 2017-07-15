@@ -9,7 +9,7 @@ import org.oiue.tools.string.StringUtil;
  *		取得当前项目的根目录 
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version Application 1.0：Feb 11, 2009 10:02:00 AM 
+ *  Application 1.0：Feb 11, 2009 10:02:00 AM 
  */
 @SuppressWarnings("serial")
 public class Application  implements Serializable{
@@ -94,7 +94,7 @@ public class Application  implements Serializable{
 	/**
 	 * 返回不同的发布平台
 	 * getPublishType
-	 * @return
+	 * @return 是否为web
 	 */
 	public final static boolean isWebPublish(){
 		String appPath = Application.getRootPath();
@@ -171,7 +171,7 @@ public class Application  implements Serializable{
 	}
 	/**
 	 * 获取调用者信息
-	 * @return
+	 * @return 调用者
 	 */
 	public static String getCaller(){
 		StackTraceElement stack[] = (new Throwable()).getStackTrace();
@@ -183,7 +183,8 @@ public class Application  implements Serializable{
 	}
 	/**
 	 * 获取调用者信息
-	 * @return
+	 * @param num 层次
+	 * @return 调用者 
 	 */
 	public static String getCaller(int num){
 		StackTraceElement[] stack = (new Throwable()).getStackTrace();
@@ -195,7 +196,8 @@ public class Application  implements Serializable{
 	}
 	/**
 	 * 获取调用者信息
-	 * @return
+	 * @param className 类名
+	 * @return class link
 	 */
 	public static String getClassLine(String className){
 		if(StringUtil.isEmptys(className)){
@@ -211,7 +213,8 @@ public class Application  implements Serializable{
 	}
 	/**
 	 * 获取调用者信息
-	 * @return
+	 * @param className 类名
+	 * @return 下一个 类 行
 	 */
 	public static String getNextClassLine(String className) {
 		if (StringUtil.isEmptys(className)) {

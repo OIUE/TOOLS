@@ -72,8 +72,8 @@ public abstract class Field extends TableModel implements Serializable{
 	
 	/**
 	 * 比较字段
-	 * @param field
-	 * @return
+	 * @param field 字段
+	 * @return 名字 类型 长度 都相同则返回true 否则 false
 	 */
 	public boolean equals(Field field) {
 		if(field==null)return false;

@@ -18,19 +18,12 @@ import org.oiue.tools.string.StringReplace;
  *		替换文件内的字符串
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version FileReplace 1.0  Apr 17, 2009 11:45:12 PM
+ *  FileReplace 1.0  Apr 17, 2009 11:45:12 PM
  * FileReplace
  */
 
 @SuppressWarnings( { "unused", "rawtypes","static-access","resource"})
 public class FileReplace {
-
-	/**
-	 * 
-	 */
-	public FileReplace() {
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * 方法说明：
@@ -41,7 +34,7 @@ public class FileReplace {
 	 * @param replacement 替换后的字符串
 	 * @param matchCase 是否大小写敏感
 	 * @return 临时文件绝对路径
-	 * @throws IOException 
+	 * @throws IOException  io异常
 	 */
 	public static String FileReplaceOutTemp(String fileString,String regex,String replacement,boolean matchCase) throws IOException {
         String line;
@@ -97,7 +90,7 @@ public class FileReplace {
 	 * @param replacement 替换后的字符串
 	 * @param matchCase 是否大小写敏感
 	 * @return 是否替换成功
-	 * @throws IOException
+	 * @throws IOException io异常
 	 */
 	public static boolean FileReplace_case(String fileString,String regex,String replacement,boolean matchCase) throws IOException {
 		FileCopy copyFile=new FileCopy();
@@ -116,7 +109,7 @@ public class FileReplace {
 	 * @param regex 用来匹配替换的正则表达式
 	 * @param replacement 替换后的字符串
 	 * @return 是否替换成功
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public static boolean FileReplace_case(String fileString,String regex,String replacement) throws IOException {
 		FileCopy copyFile=new FileCopy();
@@ -139,7 +132,7 @@ public class FileReplace {
 	 * @param regex 用来匹配替换的正则表达式
 	 * @param replacement 替换后的字符串
 	 * @return 是否替换成功
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public boolean FolderOfAll(String fileName,String regex,String replacement ) throws IOException{
 		FileSearch fileSearch=new FileSearch();
@@ -165,7 +158,7 @@ public class FileReplace {
 	 * @param replacement 替换后的字符串
 	 * @param matchCase 是否大小写敏感
 	 * @return 是否替换成功
-	 * @throws IOException
+	 * @throws IOException IO异常
 	 */
 	public boolean FolderOfAll(String fileName,List type,String regex,String replacement,boolean matchCase) throws IOException {
 		FileSearch fileSearch=new FileSearch();
@@ -183,14 +176,4 @@ public class FileReplace {
 		return true;
 	}
 
-
-	/**方法说明：
-	 *			
-	 *CreateTime Apr 17, 2009 11:45:12 PM
-	 * @param args 
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 }

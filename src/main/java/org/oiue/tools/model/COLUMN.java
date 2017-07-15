@@ -66,8 +66,10 @@ public class COLUMN {
 
 	/**
 	 * 根据jdbc参数 获取资源数据类型
-	 * @param columnType
-	 * @return
+	 * @param columnType 类型
+	 * @param columnDisplaySize 大小
+	 * @param precision 精度
+	 * @return 值
 	 */
 	public static int getType(int columnType,int columnDisplaySize,int precision){
 		return columnType==12?columnDisplaySize==1?Types.BIT:columnDisplaySize<21277?Types.VARCHAR:Types.LONGNVARCHAR:
@@ -86,8 +88,7 @@ public class COLUMN {
 	 * 将资源中的数据类型翻译成SQL的数据类型
 	 * @param columnType res中的数据类型值
 	 * @param columnDisplaySize 数据长度
-	 * @param dbType
-	 * @return
+	 * @return 值
 	 */
 	public static int resType2DBType(int columnType,int columnDisplaySize){
 		return resType2DBType(columnType, columnDisplaySize, default_connType);
@@ -97,7 +98,7 @@ public class COLUMN {
 	 * @param columnType res中的数据类型值
 	 * @param columnDisplaySize 数据长度
 	 * @param dbType 数据库类型
-	 * @return
+	 * @return 值
 	 */
 	public static int resType2DBType(int columnType,int columnDisplaySize,String dbType){
 		return columnType==1?Types.INTEGER:
@@ -120,8 +121,7 @@ public class COLUMN {
 	 * 将资源中的数据类型翻译成SQL的数据类型
 	 * @param columnType res中的数据类型值
 	 * @param columnDisplaySize 数据长度
-	 * @param dbType
-	 * @return
+	 * @return 值
 	 */
 	public static int DBType2ResType(int columnType,int columnDisplaySize){
 		return DBType2ResType(columnType, columnDisplaySize, default_connType);
@@ -131,7 +131,7 @@ public class COLUMN {
 	 * @param columnType res中的数据类型值
 	 * @param columnDisplaySize 数据长度
 	 * @param dbType 数据库类型
-	 * @return
+	 * @return 值
 	 */
 	public static int DBType2ResType(int columnType,int columnDisplaySize,String dbType){
 		return columnType==Types.INTEGER?1:
@@ -145,7 +145,7 @@ public class COLUMN {
 	/**
 	 * 返回对应的mysql类型
 	 * @param sqlType mysql类型
-	 * @return
+	 * @return 值
 	 */
 	public static String toMysql(int sqlType){
 		return sqlType==Types.DATE?"date":
@@ -168,8 +168,8 @@ public class COLUMN {
 	}
 	/**
 	 * 返回对应的java类型
-	 * @param sqlType
-	 * @return
+	 * @param sqlType 类型
+	 * @return 值
 	 */
 	public static String toJava(int sqlType){
 		return sqlType==Types.DATE?"Date":
@@ -191,8 +191,8 @@ public class COLUMN {
 	}
 	/**
 	 * 返回对应java类型的sqlType值
-	 * @param sqlType
-	 * @return
+	 * @param obj 类型
+	 * @return 值
 	 */
 	public static int toSqlType(Object obj){
 		return (obj instanceof java.sql.Date)?Types.DATE:
@@ -213,8 +213,8 @@ public class COLUMN {
 	}
 	/**
 	 * 是否需要设定长度
-	 * @param sqlType
-	 * @return
+	 * @param sqlType 类型
+	 * @return 值
 	 */
 	public static int setSize(int sqlType){
 		return sqlType==Types.DATE||

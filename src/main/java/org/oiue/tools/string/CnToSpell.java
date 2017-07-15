@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
  * 而且可以返回多音字的读音
  * @author Every E-mail/MSN:mwgjkf@hotmail.com
  *               QQ:30130942
- * @version CnToSpell 1.0  Apr 23, 2009 4:57:02 PM
+ *  CnToSpell 1.0  Apr 23, 2009 4:57:02 PM
  * CnToSpell
  */
 public class CnToSpell {

@@ -10,8 +10,8 @@ public class FileDigest {
 	/**
 	 * 获取单个文件的MD5值！
 	 * 
-	 * @param file
-	 * @return
+	 * @param file 文件
+	 * @return 字符串
 	 */
 	public static String getFileMD5(File file) {
 		if (!file.isFile()) {
@@ -39,9 +39,9 @@ public class FileDigest {
 	/**
 	 * 获取文件夹中文件的MD5值
 	 * 
-	 * @param file
-	 * @param listChild;true递归子目录中的文件
-	 * @return
+	 * @param file 文件
+	 * @param listChild true递归子目录中的文件
+	 * @return 列表
 	 */
 	public static Map<String, String> getDirMD5(File file, boolean listChild) {
 		if (!file.isDirectory()) {

@@ -5,6 +5,9 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 
+import org.oiue.tools.StatusResult;
+import org.oiue.tools.exception.OIUEException;
+
 /**
  * @author VoLand
  *  URL:http://www.voland.com.cn/javabean-properties-to-achieve-high
@@ -81,9 +84,8 @@ public class BeanUtils {
 	 * @author Every
 	 * @param target 拷贝对象
 	 * @param source 源对象
-	 * @throws Exception 异常
 	 */
-	public static void copyPropertiesExt(Object target, Object source) throws Exception {
+	public static void copyPropertiesExt(Object target, Object source)  {
 		/**
 		 * 分别获得源对象和目标对象的Class类型对象,Class对象是整个反射机制的源头和灵魂！
 		 * Class对象是在类加载的时候产生,保存着类的相关属性，构造器，方法等信息
@@ -138,7 +140,7 @@ public class BeanUtils {
 					e.printStackTrace();
 				}
 			} else {
-				throw new Exception("同名属性类型不匹配！");
+				throw new OIUEException(StatusResult._blocking_errors,"同名属性类型不匹配！");
 			}
 		}
 	}

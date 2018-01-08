@@ -21,7 +21,7 @@ public class FieldExt extends Field implements Serializable {
 	public void setResFieldID(int resFieldID) {
 		this.resFieldID = resFieldID;
 	}
-	public FieldExt(TableModel tm) throws Throwable{
+	public FieldExt(TableModel tm){
 		this.setName(tm.getValue("name")+"");
 		this.setComment(tm.getValue("comment")+"");
 		this.setType(COLUMN.resType2DBType((Integer)tm.getValue("type"),(Integer)tm.getValue("displaySize")));

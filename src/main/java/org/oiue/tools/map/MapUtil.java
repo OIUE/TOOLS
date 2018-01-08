@@ -2,6 +2,7 @@ package org.oiue.tools.map;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -10,6 +11,8 @@ import java.util.Map.Entry;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.oiue.tools.StatusResult;
+import org.oiue.tools.exception.OIUEException;
 import org.oiue.tools.json.JSONUtil;
 import org.oiue.tools.list.ListUtil;
 import org.oiue.tools.string.StringUtil;
@@ -159,11 +162,10 @@ public class MapUtil {
 	 * @param secondSeparator 二维分割符
 	 * @param thrs 字符串数组
 	 * @return 值
-	 * @throws Throwable 异常
 	 */
-	public static String map2Str(Map map,String firstSeparator,String secondSeparator,String... thrs ) throws Throwable{
+	public static String map2Str(Map map,String firstSeparator,String secondSeparator,String... thrs ){
 		if(map==null||StringUtil.isEmpty(firstSeparator)||StringUtil.isEmpty(secondSeparator)){
-			throw new Exception("请检查所传参数");
+			throw new OIUEException(StatusResult._data_error,"请检查所传参数");
 		}
 		StringBuffer sb=new StringBuffer();
 		Object value;
@@ -237,6 +239,43 @@ public class MapUtil {
 			Object ov=map.get(ks[0]);
 			if(ov instanceof Map){
 				return get((Map) ov, ks[1]);
+			}else if(ov instanceof Dictionary){
+				return get((Dictionary) ov, ks[1]);
+			}else if(ov instanceof List){
+				//				ks=ks[1].split("\\.",2);
+				//				int key=Integer.valueOf(ks[0]);
+				//				if(ks.length==1){
+				//					return ((List)ov).get(key);
+				//				}else{
+				//					Object ove=((List)ov).get(key);
+				//					if(ove instanceof Map){
+				//						return get((Map) ove, ks[1]);
+				//					}
+				//				}
+				return ListUtil.get((List)ov, ks[1]);
+			}else{
+				throw new RuntimeException("The type of cannot be parsed");
+			}
+		}else
+			return null;
+	}
+
+	public static Object get(Dictionary map,String keys){
+		if(map==null)
+			return null;
+		Object rtn=map.get(keys);
+		if(rtn!=null){
+			if(rtn instanceof String)
+				rtn = ((String) rtn).trim();
+			return rtn;
+		}
+		String[] ks=keys.split("\\.",2);
+		if(ks.length!=1){
+			Object ov=map.get(ks[0]);
+			if(ov instanceof Map){
+				return get((Map) ov, ks[1]);
+			}else if(ov instanceof Dictionary){
+				return get((Dictionary) ov, ks[1]);
 			}else if(ov instanceof List){
 				//				ks=ks[1].split("\\.",2);
 				//				int key=Integer.valueOf(ks[0]);
@@ -524,6 +563,33 @@ public class MapUtil {
 			}
 		}
 	}
+	public static void mergeDifference(Map<String, Object> target, Map<String, Object> source) {
+		if ((target == null) || (source == null)) {
+			return;
+		}
+		
+		for (Entry<String, Object> e : source.entrySet()) {
+			String k = e.getKey();
+			Object v = e.getValue();
+			if (target.containsKey(k)) {
+				Object tv = target.get(k);
+				if (tv instanceof Map) {
+					if (v instanceof Map) {
+						MapUtil.mergeDifference((Map<String, Object>) tv, (Map<String, Object>) v);
+					}
+				} else if (tv instanceof List) {
+					if (v instanceof List) {
+						ListUtil.mergeTo((List<Object>) tv, (List<Object>) v);
+					} else {
+						((List<Object>) tv).add(v);
+					}
+				} else {
+				}
+			} else {
+				target.put(k, v);
+			}
+		}
+	}
 
 	public static Map<String, Object> merge(Map<String, Object> a, Map<String, Object> b) {
 		if ((a == null) || (b == null)) {
@@ -554,25 +620,52 @@ public class MapUtil {
 		Object object = get(map,key);
 		return object == null ? null : object.toString();
 	}
+	public static String getString(Map<String, Object> map, String key,String defaultVal) {
+		Object object = get(map,key);
+		return object == null ? defaultVal : object.toString();
+	}
+	public static String getString(Dictionary map, String key,String defaultVal) {
+		Object object = get(map,key);
+		return object == null ? defaultVal : object.toString();
+	}
 
 	public static Double getDouble(Map<String, Object> map, String key) {
 		Object object = get(map,key);
 		return Double.valueOf((object instanceof Number) ? ((Number) object).doubleValue() : Double.parseDouble(object.toString()));
 	}
+	public static Double getDouble(Map<String, Object> map, String key,Double defaultVal) {
+		Object object = get(map,key);
+		return object == null ?defaultVal:Double.valueOf((object instanceof Number) ? ((Number) object).doubleValue() : Double.parseDouble(object.toString()));
+	}
 
 	public static boolean getBoolean(Map<String, Object> map, String key) {
 		Object object = get(map,key);
-
 		return (object.equals(Boolean.TRUE)) || (((object instanceof String)) && ((((String) object).equalsIgnoreCase("true")) || (((String) object).equalsIgnoreCase("1")))) || (((object instanceof Number)) && (((Number) object).intValue() == 1));
+	}
+	public static boolean getBoolean(Map<String, Object> map, String key,Boolean defaultVal) {
+		Object object = get(map,key);
+		return object==null?defaultVal:(object.equals(Boolean.TRUE)) || (((object instanceof String)) && ((((String) object).equalsIgnoreCase("true")) || (((String) object).equalsIgnoreCase("1")))) || (((object instanceof Number)) && (((Number) object).intValue() == 1));
+	}
+	public static boolean getBoolean(Dictionary map, String key,Boolean defaultVal) {
+		Object object = get(map,key);
+		return object==null?defaultVal:(object.equals(Boolean.TRUE)) || (((object instanceof String)) && ((((String) object).equalsIgnoreCase("true")) || (((String) object).equalsIgnoreCase("1")))) || (((object instanceof Number)) && (((Number) object).intValue() == 1));
 	}
 
 	public static int getInt(Map<String, Object> map, String key) {
 		Object object = get(map,key);
 		return (object instanceof Number) ? ((Number) object).intValue() : Integer.parseInt(object.toString());
 	}
+	public static int getInt(Map<String, Object> map, String key,Integer defaultVal) {
+		Object object = get(map,key);
+		return object ==  null ?defaultVal:(object instanceof Number) ? ((Number) object).intValue() : Integer.parseInt(object.toString());
+	}
 
 	public static long getLong(Map<String, Object> map, String key) {
 		Object object = get(map,key);
 		return (object instanceof Number) ? ((Number) object).longValue() : Long.parseLong(object.toString());
+	}
+	public static long getLong(Map<String, Object> map, String key,Long defaultVal) {
+		Object object = get(map,key);
+		return object==null ? defaultVal:(object instanceof Number) ? ((Number) object).longValue() : Long.parseLong(object.toString());
 	}
 }

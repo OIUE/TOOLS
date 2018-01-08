@@ -96,20 +96,25 @@ public class DefBOs extends TableModel implements Serializable {
 	 * @see com.by.boss.db.table.structure.TableBean#set(java.sql.ResultSet)
 	 */
 	@Override
-	public boolean set(ResultSet rs) throws Exception {
-		ResultSetMetaData rsmd = rs.getMetaData();
-		int sum = rsmd.getColumnCount();
-		// Hashtable row = new Hashtable();
-		for (int i = 1; i < sum + 1; i++) {
-			Object value = rs.getObject(i);
-			if (value instanceof BigDecimal) {
-				value = ((BigDecimal) value).intValue();
+	public boolean set(ResultSet rs)  {
+		try {
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int sum = rsmd.getColumnCount();
+			// Hashtable row = new Hashtable();
+			for (int i = 1; i < sum + 1; i++) {
+				Object value = rs.getObject(i);
+				if (value instanceof BigDecimal) {
+					value = ((BigDecimal) value).intValue();
+				}
+				String key = rsmd.getColumnLabel(i);
+				// System.out.println(key+"&"+value);
+				hashtable.put(isUpperCaseKey == 1 ? key.toUpperCase() : isUpperCaseKey == 1 ? key : key.toLowerCase(), value == null ? "" : value);
 			}
-			String key = rsmd.getColumnLabel(i);
-			// System.out.println(key+"&"+value);
-			hashtable.put(isUpperCaseKey == 1 ? key.toUpperCase() : isUpperCaseKey == 1 ? key : key.toLowerCase(), value == null ? "" : value);
+			return true;
+			
+		} catch (Exception e) {
+			return false;
 		}
-		return true;
 	}
 
 	public Map getMapRemoveID() {
@@ -173,7 +178,7 @@ public class DefBOs extends TableModel implements Serializable {
 	}
 
 	@Override
-	public Object put(Map map) throws Throwable {
+	public Object put(Map map) {
 		hashtable.putAll(map);
 		return this;
 	}

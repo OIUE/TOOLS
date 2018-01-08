@@ -17,6 +17,8 @@ import org.apache.tools.tar.TarOutputStream;
 import org.apache.tools.zip.ZipEntry;
 import org.apache.tools.zip.ZipFile;
 import org.apache.tools.zip.ZipOutputStream;
+import org.oiue.tools.StatusResult;
+import org.oiue.tools.exception.OIUEException;
 
 import com.github.junrar.Archive;
 import com.github.junrar.exception.RarException;
@@ -41,10 +43,9 @@ public class Decompression {
 	/**
      * 解压zip格式的压缩文件到当前文件夹
      * @param zipFileName 文件名
-     * @throws Exception 异常
      * @author Every
      */
-    public static void unzipFile(String zipFileName) throws Exception {
+    public static void unzipFile(String zipFileName)  {
 	    try {
 		    File f = new File(zipFileName);
 		    ZipFile zipFile = new ZipFile(zipFileName);
@@ -91,8 +92,7 @@ public class Decompression {
 			    }
 		    }
 	    } catch(Exception e) {
-		    e.printStackTrace();
-		    throw e;
+		    throw new OIUEException(StatusResult._blocking_errors, zipFileName, e);
 	    }
     }
     
@@ -100,10 +100,10 @@ public class Decompression {
 	 * 解压zip格式的压缩文件到指定位置
 	 * @param zipFileName 压缩文件
 	 * @param extPlace 解压目录
-	 * @throws Exception 异常
+	 * 
      * @author Every
 	 */
-	public static void unzip(String zipFileName, String extPlace) throws Exception {
+	public static void unzip(String zipFileName, String extPlace)  {
 		try {
 	    	(new File(extPlace)).mkdirs();
 		    File f = new File(zipFileName);
@@ -151,8 +151,7 @@ public class Decompression {
 			    }
 		    }
 	    } catch(Exception e) {
-		    e.printStackTrace();
-		    throw e;
+		    throw new OIUEException(StatusResult._blocking_errors, zipFileName, e);
 	    }
 	}
 	
@@ -161,10 +160,10 @@ public class Decompression {
 	 * @param zipFileName 压缩文件
 	 * @param extPlace 解压目录
 	 * @param recursive 是否
-	 * @throws Exception 异常
+	 * 
      * @author Every
 	 */
-	public static void unzip(String zipFileName, String extPlace,boolean recursive) throws Exception {
+	public static void unzip(String zipFileName, String extPlace,boolean recursive)  {
 		try {
 	    	(new File(extPlace)).mkdirs();
 		    File f = new File(zipFileName);
@@ -212,8 +211,7 @@ public class Decompression {
 			    }
 		    }
 	    } catch(Exception e) {
-		    e.printStackTrace();
-		    throw e;
+		    throw new OIUEException(StatusResult._blocking_errors, zipFileName, e);
 	    }
 	}
 	/**
@@ -293,10 +291,10 @@ public class Decompression {
      * 解压tar格式的压缩文件到指定目录下
      * @param tarFileName 压缩文件
      * @param extPlace 解压目录
-     * @throws Exception 异常
+     * 
      * @author Every
      */
-	public static void untar(String tarFileName, String extPlace) throws Exception{
+	public static void untar(String tarFileName, String extPlace) {
 		InputStream inputstream = null;
 		OutputStream outputstream = null;
 		TarInputStream zis = null;
@@ -415,11 +413,11 @@ public class Decompression {
 	 * @param extPlace 解压目录
 	 * @param repeatFile 重复路径
 	 * @param del 解压后是否删除文件
-	 * @throws Exception 异常
+	 * 
 	 * @author Every
 	 */
 	@SuppressWarnings("hiding")
-	public static void unrar(String rarFileName, String extPlace,List repeatFile,boolean del) throws Exception{
+	public static void unrar(String rarFileName, String extPlace,List repeatFile,boolean del) {
 	
 		File f = new File(rarFileName);
 		FileOutputStream os=null;
@@ -490,7 +488,12 @@ public class Decompression {
 			// TODO: handle exception
 			e.printStackTrace();
 		}finally{
-			a.close();
+			if(a!=null);
+				try {
+					a.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			if (del) {
 				f.delete();
 			}
@@ -501,10 +504,10 @@ public class Decompression {
 	 * @param rarFileName 压缩文件
 	 * @param extPlace 解压目录
 	 * @param repeatFile 重复路径
-	 * @throws Exception 异常
+	 * 
 	 * @author Every
 	 */
-	public void unrar(String rarFileName, String extPlace,List repeatFile) throws Exception{
+	public void unrar(String rarFileName, String extPlace,List repeatFile) {
 		unrar(rarFileName,extPlace,repeatFile,false);
 	}
 	
@@ -512,10 +515,10 @@ public class Decompression {
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
      * @param repeatFile 重复路径
-     * @throws Exception 异常
+     * 
      * @author Every
      */
-	public void unrar(String rarFileName,List repeatFile) throws Exception{
+	public void unrar(String rarFileName,List repeatFile) {
 		unrar(rarFileName,null,repeatFile,false);
 	}
 	
@@ -523,20 +526,20 @@ public class Decompression {
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
      * @param extPlace 解压目录
-     * @throws Exception 异常
+     * 
      * @author Every
      */
-	public void unrar(String rarFileName,String extPlace) throws Exception{
+	public void unrar(String rarFileName,String extPlace) {
 		unrar(rarFileName,extPlace,null,false);
 	}
 	
 	/**
      * 解压rar格式的压缩文件到当前文件所在目录下
      * @param rarFileName 压缩文件
-     * @throws Exception 异常
+     * 
      * @author Every
      */
-	public void unrar(String rarFileName) throws Exception{
+	public void unrar(String rarFileName) {
 		unrar(rarFileName,null,null,false);
 	}
 	

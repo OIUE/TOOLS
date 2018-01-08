@@ -5,6 +5,7 @@ package org.oiue.table.structure;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
@@ -92,9 +93,10 @@ public abstract class Model_root implements Serializable {
     /**
      *  Method 复制对象
      * @return 复制的对象
-     * @throws Throwable 序列化异常
+     * @throws IOException  io
+     * @throws ClassNotFoundException class not found
      */
-    public Object deepCopy() throws Throwable {
+    public Object deepCopy() throws IOException, ClassNotFoundException {
         // 将该对象序列化成流,因为写在流里的是对象的一个拷贝，而原对象仍然存在于JVM里面。所以利用这个特性可以实现对象的深拷贝
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         ObjectOutputStream oos = new ObjectOutputStream(bos);
@@ -115,9 +117,8 @@ public abstract class Model_root implements Serializable {
      * 
      * @param rs 输入结果集
      * @return 设置是否成功
-     * @throws Exception 可能的异常
      */
-    public abstract boolean set(ResultSet rs) throws Exception;
+    public abstract boolean set(ResultSet rs) ;
 
     /**
      * 将表数据按照指定的分隔符输出

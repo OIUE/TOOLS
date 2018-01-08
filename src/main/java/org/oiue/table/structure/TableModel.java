@@ -34,9 +34,8 @@ public abstract class TableModel extends Model_map implements Serializable {
 	 *  Feb 21, 2011 12:26:25 PM
 	 * @param map 转换对象
 	 * @return 当前对象
-	 * @throws Throwable 处理过程可能会有异常
 	 */
-	public Object put(Map map) throws Throwable {
+	public Object put(Map map) {
 		String key;
 		Object value;
 		for (Iterator iterator = map.entrySet().iterator(); iterator.hasNext();) {
@@ -123,9 +122,8 @@ public abstract class TableModel extends Model_map implements Serializable {
 	 * 获取字段集合的值集合
 	 * @param fields 字段名称集合
 	 * @return 字段值的集合
-	 * @throws Throwable 过程中可能会有为知异常
 	 */
-	public List<Object> getValueList(String[] fields) throws Throwable{
+	public List<Object> getValueList(String[] fields){
 		List rtnLt=new ArrayList();
 		for (String field : fields) {
 			rtnLt.add(this.getValue(field));
@@ -134,7 +132,7 @@ public abstract class TableModel extends Model_map implements Serializable {
 		return rtnLt;
 	}
 	
-	public List<Object> getValueListByKey(String key)throws Throwable{
+	public List<Object> getValueListByKey(String key){
 		Object fieldsObj=this.getValue(key);
 		String[] fields;
 		if(fieldsObj instanceof String){

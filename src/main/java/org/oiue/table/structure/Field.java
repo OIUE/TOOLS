@@ -35,7 +35,7 @@ public abstract class Field extends TableModel implements Serializable{
 		
 	}
 	@Override
-	public boolean set(ResultSet rs) throws Exception {
+	public boolean set(ResultSet rs)  {
 		// TODO Auto-generated method stub
 		return false;
 	}

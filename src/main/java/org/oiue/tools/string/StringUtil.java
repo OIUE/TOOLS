@@ -17,6 +17,7 @@ import java.util.Map;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 
 /** 
  * 类说明:
@@ -524,9 +525,9 @@ public class StringUtil {
      * @param epStr 表达式
      * @param per 值
      * @return 对象
-     * @throws Throwable 异常
+     * @throws ScriptException Script Exception
      */
-    public static Object scriptEngine(String epStr,Map per) throws Throwable{
+    public static Object scriptEngine(String epStr,Map per) throws ScriptException{
     	ScriptEngineManager manager = new ScriptEngineManager();
         ScriptEngine engine = manager.getEngineByName("js");
         for (Iterator iterator = per.keySet().iterator(); iterator.hasNext();) {

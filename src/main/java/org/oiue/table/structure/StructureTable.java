@@ -12,6 +12,9 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.oiue.tools.StatusResult;
+import org.oiue.tools.exception.OIUEException;
+
 /**
  * @author Every(王勤) 层次表根对象
  */
@@ -41,22 +44,26 @@ public class StructureTable extends TableModel implements Serializable {
 	 * @see org.oiue.table.structure.Model_root#set(java.sql.ResultSet)
 	 */
 	@Override
-	public boolean set(ResultSet rs) throws Exception {
-		ResultSetMetaData rsmd = rs.getMetaData();
-		int sum = rsmd.getColumnCount();
-		for (int i = 1; i < sum + 1; i++) {
-			Object value = rs.getObject(i);
-			if (value instanceof BigDecimal) {
-				value = ((BigDecimal) value).intValue();
+	public boolean set(ResultSet rs)  {
+		try {
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int sum = rsmd.getColumnCount();
+			for (int i = 1; i < sum + 1; i++) {
+				Object value = rs.getObject(i);
+				if (value instanceof BigDecimal) {
+					value = ((BigDecimal) value).intValue();
+				}
+				String key = rsmd.getColumnLabel(i);
+				if (this.fieldContains(key)) {
+					this.put(key, value);
+				} else {
+					this.getDyn_data().put(_isUpperCaseKey ? key.toUpperCase() : key, value == null ? "" : value);
+				}
 			}
-			String key = rsmd.getColumnLabel(i);
-			if (this.fieldContains(key)) {
-				this.put(key, value);
-			} else {
-				this.getDyn_data().put(_isUpperCaseKey ? key.toUpperCase() : key, value == null ? "" : value);
-			}
+			return true;
+		} catch (Exception e) {
+			throw new OIUEException(StatusResult._blocking_errors, "",e);
 		}
-		return true;
 	}
 
 	/*

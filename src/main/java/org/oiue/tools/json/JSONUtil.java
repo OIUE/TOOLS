@@ -10,6 +10,10 @@ import org.json.JSONObject;
 import org.oiue.tools.list.ListUtil;
 import org.oiue.tools.map.MapUtil;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 @SuppressWarnings({"unchecked","rawtypes"})
 public class JSONUtil {
 
@@ -82,14 +86,21 @@ public class JSONUtil {
 	}
 
 	public static Map<?, Object> parserStrToMap(String jsonStr) throws JSONException {
-		return parserToMap(new JSONObject(jsonStr));
+		try {
+			return parserToMap(new JSONObject(jsonStr));
+		} catch (Throwable e) {
+			GsonBuilder gb = new GsonBuilder();
+			Gson g = gb.create();
+			Map map = g.fromJson(jsonStr, new TypeToken<Map>(){}.getType());
+			return map;
+		}
 	}
 
 	public static List<?> parserStrToList(String jsonAry) throws JSONException {
 		return parserToList(new JSONArray(jsonAry));
 	}
 
-	public static String parserToStr(Map<Object, Object> map) {
+	public static String parserToStr(Map map) {
 		return new JSONObject(map).toString();
 	}
 

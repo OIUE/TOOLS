@@ -24,7 +24,7 @@ public class ByteUtil {
 	 * 判断部分字节内容相等
 	 * @param src bytes 源
 	 * @param starts 对比对象
-	 * @return 是否相等  
+	 * @return 是否相等
 	 */
 	public static boolean startsWith(byte[] src, byte[] starts) {
 		if(src == null || starts == null || src.length < starts.length) {
@@ -39,35 +39,35 @@ public class ByteUtil {
 	}
 
 	public static byte[] long2bytes(long v,int len){
-		byte[] b = new byte[len];  
-	    for (int i=7;i>0&&i>(8-len);i--) { 
-	        b[i-(8-len)] = (byte)(v>>>(56-(i*8)));  
-	    }  
-	    return b;
+		byte[] b = new byte[len];
+		for (int i=7;i>0&&i>(8-len);i--) {
+			b[i-(8-len)] = (byte)(v>>>(56-(i*8)));
+		}
+		return b;
 	}
 
 	public static byte[] double2bytes(double v,int len){
-		byte[] b = new byte[len];  
-		long l = Double.doubleToLongBits(v);  
-		for (int i=0;i<len&&i<8;i++) {  
-			b[i] = new Long(l).byteValue();  
-	        l = l >> 8;  
-		}  
+		byte[] b = new byte[len];
+		long l = Double.doubleToLongBits(v);
+		for (int i=0;i<len&&i<8;i++) {
+			b[i] = new Long(l).byteValue();
+			l = l >> 8;
+		}
 		return b;
 	}
 	/**
-    * 将64位的long值放到8字节的byte数组 
-    * @param v 数值 
-    * @return 返回转换后的byte数组 
-    */  
-   public static byte[] long2bytes(long v) {  
-       return long2bytes(v, 8);  
-   }  
-   /** 
-    * 将8字节的byte数组转成一个long值 
-    * @param bs byteArray 
-    * @return 转换后的long型数值 
-    */  
+	 * 将64位的long值放到8字节的byte数组
+	 * @param v 数值
+	 * @return 返回转换后的byte数组
+	 */
+	public static byte[] long2bytes(long v) {
+		return long2bytes(v, 8);
+	}
+	/**
+	 * 将8字节的byte数组转成一个long值
+	 * @param bs byteArray
+	 * @return 转换后的long型数值
+	 */
 	public static long bytes2long(byte[] bs) {
 		long rl=0;
 		if(bs==null){
@@ -93,38 +93,38 @@ public class ByteUtil {
 			throw new IllegalArgumentException("转换后的字节数组长度必须大于0且小于等于4：" + len);
 		}
 		//下述两种方式均可实现相同功能，鉴于代码可读性原则，因此采用第二种实现方式
-//		第一种实现方式
-//		byte[] ret = new byte[len];
-//		switch(len) {
-//			case 4:
-//				ret[4-len]/*tmp[0]*/ = (byte)(v >>> 24 &0xFF);
-//			case 3:
-//				ret[Math.abs(3-len)]/*tmp[1]*/ = (byte)((v >>> 16) &0xFF);
-//			case 2:
-//				ret[Math.abs(2-len)]/*tmp[2]*/ = (byte)((v >>> 8) &0xFF);
-//			case 1:
-//				ret[Math.abs(1-len)]/*tmp[3]*/ = (byte)v;
-//			default:
-////				throw new Error("");
-//		}
-//		return ret;	
-//		第二种实现方式
+		//		第一种实现方式
+		//		byte[] ret = new byte[len];
+		//		switch(len) {
+		//			case 4:
+		//				ret[4-len]/*tmp[0]*/ = (byte)(v >>> 24 &0xFF);
+		//			case 3:
+		//				ret[Math.abs(3-len)]/*tmp[1]*/ = (byte)((v >>> 16) &0xFF);
+		//			case 2:
+		//				ret[Math.abs(2-len)]/*tmp[2]*/ = (byte)((v >>> 8) &0xFF);
+		//			case 1:
+		//				ret[Math.abs(1-len)]/*tmp[3]*/ = (byte)v;
+		//			default:
+		////				throw new Error("");
+		//		}
+		//		return ret;
+		//		第二种实现方式
 		byte[] tmp = new byte[4];
 		switch(len) {
-			case 4:
-				tmp[0] = (byte)(v >>> 24 &0xFF);
-			case 3:
-				tmp[1] = (byte)((v >>> 16) &0xFF);
-			case 2:
-				tmp[2] = (byte)((v >>> 8) &0xFF);
-			case 1:
-				tmp[3] = (byte)v;
-			default:
-//				throw new Error("");
+		case 4:
+			tmp[0] = (byte)(v >>> 24 &0xFF);
+		case 3:
+			tmp[1] = (byte)((v >>> 16) &0xFF);
+		case 2:
+			tmp[2] = (byte)((v >>> 8) &0xFF);
+		case 1:
+			tmp[3] = (byte)v;
+		default:
+			//				throw new Error("");
 		}
 		byte[] ret = new byte[len];
 		System.arraycopy(tmp, 4 - len, ret, 0, len);
-		return ret;	
+		return ret;
 	}
 	/**
 	 * 转换从字节数组中0索引开始的4个字节为Int类型
@@ -151,7 +151,7 @@ public class ByteUtil {
 		if(b.length - pos < 4) {
 			return bytes2Int(b, pos, b.length - pos);
 		} else {
-			return bytes2Int(b, pos, 4);	
+			return bytes2Int(b, pos, 4);
 		}
 	}
 	/**
@@ -170,16 +170,16 @@ public class ByteUtil {
 		}
 		int v = 0;
 		switch(len) {
-			case 4:
-				v |= (b[pos++] << 24) & 0xFF000000;
-			case 3:
-				v |= (b[pos++] << 16) & 0x00FF0000;
-			case 2:
-				v |= (b[pos++] << 8) & 0x0000FF00;
-			case 1:
-				v |= b[pos++] & 0xFF;
-			default:
-//				throw new Error("");
+		case 4:
+			v |= (b[pos++] << 24) & 0xFF000000;
+		case 3:
+			v |= (b[pos++] << 16) & 0x00FF0000;
+		case 2:
+			v |= (b[pos++] << 8) & 0x0000FF00;
+		case 1:
+			v |= b[pos++] & 0xFF;
+		default:
+			//				throw new Error("");
 		}
 		return v;
 	}
@@ -199,7 +199,7 @@ public class ByteUtil {
 		}
 		return Integer.parseInt(bcdBytes2Str(bs));
 	}
-	
+
 	/**
 	 * 10进制数转BCD码字节
 	 * @param hRadix10 转换至
@@ -251,6 +251,39 @@ public class ByteUtil {
 		return bcd.toString();
 	}
 	/**
+	 * 将字节数组按BCD解码成10进制的String类型
+	 * @param bs 数组
+	 * @param pos 开始
+	 * @param len 结束
+	 * @return 值
+	 * @throws IllegalArgumentException 转换错误
+	 */
+	public static String bcdBytes2Str(byte[] bs,int pos, int len) throws IllegalArgumentException {
+		if(bs == null || bs.length <= 0) {
+			throw new IllegalArgumentException("字节数组不能为空，且长度不能为0:" + bs == null ? "null" : String.valueOf(bs.length));
+		}
+		if(bs.length < pos) {
+			throw new IllegalArgumentException("字节数组长度不能小于:" + pos);
+		}
+
+		byte[] t=new byte[len];
+		System.arraycopy(bs, 6, t, 0, bs.length< pos+len?bs.length-pos+1:len);
+		StringBuilder bcd = new StringBuilder();
+		try {
+			for(byte b : t) {
+				int high4 = ((b&0xF0) >>> 4);
+				int low4 = (b&0x0F);
+				if(high4 >= 10 || low4 >= 10) {
+					throw new IllegalArgumentException("BCD码转换过程中有大于9的值：" + Integer.toHexString(b & 0xFF));
+				}
+				bcd.append(high4).append(low4);
+			}
+		} catch(IllegalArgumentException e) {
+			throw new IllegalArgumentException("转换BCD码失败：" + toHexString(t) + " " + e.getMessage());
+		}
+		return bcd.toString();
+	}
+	/**
 	 * 10进制字符串转换成BCD编码的字节
 	 * @param radix10Str 值
 	 * @param len 字节长度
@@ -279,7 +312,7 @@ public class ByteUtil {
 		//BCD码个数为字节数的两倍
 		int bcdLen = len * 2;
 		if(radix10Str == null || radix10Str.length() > bcdLen) {
-			throw new IllegalArgumentException("10进制字符串不能为空并且长度不能大于限定的len: " + radix10Str + 
+			throw new IllegalArgumentException("10进制字符串不能为空并且长度不能大于限定的len: " + radix10Str +
 					(radix10Str == null ? "" : ", " + bcdLen));
 		}
 		if(additional < 0 || additional > 9) {
@@ -289,7 +322,7 @@ public class ByteUtil {
 			throw new IllegalArgumentException("字符串中含有非数字内容：" + radix10Str);
 		}
 		int[] radix10Int = new int[bcdLen];
-		
+
 		int addLen = radix10Int.length - radix10Str.length();
 		//将字符串转换为int数组，每个字符转换成相应10进制数
 		for(int i=0, radix10StrIndex=0; i<radix10Int.length; i++) {
@@ -300,7 +333,7 @@ public class ByteUtil {
 			}
 			radix10Int[i] = Character.digit(radix10Str.charAt(radix10StrIndex++), 10);
 		}
-		
+
 		byte[] bcd = new byte[len];
 		//将10进制转换为BCD码，从低位开始，每两个10进制数转换为1个字节
 		for(int i=len-1, j=radix10Int.length-1; i>=0; i--,j-=2) {
@@ -308,7 +341,7 @@ public class ByteUtil {
 		}
 		return bcd;
 	}
-	
+
 	/**
 	 * 合并两个byte数组
 	 * @param s 源
@@ -323,7 +356,7 @@ public class ByteUtil {
 		System.arraycopy(d, 0, rtn, s.length, d.length);
 		return rtn;
 	}
-	
+
 	/**
 	 * 返回bytes数组中从后向前第一个不是0的下标值
 	 * @param bytes 数组
@@ -348,44 +381,44 @@ public class ByteUtil {
 	 */
 	private static char hex(int val, boolean upCase) {
 		switch(val) {
-			case 0:
-				return '0';
-			case 1:
-				return '1';
-			case 2:
-				return '2';
-			case 3:
-				return '3';
-			case 4:
-				return '4';
-			case 5:
-				return '5';
-			case 6:
-				return '6';
-			case 7:
-				return '7';
-			case 8:
-				return '8';
-			case 9:
-				return '9';
-			case 10:
-				return upCase ? 'A' : 'a';
-			case 11:
-				return upCase ? 'B' : 'b';
-			case 12:
-				return upCase ? 'C' : 'c';
-			case 13:
-				return upCase ? 'D' : 'd';
-			case 14:
-				return upCase ? 'E' : 'e';
-			case 15:
-				return upCase ? 'F' : 'f';
-			default:
-				throw new IllegalArgumentException("val必须为0～15的数值：" + val);
+		case 0:
+			return '0';
+		case 1:
+			return '1';
+		case 2:
+			return '2';
+		case 3:
+			return '3';
+		case 4:
+			return '4';
+		case 5:
+			return '5';
+		case 6:
+			return '6';
+		case 7:
+			return '7';
+		case 8:
+			return '8';
+		case 9:
+			return '9';
+		case 10:
+			return upCase ? 'A' : 'a';
+		case 11:
+			return upCase ? 'B' : 'b';
+		case 12:
+			return upCase ? 'C' : 'c';
+		case 13:
+			return upCase ? 'D' : 'd';
+		case 14:
+			return upCase ? 'E' : 'e';
+		case 15:
+			return upCase ? 'F' : 'f';
+		default:
+			throw new IllegalArgumentException("val必须为0～15的数值：" + val);
 		}
 	}
-	private static final char[] HEX_UPPERCASE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 
-		'A', 'B', 'C', 'D', 'E', 'F'};
+	private static final char[] HEX_UPPERCASE = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+			'A', 'B', 'C', 'D', 'E', 'F'};
 	/**
 	 * 将字节以16进制字符串显示
 	 * @param bytes 数组
@@ -443,16 +476,52 @@ public class ByteUtil {
 		hexStr.deleteCharAt(hexStr.length() - 1);
 		return hexStr.toString();
 	}
-	
-	public static byte[] toBytes4HexString(String str){
+
+	public static byte[] toBytes4HexString(String str,char... separateds){
 		if(str==null)
 			return new byte[0];
-		
-		String[] strArr = str.split(" ");
-		byte[] array = new byte[strArr.length];
-		for(int i=0; i<strArr.length; i++) {
-			array[i] = (byte)Integer.parseInt(strArr[i], 16);
+		char separated = ' ';
+		if(separateds!=null&&separateds.length==1){
+			separated=separateds[0];
+			String[] strArr = str.split(separated+"");
+			byte[] array = new byte[strArr.length];
+			for(int i=0; i<strArr.length; i++) {
+				array[i] = (byte)Integer.parseInt(strArr[i], 16);
+			}
+			return array;
+		}else{
+			byte[] array = new byte[str.length()/2];
+			int beginIndex=0;
+			for(int i=0;beginIndex<str.length();i++){
+				array[i] = (byte)Integer.parseInt(str.substring(beginIndex, beginIndex+2), 16);
+				beginIndex+=2;
+			}
+			return array;
 		}
-		return array;
+	}
+
+
+	/**
+	 * 将字节以16进制字符串显示
+	 * @param bytes 数组
+	 * @param separated 数组
+	 * @param pos 数组
+	 * @param len 数组
+	 * @return 字符串
+	 */
+	public static String toIntString(byte[] bytes, char separated, int pos, int len) {
+		if(bytes == null || bytes.length <= 0 || len == 0) {
+			return "";
+		}
+		if(pos < 0 || len < 0 || (pos + len) > bytes.length) {
+			throw new IllegalArgumentException("参数范围错误：pos(" + pos + ") < 0 || len(" + len + ") < 0 " +
+					"|| (pos + len) > bytes.length(" + bytes.length + ")");
+		}
+		StringBuilder str = new StringBuilder();
+		for(int i=pos; i<(pos+len); i++) {
+			str.append(bytes2Int(bytes[i])).append(separated);
+		}
+		str.deleteCharAt(str.length() - 1);
+		return str.toString();
 	}
 }

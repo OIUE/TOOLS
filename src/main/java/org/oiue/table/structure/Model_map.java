@@ -15,7 +15,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.oiue.tools.StatusResult;
 import org.oiue.tools.date.DateUtil;
+import org.oiue.tools.exception.OIUEException;
 import org.oiue.tools.map.MapUtil;
 import org.oiue.tools.string.StringUtil;
 
@@ -216,11 +218,10 @@ public abstract class Model_map extends Model_root implements Serializable{
 	 *  
 	 *  Jan 4, 2011 4:10:29 PM 
 	 * @return getValueStr
-	 * @throws Exception 为知的异常
 	 */
-	public String getValueStr() throws Exception{
+	public String getValueStr() {
 		if (_fieldValue==null) {
-			throw new Exception("");
+			throw new OIUEException(StatusResult._blocking_errors,"");
 		}
 		return MapUtil.mapValueStrForMysql(_fieldValue, this.getDelimiterRecord());
 	}
@@ -236,11 +237,10 @@ public abstract class Model_map extends Model_root implements Serializable{
 	 *  Jan 4, 2011 4:10:35 PM 
 	 * @param split 分隔符
 	 * @return getValueStr
-	 * @throws Exception 为知的异常
 	 */
-	public String getValueStr(String split) throws Exception{
+	public String getValueStr(String split) {
 		if (_fieldValue==null) {
-			throw new Exception("");
+			throw new OIUEException(StatusResult._blocking_errors,"");
 		}
 		return MapUtil.mapValueStrForMysql(_fieldValue, split);
 	}

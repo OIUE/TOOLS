@@ -456,11 +456,11 @@ public class ListUtil {
 
 	/**
 	 * 不排序二维数据转换成树状结构
-	 * @param source
-	 * @param key
-	 * @param parentKey
-	 * @param childKey
-	 * @return
+	 * @param source source list
+	 * @param key tree key
+	 * @param parentKey tree parent key
+	 * @param childKey child key
+	 * @return 树结构
 	 */
 	public static List<Map> convertToTree(List<Map> source, String key, String parentKey, String childKey) {
 		return convertToTree(source, null, childKey, parentKey, childKey, null);

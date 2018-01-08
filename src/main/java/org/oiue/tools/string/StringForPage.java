@@ -22,13 +22,6 @@ import javax.servlet.ServletContext;
 public class StringForPage {
 
 	/**
-	 * 
-	 */
-	public StringForPage() {
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * 方法说明：
 	 *			滤除帖子中的危险 HTML 代码, 主要是脚本代码, 滚动字幕代码以及脚本事件处理代码
 	 *CreateTime Apr 18, 2009 2:11:50 PM

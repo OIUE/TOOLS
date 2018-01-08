@@ -438,9 +438,9 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 小时
-	 * @throws Throwable 为知异常
+	 * @throws ParseException  Parse Exception
 	 */
-	public static long getHoursOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
+	public static long getHoursOfTowDiffDate(String p_startDate, String p_endDate) throws ParseException {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / (1000 * 60 * 60);
 	}
 
@@ -450,9 +450,9 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 分钟
-	 * @throws Throwable 为知异常
+	 * @throws ParseException Parse Exception
 	 */
-	public static long getMinutesOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
+	public static long getMinutesOfTowDiffDate(String p_startDate, String p_endDate) throws ParseException {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / (1000 * 60);
 	}
 
@@ -462,9 +462,9 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 秒
-	 * @throws Throwable 为知异常
+	 * @throws ParseException Parse Exception
 	 */
-	public static long getSecondsOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
+	public static long getSecondsOfTowDiffDate(String p_startDate, String p_endDate) throws ParseException {
 		return (long) getMillisOfTowDiffDate(p_startDate, p_endDate) / 1000;
 	}
 
@@ -474,9 +474,9 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 毫秒
-	 * @throws Throwable 为知异常
+	 * @throws ParseException Parse Exception
 	 */
-	public static long getMillisOfTowDiffDate(String p_startDate, String p_endDate) throws Throwable {
+	public static long getMillisOfTowDiffDate(String p_startDate, String p_endDate) throws ParseException {
 		Date l_startDate = toUtilDateFromStrDateByFormat(p_startDate, "yyyy-MM-dd HH:mm:ss");
 		Date l_endDate = toUtilDateFromStrDateByFormat(p_endDate, "yyyy-MM-dd HH:mm:ss");
 		long l_startTime = getMillisOfDate(l_startDate);
@@ -489,9 +489,8 @@ public class TimeUtil extends StringForDate {
 	 * @param p_startDate 起始时间
 	 * @param p_endDate 结束时间
 	 * @return 时差 毫秒
-	 * @throws Throwable 为知异常
 	 */
-	public static long getMillisOfTowDiffDate(Date p_startDate, Date p_endDate) throws Throwable {
+	public static long getMillisOfTowDiffDate(Date p_startDate, Date p_endDate) {
 		long l_startTime = getMillisOfDate(p_startDate);
 		long l_endTime = getMillisOfDate(p_endDate);
 		return (long) (l_endTime - l_startTime);
@@ -500,9 +499,9 @@ public class TimeUtil extends StringForDate {
 	/**
 	 * 获取当天的秒数
 	 * @return long
-	 * @throws Throwable 为知异常
+	 * @throws ParseException Parse Exception
 	 */
-	public static long getSeconds() throws Throwable{
+	public static long getSeconds() throws ParseException{
 		return getMillisOfTowDiffDate(getNowOfDateByFormat("yyyy-MM-dd 00:00:00"),getNowOfDateByFormat("yyyy-MM-dd HH:mm:ss"));
 	}
 }

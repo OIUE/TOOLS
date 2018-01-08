@@ -506,7 +506,7 @@ public class StringUtil {
 //	}
 //
 //	// Test only.
-//	public static void main(String[] args) throws Exception {
+//	public static void main(String[] args)  {
 //		//System.out.println(textToHtml("1<2\r\nBold"));
 //		//System.out.println(scriptAlert("oh!"));
 //		//System.out.println(scriptRedirect("http://localhost/"));

@@ -6,10 +6,10 @@ import org.oiue.table.structure.TableModel;
 
 @SuppressWarnings({ "serial"})
 public class ForeignField extends FieldExt implements Serializable{
-	public ForeignField(TableModel tm) throws Throwable {
+	public ForeignField(TableModel tm) {
 		super(tm);
 	}
-	public ForeignField(TableModel tm,String pkTableName,String columnName) throws Throwable{
+	public ForeignField(TableModel tm,String pkTableName,String columnName){
 		super(tm);
 //		this.setName(field.getName());
 //		this.setComment(field.getComment());

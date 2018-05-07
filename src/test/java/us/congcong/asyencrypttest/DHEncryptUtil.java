@@ -11,12 +11,11 @@ import javax.crypto.SecretKey;
 
 /**
  * 
- * @author Every E-mail/MSN:mwgjkf@hotmail.com
- *               QQ:30130942
+ * @author Every E-mail/MSN:mwgjkf@hotmail.com QQ:30130942
  *
  */
 public class DHEncryptUtil {
-
+	
 	/**
 	 * 加密
 	 * @param content
@@ -28,7 +27,7 @@ public class DHEncryptUtil {
 	 * @throws IllegalBlockSizeException
 	 * @throws BadPaddingException
 	 */
-	public static byte[] encrypt(byte[] content, SecretKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+	public static byte[] encrypt(byte[] content, SecretKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		Cipher cipher = Cipher.getInstance("DES");
 		cipher.init(Cipher.ENCRYPT_MODE, key);
 		byte[] encodeResult = cipher.doFinal(content);
@@ -46,7 +45,7 @@ public class DHEncryptUtil {
 	 * @throws IllegalBlockSizeException
 	 * @throws BadPaddingException
 	 */
-	public static byte[] decrypt(byte[] content, SecretKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+	public static byte[] decrypt(byte[] content, SecretKey key) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		Cipher cipher = Cipher.getInstance("DES");
 		cipher.init(Cipher.DECRYPT_MODE, key);
 		byte[] decodeResult = cipher.doFinal(content);

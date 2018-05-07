@@ -9,9 +9,9 @@ import java.io.InputStream;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-@SuppressWarnings({ "resource", "unused", "restriction"})
+@SuppressWarnings({ "resource", "unused"})
 public class FileBase64Convert {
-
+	
 	public static String ioToBase64(String fileName) throws IOException {
 		String strBase64 = null;
 		InputStream in = new FileInputStream(fileName);
@@ -23,6 +23,7 @@ public class FileBase64Convert {
 		in.close();
 		return strBase64;
 	}
+	
 	public static void base64ToIo(String strBase64, String fileName) throws IOException {
 		String string = strBase64;
 		// 解码，然后将字节转换为文件

@@ -36,14 +36,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class Lz implements LzConsts {
-
-	//=======================================================================
+	
+	// =======================================================================
 	// Helper IO methods to hide the try/catch awkwardness
-	//=======================================================================
-
+	// =======================================================================
+	
 	// Open a file for writing and attached to a buffer
 	public BufferedOutputStream file_open_write(String op_filename) {
-
+		
 		try {
 			FileOutputStream fos = new FileOutputStream(new File(op_filename));
 			return new BufferedOutputStream(fos);
@@ -51,13 +51,13 @@ public class Lz implements LzConsts {
 			e.printStackTrace(System.err);
 			System.exit(1);
 		}
-
+		
 		return null;
 	}
-
+	
 	// Open a file for reading and attached to a buffer
 	public BufferedInputStream file_open_read(String ip_filename) {
-
+		
 		try {
 			FileInputStream fis = new FileInputStream(new File(ip_filename));
 			return new BufferedInputStream(fis);
@@ -65,25 +65,25 @@ public class Lz implements LzConsts {
 			e.printStackTrace(System.err);
 			System.exit(1);
 		}
-
+		
 		return null;
 	}
-
+	
 	// Get a byte from a buffered input
 	public short getc(BufferedInputStream ip) {
 		int rbyte;
-
+		
 		try {
 			rbyte = ip.read();
-			return (short)rbyte;
+			return (short) rbyte;
 		} catch (IOException e) {
 			e.printStackTrace(System.err);
 			System.exit(1);
 		}
-
+		
 		return 0;
 	}
-
+	
 	// Write a byte to a buffered input
 	public void putc(byte val, BufferedOutputStream op) {
 		try {
@@ -93,7 +93,7 @@ public class Lz implements LzConsts {
 			System.exit(1);
 		}
 	}
-
+	
 	public void flush(BufferedOutputStream op) {
 		try {
 			op.flush();

@@ -8,26 +8,25 @@ import java.util.List;
 public class WeekdayUtil {
 	private static List<String> _WeekendIsWork;
 	private static List<String> _WeekdayIsHoliday;
-
+	
 	public List<String> getWeekendIsWork() {
 		return _WeekendIsWork;
 	}
-
+	
 	public void setWeekendIsWork(List<String> _WeekendIsWork) {
 		WeekdayUtil._WeekendIsWork = _WeekendIsWork;
 	}
-
+	
 	public List<String> getWeekdayIsHoliday() {
 		return _WeekdayIsHoliday;
 	}
-
+	
 	public void setWeekdayIsHoliday(List<String> _WeekdayIsHoliday) {
 		WeekdayUtil._WeekdayIsHoliday = _WeekdayIsHoliday;
 	}
-
+	
 	/**
-	 *  判断两个日期是否在指定工作日内
-	 *  (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
+	 * 判断两个日期是否在指定工作日内 (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
 	 * @author chanson
 	 * @param beforeDate 前时间
 	 * @param afterDate 后时间
@@ -39,7 +38,7 @@ public class WeekdayUtil {
 		try {
 			java.util.Date d1 = sdf.parse(beforeDate);
 			java.util.Date d2 = sdf.parse(afterDate);
-
+			
 			// 工作日
 			int workDay = 0;
 			GregorianCalendar gc = new GregorianCalendar();
@@ -62,9 +61,9 @@ public class WeekdayUtil {
 			return false;
 		}
 	}
+	
 	/**
-	 *  获取两个日期的工作日
-	 *  (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
+	 * 获取两个日期的工作日 (只计算周六和周日) 例如：前时间2008-12-05，后时间2008-12-11
 	 * @author chanson
 	 * @param beforeDate 前时间
 	 * @param afterDate 后时间
@@ -72,26 +71,25 @@ public class WeekdayUtil {
 	 * @throws ParseException 转换异常
 	 */
 	public int getWeekday(java.util.Date beforeDate, java.util.Date afterDate) throws ParseException {
-			// 工作日
-			int workDay = 0;
-			GregorianCalendar gc = new GregorianCalendar();
-			gc.setTime(beforeDate);
-			// 两个日期相差的天数
-			long time = afterDate.getTime() - beforeDate.getTime();
-			long day = time / 3600000 / 24 + 1;
-			for (int i = 0; i < day; i++) {
-				if (isWeekday(gc)) {
-					workDay++;// System.out.println(gc.getTime());
-				}
-				// 往后加1天
-				gc.add(GregorianCalendar.DATE, 1);
+		// 工作日
+		int workDay = 0;
+		GregorianCalendar gc = new GregorianCalendar();
+		gc.setTime(beforeDate);
+		// 两个日期相差的天数
+		long time = afterDate.getTime() - beforeDate.getTime();
+		long day = time / 3600000 / 24 + 1;
+		for (int i = 0; i < day; i++) {
+			if (isWeekday(gc)) {
+				workDay++;// System.out.println(gc.getTime());
 			}
-			return workDay;
+			// 往后加1天
+			gc.add(GregorianCalendar.DATE, 1);
+		}
+		return workDay;
 	}
-
+	
 	/**
-	 *  判断是否为工作日
-	 *  工作日计算: 1、正常工作日，并且为非假期 2、周末被调整成工作日
+	 * 判断是否为工作日 工作日计算: 1、正常工作日，并且为非假期 2、周末被调整成工作日
 	 * @author chanson
 	 * @param calendar 日期
 	 * @return 是工作日返回true，非工作日返回false
@@ -106,42 +104,42 @@ public class WeekdayUtil {
 			return getWeekendIsWork().contains(sdf.format(calendar.getTime()));
 		}
 	}
-
-//	/**
-//	 *  获取周六和周日是工作日的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
-//	 * @author chanson
-//	 * @return 周末是工作日的列表
-//	 */
-//	public List getWeekendIsWorkDateList() {
-//		List list = new ArrayList();
-//		list.add("2009-01-04");
-//		list.add("2009-01-24");
-//		list.add("2009-02-01");
-//		list.add("2009-05-31");
-//		list.add("2009-09-27");
-//		list.add("2009-10-10");
-//		return list;
-//	}
-//
-//	/**
-//	 *  获取周一到周五是假期的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
-//	 * @author chanson
-//	 * @return 平时是假期的列表
-//	 */
-//	public List getWeekdayIsHolidayList() {
-//		List list = new ArrayList();
-//		list.add("2009-01-29");
-//		list.add("2009-01-30");
-//		list.add("2009-04-06");
-//		list.add("2009-05-01");
-//		list.add("2009-05-28");
-//		list.add("2009-05-29");
-//		list.add("2009-10-01");
-//		list.add("2009-10-02");
-//		list.add("2009-10-05");
-//		list.add("2009-10-06");
-//		list.add("2009-10-07");
-//		list.add("2009-10-08");
-//		return list;
-//	}
+	
+	// /**
+	// * 获取周六和周日是工作日的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
+	// * @author chanson
+	// * @return 周末是工作日的列表
+	// */
+	// public List getWeekendIsWorkDateList() {
+	// List list = new ArrayList();
+	// list.add("2009-01-04");
+	// list.add("2009-01-24");
+	// list.add("2009-02-01");
+	// list.add("2009-05-31");
+	// list.add("2009-09-27");
+	// list.add("2009-10-10");
+	// return list;
+	// }
+	//
+	// /**
+	// * 获取周一到周五是假期的情况（手工维护） 注意，日期必须写全： 2009-1-4必须写成：2009-01-04
+	// * @author chanson
+	// * @return 平时是假期的列表
+	// */
+	// public List getWeekdayIsHolidayList() {
+	// List list = new ArrayList();
+	// list.add("2009-01-29");
+	// list.add("2009-01-30");
+	// list.add("2009-04-06");
+	// list.add("2009-05-01");
+	// list.add("2009-05-28");
+	// list.add("2009-05-29");
+	// list.add("2009-10-01");
+	// list.add("2009-10-02");
+	// list.add("2009-10-05");
+	// list.add("2009-10-06");
+	// list.add("2009-10-07");
+	// list.add("2009-10-08");
+	// return list;
+	// }
 }

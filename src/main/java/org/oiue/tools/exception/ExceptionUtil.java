@@ -8,7 +8,7 @@ package org.oiue.tools.exception;
  *
  */
 public class ExceptionUtil {
-	public static String getCausedBySrcMsg(Throwable e){
-		return (e.getCause()==null)?e.getMessage():getCausedBySrcMsg(e.getCause());
+	public static String getCausedBySrcMsg(Throwable e) {
+		return (e.getCause() == null) ? e.getMessage() : getCausedBySrcMsg(e.getCause());
 	}
 }

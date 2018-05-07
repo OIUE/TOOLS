@@ -20,12 +20,12 @@ import org.oiue.tools.exception.OIUEException;
  */
 @SuppressWarnings({ "unused", "rawtypes", "unchecked", "serial" })
 public class StructureTable extends TableModel implements Serializable {
-
+	
 	private int _havaNum = 0;
 	private boolean _havaChild = true;
 	private int _childNum = 0;
 	private boolean _isUpperCaseKey = true;
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -37,14 +37,14 @@ public class StructureTable extends TableModel implements Serializable {
 			this.getDyn_data().clear();
 		this.setDyn_data(new HashMap());
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.oiue.table.structure.Model_root#set(java.sql.ResultSet)
 	 */
 	@Override
-	public boolean set(ResultSet rs)  {
+	public boolean set(ResultSet rs) {
 		try {
 			ResultSetMetaData rsmd = rs.getMetaData();
 			int sum = rsmd.getColumnCount();
@@ -62,10 +62,10 @@ public class StructureTable extends TableModel implements Serializable {
 			}
 			return true;
 		} catch (Exception e) {
-			throw new OIUEException(StatusResult._blocking_errors, "",e);
+			throw new OIUEException(StatusResult._blocking_errors, "", e);
 		}
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -73,31 +73,31 @@ public class StructureTable extends TableModel implements Serializable {
 	 */
 	@Override
 	public String toString(String specDelimiterRecord) {
-		return this.getMapData()+"";
+		return this.getMapData() + "";
 	}
-
+	
 	public int getHavaNum() {
 		return _havaNum;
 	}
-
+	
 	public void setHavaNum(int havaNum) {
 		this._havaNum = havaNum;
 	}
-
+	
 	public boolean isHavaChild() {
 		return _havaChild;
 	}
-
+	
 	public void setHavaChild(boolean havaChild) {
 		this._havaChild = havaChild;
 	}
-
+	
 	public int getChildNum() {
 		return _childNum;
 	}
-
+	
 	public void setChildNum(int childNum) {
 		this._childNum = childNum;
 	}
-
+	
 }

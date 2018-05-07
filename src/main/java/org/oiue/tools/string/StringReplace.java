@@ -3,27 +3,21 @@
  */
 package org.oiue.tools.string;
 
-/** 
+/**
  * 类说明:
- *		
- * @author Every E-mail/MSN:mwgjkf@hotmail.com
- *               QQ:30130942
- *  StringReplace 1.0  Apr 18, 2009 12:15:14 PM
- * StringReplace
+ * 
+ * @author Every E-mail/MSN:mwgjkf@hotmail.com QQ:30130942 StringReplace 1.0 Apr 18, 2009 12:15:14 PM StringReplace
  */
 public class StringReplace {
-
+	
 	/**
 	 * 
 	 */
 	public StringReplace() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	/**
-	 * 方法说明：
-	 *			将字符串 sourceStr 中的 oldChar 替换为 newChar
-	 *CreateTime Apr 18, 2009 12:15:54 PM
+	 * 方法说明： 将字符串 sourceStr 中的 oldChar 替换为 newChar CreateTime Apr 18, 2009 12:15:54 PM
 	 * @param sourceStr 源字符串
 	 * @param oldChar 原字符
 	 * @param newChar 新字符
@@ -35,18 +29,16 @@ public class StringReplace {
 		}
 		return sourceStr.replace(oldChar, newChar);
 	}
-		
+	
 	/**
-	 * 方法说明：
-	 *			将字符串 sourceStr 中的 oldStr 替换为 newStr, matchCase 为是否设置大小写敏感查找
-	 *CreateTime Apr 18, 2009 12:28:05 PM
+	 * 方法说明： 将字符串 sourceStr 中的 oldStr 替换为 newStr, matchCase 为是否设置大小写敏感查找 CreateTime Apr 18, 2009 12:28:05 PM
 	 * @param sourceStr 需要替换的源字符串
 	 * @param oldStr 需要被替换的老字符串
 	 * @param newStr 替换为的新字符串
 	 * @param matchCase 是否需要按照大小写敏感方式查找
 	 * @return 替换后的字符串
 	 */
-	public static String replace(String sourceStr, String oldStr, String newStr,boolean matchCase) {
+	public static String replace(String sourceStr, String oldStr, String newStr, boolean matchCase) {
 		if (sourceStr == null) {
 			return null;
 		}
@@ -84,9 +76,7 @@ public class StringReplace {
 	}
 	
 	/**
-	 * 方法说明：
-	 *			将字符串 sourceStr 中的 oldStr 替换为 newStr, 并以大小写不敏感方式进行查找替换
-	 *CreateTime Apr 18, 2009 12:31:02 PM
+	 * 方法说明： 将字符串 sourceStr 中的 oldStr 替换为 newStr, 并以大小写不敏感方式进行查找替换 CreateTime Apr 18, 2009 12:31:02 PM
 	 * @param sourceStr 需要替换的源字符串
 	 * @param oldStr 需要被替换的老字符串
 	 * @param newStr 替换为的新字符串
@@ -97,9 +87,7 @@ public class StringReplace {
 	}
 	
 	/**
-	 * 方法说明：
-	 *			将字符串 sourceStr 中的 oldStr 替换为 newStr, 并以大小写敏感方式进行查找替换
-	 *CreateTime Apr 18, 2009 12:25:07 PM
+	 * 方法说明： 将字符串 sourceStr 中的 oldStr 替换为 newStr, 并以大小写敏感方式进行查找替换 CreateTime Apr 18, 2009 12:25:07 PM
 	 * @param sourceStr 需要替换的源字符串
 	 * @param oldStr 替换掉的字符串
 	 * @param newStr 替换成新字符串
@@ -112,5 +100,4 @@ public class StringReplace {
 		return sourceStr.replaceAll(oldStr, newStr);
 	}
 	
-
 }

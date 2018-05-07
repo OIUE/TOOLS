@@ -11,23 +11,22 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
 /**
- *CloneTools 
- * 类说明:
+ * CloneTools 类说明:
  * 
  * 
  * 
  * @author Every(王勤)
- *  
- *  Mar 24, 2011 7:01:51 PM 
+ * 
+ *         Mar 24, 2011 7:01:51 PM
  */
 @SuppressWarnings("serial")
 public class CloneTools implements Serializable {
 	Object o;
-
+	
 	public Object getO() {
 		return o;
 	}
-
+	
 	public void setO(Object o) {
 		this.o = o;
 	}
@@ -40,24 +39,23 @@ public class CloneTools implements Serializable {
 		// 将流序列化成对象
 		ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
 		ObjectInputStream ois = new ObjectInputStream(bis);
-		bos=null;
-		oos=null;
-		bis=null;
+		bos = null;
+		oos = null;
+		bis = null;
 		return ois.readObject();
 	}
 	
 	/**
-	 * 底层克隆对象
-	 * 利用序列化反序列化深层克隆对象
+	 * 底层克隆对象 利用序列化反序列化深层克隆对象
 	 * 
 	 * @param o src clone object
 	 * @return clone object
 	 * @throws ClassNotFoundException class not found
 	 * @throws IOException io
 	 */
-	public static Object clone(Object o) throws ClassNotFoundException, IOException{
+	public static Object clone(Object o) throws ClassNotFoundException, IOException {
 		CloneTools clone = new CloneTools();
 		clone.setO(o);
-		return ((CloneTools)clone.deepCopy()).getO();
+		return ((CloneTools) clone.deepCopy()).getO();
 	}
 }

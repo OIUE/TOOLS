@@ -29,7 +29,7 @@ public class SecurityUtil {
 	public static final String PRIVATE_KEY = "DHPrivateKey";
 	// 开始生成本地密钥SecretKey 密钥算法为对称密码算法可以为 DES DES AES
 	public static final String KEY_DH_DES = "DES";
-
+	
 	/**
 	 * 甲方初始化并返回密钥对
 	 * @return Map&lt;String, Object&gt;
@@ -55,7 +55,7 @@ public class SecurityUtil {
 			throw new OIUEException(StatusResult._ncriticalAbnormal, "", e);
 		}
 	}
-
+	
 	/**
 	 * 乙方根据甲方公钥初始化并返回密钥对
 	 * @param key 甲方的公钥
@@ -90,7 +90,7 @@ public class SecurityUtil {
 			throw new OIUEException(StatusResult._ncriticalAbnormal, "", e);
 		}
 	}
-
+	
 	/**
 	 * 根据对方的公钥和自己的私钥生成 本地密钥,返回的是SecretKey对象的字节数组
 	 * @param publicKey 公钥
@@ -104,7 +104,7 @@ public class SecurityUtil {
 			throw new OIUEException(StatusResult._ncriticalAbnormal, "", e);
 		}
 	}
-
+	
 	/**
 	 * 根据对方的公钥和自己的私钥生成 本地密钥,返回的是SecretKey对象
 	 * @param publicKey 公钥
@@ -121,7 +121,7 @@ public class SecurityUtil {
 			// 将私钥从字节数组转换为PrivateKey
 			PKCS8EncodedKeySpec priKeySpec = new PKCS8EncodedKeySpec(privateKey);
 			PrivateKey priKey = keyFactory.generatePrivate(priKeySpec);
-
+			
 			// 准备根据以上公钥和私钥生成本地密钥SecretKey
 			// 先实例化KeyAgreement
 			KeyAgreement keyAgreement = KeyAgreement.getInstance(KEY_DH);
@@ -136,7 +136,7 @@ public class SecurityUtil {
 			throw new OIUEException(StatusResult._ncriticalAbnormal, "", e);
 		}
 	}
-
+	
 	/**
 	 * 从 Map 中取得公钥
 	 * 
@@ -147,7 +147,7 @@ public class SecurityUtil {
 		DHPublicKey key = (DHPublicKey) keyMap.get(PUBLIC_KEY);
 		return key.getEncoded();
 	}
-
+	
 	/**
 	 * 从 Map 中取得私钥
 	 * @param keyMap key map
@@ -157,7 +157,7 @@ public class SecurityUtil {
 		DHPrivateKey key = (DHPrivateKey) keyMap.get(PRIVATE_KEY);
 		return key.getEncoded();
 	}
-
+	
 	/**
 	 * DH 加密
 	 * 
@@ -180,7 +180,7 @@ public class SecurityUtil {
 		}
 		return bytes;
 	}
-
+	
 	/**
 	 * DH 解密
 	 * 

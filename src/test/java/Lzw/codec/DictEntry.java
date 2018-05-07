@@ -32,9 +32,7 @@
 
 package Lzw.codec;
 
-public class DictEntry
-{
-    protected int          pointer;
-    protected byte         byte_val;
+public class DictEntry {
+	protected int pointer;
+	protected byte byte_val;
 }
-

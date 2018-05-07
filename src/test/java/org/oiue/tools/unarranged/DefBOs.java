@@ -21,26 +21,25 @@ import org.oiue.tools.map.MapUtil;
 
 @SuppressWarnings({ "unchecked", "unused", "serial", "rawtypes" })
 public class DefBOs extends TableModel implements Serializable {
-
+	
 	private int isUpperCaseKey = 1;
 	/**
 	 * 存储数据记录
 	 */
 	private HashMap hashtable = new HashMap();
-
+	
 	public DefBOs() {
 		hashtable = new HashMap();
 	}
-
+	
 	public DefBOs(HashMap h) {
 		hashtable = h;
 	}
-
+	
 	/**
 	 * 
 	 * @param bean
-	 * @param list
-	 *            移除字段集合ArrayList
+	 * @param list 移除字段集合ArrayList
 	 */
 	public DefBOs(Object bean, List list) {
 		hashtable = new HashMap();
@@ -73,12 +72,12 @@ public class DefBOs extends TableModel implements Serializable {
 			hashtable.put(fieldName, fieldValue == null ? "" : fieldValue);
 		}
 	}
-
+	
 	public String getJson() {
-//		return JSONObject.fromObject(hashtable).toString();
+		// return JSONObject.fromObject(hashtable).toString();
 		return null;
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -87,16 +86,15 @@ public class DefBOs extends TableModel implements Serializable {
 	@Override
 	public void clear() {
 		hashtable = new HashMap();
-		// TODO Auto-generated method stub
 	}
-
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see com.by.boss.db.table.structure.TableBean#set(java.sql.ResultSet)
 	 */
 	@Override
-	public boolean set(ResultSet rs)  {
+	public boolean set(ResultSet rs) {
 		try {
 			ResultSetMetaData rsmd = rs.getMetaData();
 			int sum = rsmd.getColumnCount();
@@ -116,7 +114,7 @@ public class DefBOs extends TableModel implements Serializable {
 			return false;
 		}
 	}
-
+	
 	public Map getMapRemoveID() {
 		ArrayList list = new ArrayList();
 		list.add("havaNum");
@@ -143,7 +141,6 @@ public class DefBOs extends TableModel implements Serializable {
 			try {
 				throw new Exception("表名和主键名不能为空！使用SQLModel对象时，请指定表名和主键名。");
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -153,7 +150,7 @@ public class DefBOs extends TableModel implements Serializable {
 		}
 		return fieldMap;
 	}
-
+	
 	@Override
 	public Map getMapRemoveStructure() {
 		Map hm = getMapRemoveID();
@@ -168,7 +165,7 @@ public class DefBOs extends TableModel implements Serializable {
 		}
 		return hm;
 	}
-
+	
 	@Override
 	public String getKeyRemoveStruture() {
 		if (_fieldValue == null) {
@@ -176,22 +173,21 @@ public class DefBOs extends TableModel implements Serializable {
 		}
 		return MapUtil.mapKeyStr(_fieldValue, ",");
 	}
-
+	
 	@Override
 	public Object put(Map map) {
 		hashtable.putAll(map);
 		return this;
 	}
-
+	
 	@Override
 	public Object getValue(String fieldName) {
-
+		
 		return hashtable.get(fieldName) == null ? hashtable.get(fieldName.toUpperCase()) : hashtable.get(fieldName);
 	}
-
+	
 	@Override
 	public String toString(String specDelimiterRecord) {
-		// TODO Auto-generated method stub
 		StringBuffer tmpStr = new StringBuffer();
 		for (Iterator iterator = hashtable.keySet().iterator(); iterator.hasNext();) {
 			Object key = iterator.next();
@@ -199,24 +195,24 @@ public class DefBOs extends TableModel implements Serializable {
 		}
 		return tmpStr.toString();
 	}
-
+	
 	public HashMap getHashtable() {
 		return hashtable;
 	}
-
+	
 	@Override
 	public HashMap getMapData() {
 		return this.getHashtable();
 	}
-
+	
 	public void setHashtable(HashMap hashtable) {
 		this.hashtable = hashtable;
 	}
-
+	
 	public int getIsUpperCaseKey() {
 		return isUpperCaseKey;
 	}
-
+	
 	public void setIsUpperCaseKey(int isUpperCaseKey) {
 		this.isUpperCaseKey = isUpperCaseKey;
 	}

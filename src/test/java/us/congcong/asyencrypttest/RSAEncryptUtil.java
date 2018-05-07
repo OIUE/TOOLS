@@ -15,8 +15,7 @@ import javax.crypto.NoSuchPaddingException;
 
 /**
  * RSA加解密算法
- * @author Every E-mail/MSN:mwgjkf@hotmail.com
- *               QQ:30130942
+ * @author Every E-mail/MSN:mwgjkf@hotmail.com QQ:30130942
  * @site oiue.org
  *
  */
@@ -33,7 +32,7 @@ public class RSAEncryptUtil {
 	 * @throws BadPaddingException
 	 * @throws NoSuchPaddingException
 	 */
-	public static byte[] encryptByPriKey(byte[] content, byte[] privateKey) throws InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException{
+	public static byte[] encryptByPriKey(byte[] content, byte[] privateKey) throws InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchPaddingException {
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 		Key priKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKey));
 		
@@ -56,7 +55,7 @@ public class RSAEncryptUtil {
 	 * @throws IllegalBlockSizeException
 	 * @throws BadPaddingException
 	 */
-	public static byte[] decryptByPubKey(byte[] content, byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+	public static byte[] decryptByPubKey(byte[] content, byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 		Key pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKey));
 		
@@ -79,7 +78,7 @@ public class RSAEncryptUtil {
 	 * @throws BadPaddingException
 	 * @throws InvalidKeyException
 	 */
-	public static byte[] encryptByPubKey(byte[] content, byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException{
+	public static byte[] encryptByPubKey(byte[] content, byte[] publicKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 		Key pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKey));
 		
@@ -102,7 +101,7 @@ public class RSAEncryptUtil {
 	 * @throws IllegalBlockSizeException
 	 * @throws BadPaddingException
 	 */
-	public static byte[] decryptByPriKey(byte[] content, byte[] privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException{
+	public static byte[] decryptByPriKey(byte[] content, byte[] privateKey) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 		KeyFactory keyFactory = KeyFactory.getInstance("RSA");
 		Key priKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKey));
 		

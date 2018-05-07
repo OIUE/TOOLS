@@ -9,29 +9,27 @@ import org.oiue.tools.StatusResult;
 import org.oiue.tools.exception.OIUEException;
 
 /**
- * @author VoLand
- *  URL:http://www.voland.com.cn/javabean-properties-to-achieve-high
- *         -performance-replication-tool-beanutils/comment-page-1#comment-2910
+ * @author VoLand URL:http://www.voland.com.cn/javabean-properties-to-achieve-high -performance-replication-tool-beanutils/comment-page-1#comment-2910
  */
-@SuppressWarnings( { "unchecked","unused","rawtypes"})
+@SuppressWarnings({ "unchecked", "unused", "rawtypes" })
 public class BeanUtils {
-
+	
 	private static HashMap<Class, Method[]> beanMethodCache = new HashMap<Class, Method[]>();
 	private static HashMap<Class, HashMap<String, Method>> fromBeanMethodCache = new HashMap<Class, HashMap<String, Method>>();
-
-	public static void copyProperties(Object dest, Object orig)throws IllegalAccessException, InvocationTargetException{
+	
+	public static void copyProperties(Object dest, Object orig) throws IllegalAccessException, InvocationTargetException {
 		Class[] classes = new Class[0];
 		Object[] objects = new Object[0];
 		try {
 			Class beanClass = dest.getClass();
 			Class formBeanClass = orig.getClass();
-
+			
 			Method[] beanMethods = beanMethodCache.get(beanClass);
 			if (beanMethods == null) {
 				beanMethods = beanClass.getMethods();
 				beanMethodCache.put(beanClass, beanMethods);
 			}
-
+			
 			HashMap<String, Method> fromBeanMethods = fromBeanMethodCache.get(formBeanClass);
 			if (fromBeanMethods == null) {
 				fromBeanMethods = new HashMap<String, Method>();
@@ -44,7 +42,7 @@ public class BeanUtils {
 				}
 				fromBeanMethodCache.put(formBeanClass, fromBeanMethods);
 			}
-
+			
 			String methodName = null;
 			String getMethodName = null;
 			Class[] paramsType = null;
@@ -56,7 +54,7 @@ public class BeanUtils {
 					paramsType = method.getParameterTypes();
 					if (paramsType.length != 1)
 						continue;
-
+					
 					paramType = paramsType[0];
 					if (paramType.isInstance(boolean.class)) {
 						getMethodName = "is" + methodName.substring(3);
@@ -78,31 +76,30 @@ public class BeanUtils {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * JavaBean属性拷贝扩展方法 支持类型转换
 	 * @author Every
 	 * @param target 拷贝对象
 	 * @param source 源对象
 	 */
-	public static void copyPropertiesExt(Object target, Object source)  {
+	public static void copyPropertiesExt(Object target, Object source) {
 		/**
-		 * 分别获得源对象和目标对象的Class类型对象,Class对象是整个反射机制的源头和灵魂！
-		 * Class对象是在类加载的时候产生,保存着类的相关属性，构造器，方法等信息
+		 * 分别获得源对象和目标对象的Class类型对象,Class对象是整个反射机制的源头和灵魂！ Class对象是在类加载的时候产生,保存着类的相关属性，构造器，方法等信息
 		 */
 		Class sourceClz = source.getClass();
 		Class targetClz = target.getClass();
 		// 得到Class对象所表征的类的所有属性(包括私有属性)
 		Field[] srcFields = sourceClz.getDeclaredFields();
 		Field[] tarFields = sourceClz.getDeclaredFields();
-		boolean initiative=srcFields.length>tarFields.length;
-		Field[] fields=initiative?tarFields:srcFields;
+		boolean initiative = srcFields.length > tarFields.length;
+		Field[] fields = initiative ? tarFields : srcFields;
 		
 		for (int i = 0; i < fields.length; i++) {
 			String fieldName = fields[i].getName();
 			Field passivityField = null;
 			try {
-				passivityField = (initiative?sourceClz:targetClz).getDeclaredField(fieldName);
+				passivityField = (initiative ? sourceClz : targetClz).getDeclaredField(fieldName);
 			} catch (SecurityException e) {
 				e.printStackTrace();
 				break;
@@ -117,32 +114,27 @@ public class BeanUtils {
 				// 由方法的名字得到get和set方法的Method对象
 				Method getMethod;
 				try {
-					getMethod = sourceClz.getDeclaredMethod(getMethodName,new Class[] {});
+					getMethod = sourceClz.getDeclaredMethod(getMethodName, new Class[] {});
 					Method setMethod = targetClz.getDeclaredMethod(setMethodName, fields[i].getType());
 					// 调用source对象的getMethod方法
 					Object result = getMethod.invoke(source, new Object[] {});
 					// 调用target对象的setMethod方法
 					setMethod.invoke(target, result);
 				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalArgumentException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IllegalAccessException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (InvocationTargetException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 			} else {
-				throw new OIUEException(StatusResult._blocking_errors,"同名属性类型不匹配！");
+				throw new OIUEException(StatusResult._blocking_errors, "同名属性类型不匹配！");
 			}
 		}
 	}
-
+	
 }

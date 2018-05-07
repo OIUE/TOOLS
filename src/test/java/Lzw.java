@@ -36,9 +36,9 @@
 import Lzw.codec.*;
 
 public class Lzw {
-    public static void main(String[] argv) {
-        Codec codec = new Codec();
-
-        codec.run(argv);
-    }
+	public static void main(String[] argv) {
+		Codec codec = new Codec();
+		
+		codec.run(argv);
+	}
 }

@@ -1,4 +1,5 @@
 package org.oiue.tools.file;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -18,7 +19,7 @@ public class FileMd5Utils {
 			e.printStackTrace();
 		}
 	}
-
+	
 	/**
 	 * 计算文件的MD5
 	 * 
@@ -30,7 +31,7 @@ public class FileMd5Utils {
 		File f = new File(fileName);
 		return getFileMD5String(f);
 	}
-
+	
 	/**
 	 * 计算文件的MD5，重载方法
 	 * 
@@ -46,11 +47,11 @@ public class FileMd5Utils {
 		messageDigest.update(byteBuffer);
 		return bufferToHex(messageDigest.digest());
 	}
-
+	
 	private static String bufferToHex(byte bytes[]) {
 		return bufferToHex(bytes, 0, bytes.length);
 	}
-
+	
 	private static String bufferToHex(byte bytes[], int m, int n) {
 		StringBuffer stringbuffer = new StringBuffer(2 * n);
 		int k = m + n;
@@ -59,12 +60,12 @@ public class FileMd5Utils {
 		}
 		return stringbuffer.toString();
 	}
-
+	
 	private static void appendHexPair(byte bt, StringBuffer stringbuffer) {
 		char c0 = hexDigits[(bt & 0xf0) >> 4];
 		char c1 = hexDigits[bt & 0xf];
 		stringbuffer.append(c0);
 		stringbuffer.append(c1);
 	}
-
+	
 }

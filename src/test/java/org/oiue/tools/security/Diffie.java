@@ -31,10 +31,6 @@ class Diffie {
 /*
  * OUTPUT
  * 
- * Enter prime number: 11 Enter primitive root of 11:7 Enter value for x less than 11: 3 
- * R1=2 Enter value for y less than 11:6 R2=4 Key 
- * calculated at Alice's side:9 
- * Key calculated at Bob's side:9
- * deffie hellman secret key Encryption has Taken
+ * Enter prime number: 11 Enter primitive root of 11:7 Enter value for x less than 11: 3 R1=2 Enter value for y less than 11:6 R2=4 Key calculated at Alice's side:9 Key calculated at Bob's side:9 deffie hellman secret key Encryption has Taken
  * 
  */

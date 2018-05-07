@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 @SuppressWarnings("serial")
-public class Replacer  implements Serializable{
+public class Replacer implements Serializable {
 	public static final String replace(String regex, Map<String, Object> map) {
 		if (map != null) {
 			for (Entry<String, Object> e : map.entrySet()) {
@@ -15,7 +15,7 @@ public class Replacer  implements Serializable{
 		}
 		return regex;
 	}
-
+	
 	public static final String replace(String regex, List<Object> list) {
 		if (list != null) {
 			for (int i = 0; i < list.size(); i++) {

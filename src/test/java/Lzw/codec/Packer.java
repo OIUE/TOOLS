@@ -38,64 +38,64 @@ import java.io.BufferedOutputStream;
 
 @SuppressWarnings("unused")
 public class Packer extends Lz {
-
+	
 	// Stats & config values
 	private int ip_codeword = NULLCW;
-
+	
 	private BufferedOutputStream op_file;
-
+	
 	// Barrel shift register used to formulate the output bytes
 	private long barrel = 0;
-
+	
 	// The residue count of unflushed bits left on the barrel shifter
 	private int residue = 0;
-
-	//=======================================================================
+	
+	// =======================================================================
 	// Constructors
-	//=======================================================================
-
+	// =======================================================================
+	
 	public Packer() {
 		op_file = new BufferedOutputStream(System.out);
 	}
-
+	
 	public Packer(boolean compmode, BufferedOutputStream ofp) {
 		op_file = ofp;
 	}
-
-	//=======================================================================
+	
+	// =======================================================================
 	// Method name: pack
 	//
 	// Description:
-	//    This method packs valid LZW codewords into the appropriate
-	//    sized packets (ie. 9 to 12 bits). The codeword length is passed
-	//    in as a parameter, as this is managed by the dictionary.
-	//=======================================================================
-
+	// This method packs valid LZW codewords into the appropriate
+	// sized packets (ie. 9 to 12 bits). The codeword length is passed
+	// in as a parameter, as this is managed by the dictionary.
+	// =======================================================================
+	
 	protected int pack(int ip_codeword, int codeword_length) {
-
+		
 		int byte_count = 0;
-
+		
 		// Append codeword to the bottom of the barrel shifter
 		barrel |= ((ip_codeword & CODEWORDMASK) << residue);
-
+		
 		// If not the last (NULL) codeword, increment the number of bits on the
 		// barrel shifter by the current codeword size
 		if (ip_codeword != NULLCW)
 			residue += codeword_length;
-
+			
 		// While there are sufficient bits, place bytes on the output.
 		// Normally this is whilst there are whole bytes, but the last (NULL)
 		// codeword causes a flush of ALL remaining bits
 		while (residue >= ((ip_codeword != NULLCW) ? BYTESIZE : BITSIZE)) {
-			putc((byte)(barrel & BYTEMASK), op_file);
+			putc((byte) (barrel & BYTEMASK), op_file);
 			byte_count++;
 			barrel >>= BYTESIZE;
-		residue -= BYTESIZE;
+			residue -= BYTESIZE;
 		}
-
+		
 		if (ip_codeword == NULLCW)
 			flush(op_file);
-
+		
 		// Return number of bytes output
 		return byte_count;
 	}

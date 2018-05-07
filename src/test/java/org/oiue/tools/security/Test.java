@@ -1,4 +1,5 @@
 package org.oiue.tools.security;
+
 import java.util.Map;
 
 import org.oiue.tools.bytes.ByteUtil;
@@ -7,7 +8,7 @@ import org.oiue.tools.security.SecurityUtil;
 public class Test {
 	// 待加密的明文
 	public static final String DATA = "userPass";
-
+	
 	public static void main(String[] args) throws Exception {
 		/* Test DH */
 		// 甲方公钥
@@ -22,25 +23,25 @@ public class Test {
 		byte[] privateKey2;
 		// 乙方本地密钥
 		byte[] secretKey2;
-
+		
 		// 初始化密钥 并生成甲方密钥对
 		Map<String, Object> keyMap1 = SecurityUtil.initKey();
 		publicKey1 = SecurityUtil.getPublicKey(keyMap1);
 		privateKey1 = SecurityUtil.getPrivateKey(keyMap1);
 		System.out.println("DH 甲方公钥 : " + ByteUtil.toHexString(publicKey1));
 		System.out.println("DH 甲方私钥 : " + ByteUtil.toHexString(privateKey1));
-
+		
 		// 乙方根据甲方公钥产生乙方密钥对
 		Map<String, Object> keyMap2 = SecurityUtil.initKey(publicKey1);
 		publicKey2 = SecurityUtil.getPublicKey(keyMap2);
 		privateKey2 = SecurityUtil.getPrivateKey(keyMap2);
 		System.out.println("DH 乙方公钥 : " + ByteUtil.toHexString(publicKey2));
 		System.out.println("DH 乙方私钥 : " + ByteUtil.toHexString(privateKey2));
-
+		
 		// 对于甲方， 根据其私钥和乙方发过来的公钥， 生成其本地密钥secretKey1
 		secretKey1 = SecurityUtil.getSecretKeyBytes(publicKey2, privateKey1);
 		System.out.println("DH 甲方 本地密钥 : " + ByteUtil.toHexString(secretKey1));
-
+		
 		// 对于乙方， 根据其私钥和甲方发过来的公钥， 生成其本地密钥secretKey2
 		secretKey2 = SecurityUtil.getSecretKeyBytes(publicKey1, privateKey2);
 		System.out.println("DH 乙方 本地密钥 : " + ByteUtil.toHexString(secretKey2));

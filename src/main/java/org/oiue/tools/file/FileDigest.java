@@ -1,4 +1,5 @@
 package org.oiue.tools.file;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.math.BigInteger;
@@ -35,7 +36,7 @@ public class FileDigest {
 		BigInteger bigInt = new BigInteger(1, digest.digest());
 		return bigInt.toString(16);
 	}
-
+	
 	/**
 	 * 获取文件夹中文件的MD5值
 	 * 
@@ -64,5 +65,5 @@ public class FileDigest {
 		}
 		return map;
 	}
-
+	
 }

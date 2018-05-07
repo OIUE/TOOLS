@@ -13,8 +13,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 /**
  * 
- * @author Every E-mail/MSN:mwgjkf@hotmail.com
- *               QQ:30130942
+ * @author Every E-mail/MSN:mwgjkf@hotmail.com QQ:30130942
  * @site oiue.org
  *
  */
@@ -24,17 +23,17 @@ public class ECDSAUtils {
 	 * @param content 原串
 	 * @param privateKey 私有秘钥
 	 * @return 签名值
-	 * @throws InvalidKeySpecException 
-	 * @throws NoSuchAlgorithmException 
-	 * @throws InvalidKeyException 
-	 * @throws SignatureException 
+	 * @throws InvalidKeySpecException
+	 * @throws NoSuchAlgorithmException
+	 * @throws InvalidKeyException
+	 * @throws SignatureException
 	 */
 	public static byte[] sign(byte[] content, byte[] privateKey) throws InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-		//单例获取key工厂类，将拿到的privateKey创建PKCS8EncodedKeySpec对象，通过其获取PrivateKey对象
-		KeyFactory keyFactory = KeyFactory.getInstance("EC");  
+		// 单例获取key工厂类，将拿到的privateKey创建PKCS8EncodedKeySpec对象，通过其获取PrivateKey对象
+		KeyFactory keyFactory = KeyFactory.getInstance("EC");
 		PrivateKey priKey = keyFactory.generatePrivate(new PKCS8EncodedKeySpec(privateKey));
 		
-		//获取Signature对象，签名算法为SHA1withDSA，此处还有较多可选择比如MD5withDSA等
+		// 获取Signature对象，签名算法为SHA1withDSA，此处还有较多可选择比如MD5withDSA等
 		Signature signature = Signature.getInstance("SHA1withECDSA");
 		signature.initSign(priKey);
 		signature.update(content);
@@ -50,23 +49,23 @@ public class ECDSAUtils {
 	 * @param publicKey 公有秘钥
 	 * @return
 	 */
-	public static boolean verify(byte[] content, byte[] sign, byte[] publicKey) {  
-        try {  
-        	//单例获取key工厂类，将拿到的publicKey创建X509EncodedKeySpec对象，通过其获取PublicKey对象
-            KeyFactory keyFactory = KeyFactory.getInstance("EC");  
-            PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKey));      
-            
-            //获取Signature对象，签名算法为SHA1withDSA，此处还有较多可选择比如MD5withDSA等
-            Signature signature = Signature.getInstance("SHA1withECDSA");     
-            signature.initVerify(pubKey);  
-            signature.update( content );   
-            boolean bverify = signature.verify( sign );  
-            
-            return bverify;  
-        } catch (Exception e) {  
-            e.printStackTrace();  
-        }  
-        
-        return false;  
-    }
+	public static boolean verify(byte[] content, byte[] sign, byte[] publicKey) {
+		try {
+			// 单例获取key工厂类，将拿到的publicKey创建X509EncodedKeySpec对象，通过其获取PublicKey对象
+			KeyFactory keyFactory = KeyFactory.getInstance("EC");
+			PublicKey pubKey = keyFactory.generatePublic(new X509EncodedKeySpec(publicKey));
+			
+			// 获取Signature对象，签名算法为SHA1withDSA，此处还有较多可选择比如MD5withDSA等
+			Signature signature = Signature.getInstance("SHA1withECDSA");
+			signature.initVerify(pubKey);
+			signature.update(content);
+			boolean bverify = signature.verify(sign);
+			
+			return bverify;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 }

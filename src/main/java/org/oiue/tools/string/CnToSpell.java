@@ -2,28 +2,20 @@ package org.oiue.tools.string;
 
 import java.util.LinkedHashMap;
 
-/** 
- * 类说明:
- *		汉字转化为全拼,码表利用输入法的码表导出，汉字信息非常全，平时见到的汉字
- * 转拼音的API只能处理几千个一级汉字，很多字都没有法查到，尤其是我自己的姓
- * 都查不到所以只好自己做一个汉字转拼音的API，该API除可以处理99％以上的汉字，
- * 而且可以返回多音字的读音
- * @author Every E-mail/MSN:mwgjkf@hotmail.com
- *               QQ:30130942
- *  CnToSpell 1.0  Apr 23, 2009 4:57:02 PM
- * CnToSpell
+/**
+ * 类说明: 汉字转化为全拼,码表利用输入法的码表导出，汉字信息非常全，平时见到的汉字 转拼音的API只能处理几千个一级汉字，很多字都没有法查到，尤其是我自己的姓 都查不到所以只好自己做一个汉字转拼音的API，该API除可以处理99％以上的汉字， 而且可以返回多音字的读音
+ * @author Every E-mail/MSN:mwgjkf@hotmail.com QQ:30130942 CnToSpell 1.0 Apr 23, 2009 4:57:02 PM CnToSpell
  */
 public class CnToSpell {
-
+	
 	private static LinkedHashMap<String, String> spellMap;
-
-	private CnToSpell() {
-	}
-
+	
+	private CnToSpell() {}
+	
 	private static void spellPut(String ascii, String spells) {
 		spellMap.put(ascii, spells);
 	}
-
+	
 	private static void initialize() {
 		init0();
 		init1();
@@ -142,7 +134,7 @@ public class CnToSpell {
 		init114();
 		init115();
 	}
-
+	
 	private static void init0() {
 		spellPut("129-64", "kao,qiao,yu");
 		spellPut("129-65", "shang");
@@ -335,7 +327,7 @@ public class CnToSpell {
 		spellPut("129-253", "si");
 		spellPut("129-254", "dai");
 	}
-
+	
 	private static void init1() {
 		spellPut("130-64", "tB");
 		spellPut("130-65", "ning");
@@ -528,7 +520,7 @@ public class CnToSpell {
 		spellPut("130-253", "jing");
 		spellPut("130-254", "han");
 	}
-
+	
 	private static void init2() {
 		spellPut("131-64", "zhang");
 		spellPut("131-65", "qing");
@@ -721,7 +713,7 @@ public class CnToSpell {
 		spellPut("131-253", "zhun");
 		spellPut("131-254", "cui");
 	}
-
+	
 	private static void init3() {
 		spellPut("132-64", "si");
 		spellPut("132-65", "duo");
@@ -914,7 +906,7 @@ public class CnToSpell {
 		spellPut("132-253", "ge");
 		spellPut("132-254", "e");
 	}
-
+	
 	private static void init4() {
 		spellPut("133-64", "gong");
 		spellPut("133-65", "da");
@@ -1107,7 +1099,7 @@ public class CnToSpell {
 		spellPut("133-253", "qi");
 		spellPut("133-254", "er");
 	}
-
+	
 	private static void init5() {
 		spellPut("134-64", "e");
 		spellPut("134-65", "die,xi");
@@ -1300,7 +1292,7 @@ public class CnToSpell {
 		spellPut("134-253", "jiao,dao");
 		spellPut("134-254", "kai,ge");
 	}
-
+	
 	private static void init6() {
 		spellPut("135-64", "tan");
 		spellPut("135-65", "shan,can");
@@ -1493,7 +1485,7 @@ public class CnToSpell {
 		spellPut("135-253", "ku");
 		spellPut("135-254", "pu");
 	}
-
+	
 	private static void init7() {
 		spellPut("136-64", "yuan");
 		spellPut("136-65", "yuan");
@@ -1686,7 +1678,7 @@ public class CnToSpell {
 		spellPut("136-253", "feng");
 		spellPut("136-254", "gang");
 	}
-
+	
 	private static void init8() {
 		spellPut("137-64", "chuan");
 		spellPut("137-65", "jian");
@@ -1879,7 +1871,7 @@ public class CnToSpell {
 		spellPut("137-253", "bi");
 		spellPut("137-254", "hua");
 	}
-
+	
 	private static void init9() {
 		spellPut("138-64", "yun");
 		spellPut("138-65", "jia,ga,xia");
@@ -2072,7 +2064,7 @@ public class CnToSpell {
 		spellPut("138-253", "hu");
 		spellPut("138-254", "wan,wa");
 	}
-
+	
 	private static void init10() {
 		spellPut("139-64", "lai");
 		spellPut("139-65", "yin");
@@ -2265,7 +2257,7 @@ public class CnToSpell {
 		spellPut("139-253", "ying");
 		spellPut("139-254", "shuang");
 	}
-
+	
 	private static void init11() {
 		spellPut("140-64", "xie,hui");
 		spellPut("140-65", "huan,quan");
@@ -2458,7 +2450,7 @@ public class CnToSpell {
 		spellPut("140-253", "tiao");
 		spellPut("140-254", "ju");
 	}
-
+	
 	private static void init12() {
 		spellPut("141-64", "fu");
 		spellPut("141-65", "tuo");
@@ -2651,7 +2643,7 @@ public class CnToSpell {
 		spellPut("141-253", "zun");
 		spellPut("141-254", "jiao,qiao");
 	}
-
+	
 	private static void init13() {
 		spellPut("142-64", "jue,gui");
 		spellPut("142-65", "yao");
@@ -2844,7 +2836,7 @@ public class CnToSpell {
 		spellPut("142-253", "jiu");
 		spellPut("142-254", "e");
 	}
-
+	
 	private static void init14() {
 		spellPut("143-64", "gui,wei,hui");
 		spellPut("143-65", "liu");
@@ -3037,7 +3029,7 @@ public class CnToSpell {
 		spellPut("143-253", "kang,hang");
 		spellPut("143-254", "ju");
 	}
-
+	
 	private static void init15() {
 		spellPut("144-64", "yi");
 		spellPut("144-65", "bao");
@@ -3230,7 +3222,7 @@ public class CnToSpell {
 		spellPut("144-253", "cao,sao");
 		spellPut("144-254", "tao");
 	}
-
+	
 	private static void init16() {
 		spellPut("145-64", "yin");
 		spellPut("145-65", "xu,chu");
@@ -3423,7 +3415,7 @@ public class CnToSpell {
 		spellPut("145-253", "yi");
 		spellPut("145-254", "yan");
 	}
-
+	
 	private static void init17() {
 		spellPut("146-64", "qiu");
 		spellPut("146-65", "le,li,cai");
@@ -3616,7 +3608,7 @@ public class CnToSpell {
 		spellPut("146-253", "nuo");
 		spellPut("146-254", "jian");
 	}
-
+	
 	private static void init18() {
 		spellPut("147-64", "zheng,keng");
 		spellPut("147-65", "jiu,you");
@@ -3809,7 +3801,7 @@ public class CnToSpell {
 		spellPut("147-253", "ao");
 		spellPut("147-254", "ju");
 	}
-
+	
 	private static void init19() {
 		spellPut("148-64", "ye");
 		spellPut("148-65", "e");
@@ -4002,7 +3994,7 @@ public class CnToSpell {
 		spellPut("148-253", "xie");
 		spellPut("148-254", "tiao");
 	}
-
+	
 	private static void init20() {
 		spellPut("149-64", "tai,ying");
 		spellPut("149-65", "di,de");
@@ -4195,7 +4187,7 @@ public class CnToSpell {
 		spellPut("149-253", "xu");
 		spellPut("149-254", "hui,kuai");
 	}
-
+	
 	private static void init21() {
 		spellPut("150-64", "yin");
 		spellPut("150-65", "qie,he");
@@ -4388,7 +4380,7 @@ public class CnToSpell {
 		spellPut("150-253", "za,zan");
 		spellPut("150-254", "kB sei");
 	}
-
+	
 	private static void init22() {
 		spellPut("151-64", "ying");
 		spellPut("151-65", "jie");
@@ -4581,7 +4573,7 @@ public class CnToSpell {
 		spellPut("151-253", "hu");
 		spellPut("151-254", "ting");
 	}
-
+	
 	private static void init23() {
 		spellPut("152-64", "yu");
 		spellPut("152-65", "you");
@@ -4774,7 +4766,7 @@ public class CnToSpell {
 		spellPut("152-253", "meng");
 		spellPut("152-254", "su,qiu");
 	}
-
+	
 	private static void init24() {
 		spellPut("153-64", "jue");
 		spellPut("153-65", "tan,dian");
@@ -4967,7 +4959,7 @@ public class CnToSpell {
 		spellPut("153-253", "yi,yin");
 		spellPut("153-254", "jue");
 	}
-
+	
 	private static void init25() {
 		spellPut("154-64", "xi,kai");
 		spellPut("154-65", "xu");
@@ -5160,7 +5152,7 @@ public class CnToSpell {
 		spellPut("154-253", "pin");
 		spellPut("154-254", "qian");
 	}
-
+	
 	private static void init26() {
 		spellPut("155-64", "wu");
 		spellPut("155-65", "wu");
@@ -5353,7 +5345,7 @@ public class CnToSpell {
 		spellPut("155-253", "guo,guan");
 		spellPut("155-254", "yan");
 	}
-
+	
 	private static void init27() {
 		spellPut("156-64", "zhou");
 		spellPut("156-65", "peng");
@@ -5546,7 +5538,7 @@ public class CnToSpell {
 		spellPut("156-253", "biao");
 		spellPut("156-254", "zhi");
 	}
-
+	
 	private static void init28() {
 		spellPut("157-64", "jiang");
 		spellPut("157-65", "kou");
@@ -5739,7 +5731,7 @@ public class CnToSpell {
 		spellPut("157-253", "tao");
 		spellPut("157-254", "yin");
 	}
-
+	
 	private static void init29() {
 		spellPut("158-64", "yin");
 		spellPut("158-65", "dui");
@@ -5932,7 +5924,7 @@ public class CnToSpell {
 		spellPut("158-253", "kai");
 		spellPut("158-254", "xia");
 	}
-
+	
 	private static void init30() {
 		spellPut("159-64", "xuan");
 		spellPut("159-65", "zheng");
@@ -6125,7 +6117,7 @@ public class CnToSpell {
 		spellPut("159-253", "shao");
 		spellPut("159-254", "fen");
 	}
-
+	
 	private static void init31() {
 		spellPut("160-64", "xun");
 		spellPut("160-65", "lan");
@@ -6318,7 +6310,7 @@ public class CnToSpell {
 		spellPut("160-253", "dan");
 		spellPut("160-254", "bo");
 	}
-
+	
 	private static void init32() {
 		spellPut("170-64", "ku");
 		spellPut("170-65", "xian");
@@ -6417,7 +6409,7 @@ public class CnToSpell {
 		spellPut("170-159", "ning");
 		spellPut("170-160", "bian,pian");
 	}
-
+	
 	private static void init33() {
 		spellPut("171-64", "huo");
 		spellPut("171-65", "nou,ru");
@@ -6516,7 +6508,7 @@ public class CnToSpell {
 		spellPut("171-159", "di,ti");
 		spellPut("171-160", "wu");
 	}
-
+	
 	private static void init34() {
 		spellPut("172-64", "wu");
 		spellPut("172-65", "cheng");
@@ -6615,7 +6607,7 @@ public class CnToSpell {
 		spellPut("172-159", "tu,shu");
 		spellPut("172-160", "chang");
 	}
-
+	
 	private static void init35() {
 		spellPut("173-64", "kun");
 		spellPut("173-65", "zhuan");
@@ -6714,7 +6706,7 @@ public class CnToSpell {
 		spellPut("173-159", "maowa");
 		spellPut("173-160", "ki ro ton,mao wa");
 	}
-
+	
 	private static void init36() {
 		spellPut("174-64", "hu");
 		spellPut("174-65", "yi");
@@ -6813,7 +6805,7 @@ public class CnToSpell {
 		spellPut("174-159", "jiang");
 		spellPut("174-160", "chou");
 	}
-
+	
 	private static void init37() {
 		spellPut("175-64", "pi");
 		spellPut("175-65", "die");
@@ -6912,7 +6904,7 @@ public class CnToSpell {
 		spellPut("175-159", "liao");
 		spellPut("175-160", "qiao,jiao");
 	}
-
+	
 	private static void init38() {
 		spellPut("176-64", "liu");
 		spellPut("176-65", "lao");
@@ -7105,7 +7097,7 @@ public class CnToSpell {
 		spellPut("176-253", "bao");
 		spellPut("176-254", "bao,bo");
 	}
-
+	
 	private static void init39() {
 		spellPut("177-64", "diao");
 		spellPut("177-65", "he");
@@ -7298,7 +7290,7 @@ public class CnToSpell {
 		spellPut("177-253", "bing");
 		spellPut("177-254", "bing");
 	}
-
+	
 	private static void init40() {
 		spellPut("178-64", "li");
 		spellPut("178-65", "lai");
@@ -7491,7 +7483,7 @@ public class CnToSpell {
 		spellPut("178-253", "chang");
 		spellPut("178-254", "chang");
 	}
-
+	
 	private static void init41() {
 		spellPut("179-64", "hou");
 		spellPut("179-65", "ying");
@@ -7684,7 +7676,7 @@ public class CnToSpell {
 		spellPut("179-253", "chu");
 		spellPut("179-254", "chu");
 	}
-
+	
 	private static void init42() {
 		spellPut("180-64", "lin");
 		spellPut("180-65", "jun");
@@ -7877,7 +7869,7 @@ public class CnToSpell {
 		spellPut("180-253", "dai");
 		spellPut("180-254", "dai");
 	}
-
+	
 	private static void init43() {
 		spellPut("181-64", "jie");
 		spellPut("181-65", "chu");
@@ -8070,7 +8062,7 @@ public class CnToSpell {
 		spellPut("181-253", "die");
 		spellPut("181-254", "die");
 	}
-
+	
 	private static void init44() {
 		spellPut("182-64", "shang,yang");
 		spellPut("182-65", "ti,zhi");
@@ -8263,7 +8255,7 @@ public class CnToSpell {
 		spellPut("182-253", "er");
 		spellPut("182-254", "er");
 	}
-
+	
 	private static void init45() {
 		spellPut("183-64", "peng");
 		spellPut("183-65", "bing");
@@ -8456,7 +8448,7 @@ public class CnToSpell {
 		spellPut("183-253", "fu");
 		spellPut("183-254", "fu");
 	}
-
+	
 	private static void init46() {
 		spellPut("184-64", "su");
 		spellPut("184-65", "guan");
@@ -8649,7 +8641,7 @@ public class CnToSpell {
 		spellPut("184-253", "geng");
 		spellPut("184-254", "geng");
 	}
-
+	
 	private static void init47() {
 		spellPut("185-64", "nu");
 		spellPut("185-65", "fu,fei");
@@ -8842,7 +8834,7 @@ public class CnToSpell {
 		spellPut("185-253", "guo");
 		spellPut("185-254", "ha");
 	}
-
+	
 	private static void init48() {
 		spellPut("186-64", "chuan");
 		spellPut("186-65", "feng");
@@ -9035,7 +9027,7 @@ public class CnToSpell {
 		spellPut("186-253", "hu");
 		spellPut("186-254", "hu");
 	}
-
+	
 	private static void init49() {
 		spellPut("187-64", "lan");
 		spellPut("187-65", "kui");
@@ -9228,7 +9220,7 @@ public class CnToSpell {
 		spellPut("187-253", "ji");
 		spellPut("187-254", "ji");
 	}
-
+	
 	private static void init50() {
 		spellPut("188-64", "guo");
 		spellPut("188-65", "huB");
@@ -9421,7 +9413,7 @@ public class CnToSpell {
 		spellPut("188-253", "jian");
 		spellPut("188-254", "jian");
 	}
-
+	
 	private static void init51() {
 		spellPut("189-64", "ling");
 		spellPut("189-65", "zhu");
@@ -9614,7 +9606,7 @@ public class CnToSpell {
 		spellPut("189-253", "jin");
 		spellPut("189-254", "jin");
 	}
-
+	
 	private static void init52() {
 		spellPut("190-64", "ji");
 		spellPut("190-65", "xu");
@@ -9807,7 +9799,7 @@ public class CnToSpell {
 		spellPut("190-253", "jun");
 		spellPut("190-254", "jun");
 	}
-
+	
 	private static void init53() {
 		spellPut("191-64", "zhi");
 		spellPut("191-65", "yun,wen");
@@ -10000,7 +9992,7 @@ public class CnToSpell {
 		spellPut("191-253", "kui");
 		spellPut("191-254", "kui,gui");
 	}
-
+	
 	private static void init54() {
 		spellPut("192-64", "rao");
 		spellPut("192-65", "chan");
@@ -10193,7 +10185,7 @@ public class CnToSpell {
 		spellPut("192-253", "li");
 		spellPut("192-254", "li");
 	}
-
+	
 	private static void init55() {
 		spellPut("193-64", "rB");
 		spellPut("193-65", "shen");
@@ -10386,7 +10378,7 @@ public class CnToSpell {
 		spellPut("193-253", "long");
 		spellPut("193-254", "long");
 	}
-
+	
 	private static void init56() {
 		spellPut("194-64", "chi");
 		spellPut("194-65", "xuan");
@@ -10579,7 +10571,7 @@ public class CnToSpell {
 		spellPut("194-253", "man");
 		spellPut("194-254", "man");
 	}
-
+	
 	private static void init57() {
 		spellPut("195-64", "long");
 		spellPut("195-65", "zhao");
@@ -10772,7 +10764,7 @@ public class CnToSpell {
 		spellPut("195-253", "miu");
 		spellPut("195-254", "mo");
 	}
-
+	
 	private static void init58() {
 		spellPut("196-64", "lun");
 		spellPut("196-65", "pian");
@@ -10965,7 +10957,7 @@ public class CnToSpell {
 		spellPut("196-253", "ning");
 		spellPut("196-254", "ning");
 	}
-
+	
 	private static void init59() {
 		spellPut("197-64", "xian");
 		spellPut("197-65", "biao");
@@ -11158,7 +11150,7 @@ public class CnToSpell {
 		spellPut("197-253", "pi");
 		spellPut("197-254", "pi");
 	}
-
+	
 	private static void init60() {
 		spellPut("198-64", "lu");
 		spellPut("198-65", "lu");
@@ -11351,7 +11343,7 @@ public class CnToSpell {
 		spellPut("198-253", "qi");
 		spellPut("198-254", "qia");
 	}
-
+	
 	private static void init61() {
 		spellPut("199-64", "qian");
 		spellPut("199-65", "zhu");
@@ -11544,7 +11536,7 @@ public class CnToSpell {
 		spellPut("199-253", "qu");
 		spellPut("199-254", "qu,ju");
 	}
-
+	
 	private static void init62() {
 		spellPut("200-64", "geng");
 		spellPut("200-65", "hua");
@@ -11737,7 +11729,7 @@ public class CnToSpell {
 		spellPut("200-253", "san");
 		spellPut("200-254", "san");
 	}
-
+	
 	private static void init63() {
 		spellPut("201-64", "yao");
 		spellPut("201-65", "yuan");
@@ -11930,7 +11922,7 @@ public class CnToSpell {
 		spellPut("201-253", "sheng");
 		spellPut("201-254", "sheng");
 	}
-
+	
 	private static void init64() {
 		spellPut("202-64", "qiang");
 		spellPut("202-65", "man");
@@ -12123,7 +12115,7 @@ public class CnToSpell {
 		spellPut("202-253", "shu,shuo");
 		spellPut("202-254", "shu");
 	}
-
+	
 	private static void init65() {
 		spellPut("203-64", "xi,xiao");
 		spellPut("203-65", "hao");
@@ -12316,7 +12308,7 @@ public class CnToSpell {
 		spellPut("203-253", "ta,jie");
 		spellPut("203-254", "ta");
 	}
-
+	
 	private static void init66() {
 		spellPut("204-64", "ai");
 		spellPut("204-65", "lin");
@@ -12509,7 +12501,7 @@ public class CnToSpell {
 		spellPut("204-253", "ting");
 		spellPut("204-254", "ting");
 	}
-
+	
 	private static void init67() {
 		spellPut("205-64", "diao");
 		spellPut("205-65", "qiu");
@@ -12702,7 +12694,7 @@ public class CnToSpell {
 		spellPut("205-253", "wang");
 		spellPut("205-254", "wei");
 	}
-
+	
 	private static void init68() {
 		spellPut("206-64", "zhong");
 		spellPut("206-65", "ju");
@@ -12895,7 +12887,7 @@ public class CnToSpell {
 		spellPut("206-253", "xi");
 		spellPut("206-254", "xi");
 	}
-
+	
 	private static void init69() {
 		spellPut("207-64", "cang");
 		spellPut("207-65", "sao");
@@ -13088,7 +13080,7 @@ public class CnToSpell {
 		spellPut("207-253", "xiao");
 		spellPut("207-254", "xiao");
 	}
-
+	
 	private static void init70() {
 		spellPut("208-64", "qiu");
 		spellPut("208-65", "nie");
@@ -13281,7 +13273,7 @@ public class CnToSpell {
 		spellPut("208-253", "xuan");
 		spellPut("208-254", "xuan");
 	}
-
+	
 	private static void init71() {
 		spellPut("209-64", "yu");
 		spellPut("209-65", "mi");
@@ -13474,7 +13466,7 @@ public class CnToSpell {
 		spellPut("209-253", "yao");
 		spellPut("209-254", "yao");
 	}
-
+	
 	private static void init72() {
 		spellPut("210-64", "lv");
 		spellPut("210-65", "yi");
@@ -13667,7 +13659,7 @@ public class CnToSpell {
 		spellPut("210-253", "yin");
 		spellPut("210-254", "yin");
 	}
-
+	
 	private static void init73() {
 		spellPut("211-64", "shan");
 		spellPut("211-65", "wei");
@@ -13860,7 +13852,7 @@ public class CnToSpell {
 		spellPut("211-253", "yu");
 		spellPut("211-254", "yu");
 	}
-
+	
 	private static void init74() {
 		spellPut("212-64", "yao");
 		spellPut("212-65", "song");
@@ -14053,7 +14045,7 @@ public class CnToSpell {
 		spellPut("212-253", "zha");
 		spellPut("212-254", "ya");
 	}
-
+	
 	private static void init75() {
 		spellPut("213-64", "bing");
 		spellPut("213-65", "tiao,diao");
@@ -14246,7 +14238,7 @@ public class CnToSpell {
 		spellPut("213-253", "zheng");
 		spellPut("213-254", "zheng");
 	}
-
+	
 	private static void init76() {
 		spellPut("214-64", "e");
 		spellPut("214-65", "zhong");
@@ -14439,7 +14431,7 @@ public class CnToSpell {
 		spellPut("214-253", "zhu");
 		spellPut("214-254", "zhu");
 	}
-
+	
 	private static void init77() {
 		spellPut("215-64", "xi");
 		spellPut("215-65", "zha");
@@ -14627,7 +14619,7 @@ public class CnToSpell {
 		spellPut("215-248", "zuo");
 		spellPut("215-249", "zuo");
 	}
-
+	
 	private static void init78() {
 		spellPut("216-64", "qian");
 		spellPut("216-65", "hong");
@@ -14820,7 +14812,7 @@ public class CnToSpell {
 		spellPut("216-253", "yi,die");
 		spellPut("216-254", "gou,kou");
 	}
-
+	
 	private static void init79() {
 		spellPut("217-64", "er");
 		spellPut("217-65", "zhu");
@@ -15013,7 +15005,7 @@ public class CnToSpell {
 		spellPut("217-253", "lie");
 		spellPut("217-254", "xian");
 	}
-
+	
 	private static void init80() {
 		spellPut("218-64", "wan");
 		spellPut("218-65", "ying");
@@ -15206,7 +15198,7 @@ public class CnToSpell {
 		spellPut("218-253", "bei");
 		spellPut("218-254", "ye");
 	}
-
+	
 	private static void init81() {
 		spellPut("219-64", "dian,tie,die");
 		spellPut("219-65", "pan,ban");
@@ -15399,7 +15391,7 @@ public class CnToSpell {
 		spellPut("219-253", "pi");
 		spellPut("219-254", "nian");
 	}
-
+	
 	private static void init82() {
 		spellPut("220-64", "bo");
 		spellPut("220-65", "cu");
@@ -15592,7 +15584,7 @@ public class CnToSpell {
 		spellPut("220-253", "luo");
 		spellPut("220-254", "xing");
 	}
-
+	
 	private static void init83() {
 		spellPut("221-64", "qu");
 		spellPut("221-65", "kuang");
@@ -15785,7 +15777,7 @@ public class CnToSpell {
 		spellPut("221-253", "cu");
 		spellPut("221-254", "lin");
 	}
-
+	
 	private static void init84() {
 		spellPut("222-64", "yuan");
 		spellPut("222-65", "lu");
@@ -15978,7 +15970,7 @@ public class CnToSpell {
 		spellPut("222-253", "zhi");
 		spellPut("222-254", "han");
 	}
-
+	
 	private static void init85() {
 		spellPut("223-64", "zhe");
 		spellPut("223-65", "wu");
@@ -16171,7 +16163,7 @@ public class CnToSpell {
 		spellPut("223-253", "cui,qi");
 		spellPut("223-254", "sha");
 	}
-
+	
 	private static void init86() {
 		spellPut("224-64", "gai,hai");
 		spellPut("224-65", "he");
@@ -16364,7 +16356,7 @@ public class CnToSpell {
 		spellPut("224-253", "ze");
 		spellPut("224-254", "guo");
 	}
-
+	
 	private static void init87() {
 		spellPut("225-64", "xi");
 		spellPut("225-65", "zan");
@@ -16557,7 +16549,7 @@ public class CnToSpell {
 		spellPut("225-253", "xian");
 		spellPut("225-254", "yin");
 	}
-
+	
 	private static void init88() {
 		spellPut("226-64", "kou");
 		spellPut("226-65", "chuan");
@@ -16750,7 +16742,7 @@ public class CnToSpell {
 		spellPut("226-253", "kai");
 		spellPut("226-254", "xun");
 	}
-
+	
 	private static void init89() {
 		spellPut("227-64", "zuan");
 		spellPut("227-65", "shi");
@@ -16943,7 +16935,7 @@ public class CnToSpell {
 		spellPut("227-253", "min");
 		spellPut("227-254", "jing");
 	}
-
+	
 	private static void init90() {
 		spellPut("228-64", "an");
 		spellPut("228-65", "diu");
@@ -17136,7 +17128,7 @@ public class CnToSpell {
 		spellPut("228-253", "chan");
 		spellPut("228-254", "lai");
 	}
-
+	
 	private static void init91() {
 		spellPut("229-64", "zui");
 		spellPut("229-65", "peng");
@@ -17329,7 +17321,7 @@ public class CnToSpell {
 		spellPut("229-253", "yu");
 		spellPut("229-254", "bi");
 	}
-
+	
 	private static void init92() {
 		spellPut("230-64", "qiao");
 		spellPut("230-65", "hou");
@@ -17522,7 +17514,7 @@ public class CnToSpell {
 		spellPut("230-253", "wan");
 		spellPut("230-254", "kuang");
 	}
-
+	
 	private static void init93() {
 		spellPut("231-64", "bi");
 		spellPut("231-65", "wei");
@@ -17715,7 +17707,7 @@ public class CnToSpell {
 		spellPut("231-253", "cong");
 		spellPut("231-254", "wan");
 	}
-
+	
 	private static void init94() {
 		spellPut("232-64", "zhuo");
 		spellPut("232-65", "qiao");
@@ -17908,7 +17900,7 @@ public class CnToSpell {
 		spellPut("232-253", "qian");
 		spellPut("232-254", "zhao,zhuo");
 	}
-
+	
 	private static void init95() {
 		spellPut("233-64", "zhi");
 		spellPut("233-65", "yang");
@@ -18101,7 +18093,7 @@ public class CnToSpell {
 		spellPut("233-253", "nian");
 		spellPut("233-254", "wang");
 	}
-
+	
 	private static void init96() {
 		spellPut("234-64", "lan");
 		spellPut("234-65", "du,she");
@@ -18294,7 +18286,7 @@ public class CnToSpell {
 		spellPut("234-253", "suo,sB,shB");
 		spellPut("234-254", "bai");
 	}
-
+	
 	private static void init97() {
 		spellPut("235-64", "an");
 		spellPut("235-65", "jie");
@@ -18487,7 +18479,7 @@ public class CnToSpell {
 		spellPut("235-253", "sao");
 		spellPut("235-254", "shan,dan");
 	}
-
+	
 	private static void init98() {
 		spellPut("236-64", "mai");
 		spellPut("236-65", "mai");
@@ -18680,7 +18672,7 @@ public class CnToSpell {
 		spellPut("236-253", "te");
 		spellPut("236-254", "tan");
 	}
-
+	
 	private static void init99() {
 		spellPut("237-64", "bing,pi,bi,bei");
 		spellPut("237-65", "kuo");
@@ -18873,7 +18865,7 @@ public class CnToSpell {
 		spellPut("237-253", "ya");
 		spellPut("237-254", "ni");
 	}
-
+	
 	private static void init100() {
 		spellPut("238-64", "hang");
 		spellPut("238-65", "yu");
@@ -19066,7 +19058,7 @@ public class CnToSpell {
 		spellPut("238-253", "quan");
 		spellPut("238-254", "ha,ke");
 	}
-
+	
 	private static void init101() {
 		spellPut("239-64", "xian");
 		spellPut("239-65", "pin");
@@ -19259,7 +19251,7 @@ public class CnToSpell {
 		spellPut("239-253", "ke");
 		spellPut("239-254", "ren");
 	}
-
+	
 	private static void init102() {
 		spellPut("240-64", "ci");
 		spellPut("240-65", "xiang");
@@ -19452,7 +19444,7 @@ public class CnToSpell {
 		spellPut("240-253", "jia,xia");
 		spellPut("240-254", "sao");
 	}
-
+	
 	private static void init103() {
 		spellPut("241-64", "ye");
 		spellPut("241-65", "bo");
@@ -19645,7 +19637,7 @@ public class CnToSpell {
 		spellPut("241-253", "qi");
 		spellPut("241-254", "hang");
 	}
-
+	
 	private static void init104() {
 		spellPut("242-64", "liang,lang");
 		spellPut("242-65", "han");
@@ -19838,7 +19830,7 @@ public class CnToSpell {
 		spellPut("242-253", "man");
 		spellPut("242-254", "mang,meng");
 	}
-
+	
 	private static void init105() {
 		spellPut("243-64", "jing");
 		spellPut("243-65", "yi");
@@ -20031,7 +20023,7 @@ public class CnToSpell {
 		spellPut("243-253", "duan");
 		spellPut("243-254", "gui");
 	}
-
+	
 	private static void init106() {
 		spellPut("244-64", "zheng");
 		spellPut("244-65", "zong");
@@ -20224,7 +20216,7 @@ public class CnToSpell {
 		spellPut("244-253", "yi");
 		spellPut("244-254", "gu");
 	}
-
+	
 	private static void init107() {
 		spellPut("245-64", "qu");
 		spellPut("245-65", "han");
@@ -20417,7 +20409,7 @@ public class CnToSpell {
 		spellPut("245-253", "gu");
 		spellPut("245-254", "zi,zui");
 	}
-
+	
 	private static void init108() {
 		spellPut("246-64", "qie");
 		spellPut("246-65", "gu");
@@ -20610,7 +20602,7 @@ public class CnToSpell {
 		spellPut("246-253", "bian");
 		spellPut("246-254", "sao");
 	}
-
+	
 	private static void init109() {
 		spellPut("247-64", "xi");
 		spellPut("247-65", "qiu");
@@ -20803,7 +20795,7 @@ public class CnToSpell {
 		spellPut("247-253", "han");
 		spellPut("247-254", "zha");
 	}
-
+	
 	private static void init110() {
 		spellPut("248-64", "zhan,shan");
 		spellPut("248-65", "guan");
@@ -20902,7 +20894,7 @@ public class CnToSpell {
 		spellPut("248-159", "jiao");
 		spellPut("248-160", "xiu");
 	}
-
+	
 	private static void init111() {
 		spellPut("249-64", "zhou");
 		spellPut("249-65", "chi");
@@ -21001,7 +20993,7 @@ public class CnToSpell {
 		spellPut("249-159", "he,jie");
 		spellPut("249-160", "yuan");
 	}
-
+	
 	private static void init112() {
 		spellPut("250-64", "pian,bian");
 		spellPut("250-65", "kun");
@@ -21100,7 +21092,7 @@ public class CnToSpell {
 		spellPut("250-159", "luo");
 		spellPut("250-160", "xi");
 	}
-
+	
 	private static void init113() {
 		spellPut("251-64", "yi");
 		spellPut("251-65", "ji");
@@ -21199,7 +21191,7 @@ public class CnToSpell {
 		spellPut("251-159", "fu");
 		spellPut("251-160", "mian");
 	}
-
+	
 	private static void init114() {
 		spellPut("252-64", "mian");
 		spellPut("252-65", "fu");
@@ -21298,7 +21290,7 @@ public class CnToSpell {
 		spellPut("252-159", "ju");
 		spellPut("252-160", "jing");
 	}
-
+	
 	private static void init115() {
 		spellPut("253-64", "hun");
 		spellPut("253-65", "ju");
@@ -21391,7 +21383,7 @@ public class CnToSpell {
 		spellPut("253-153", "jiao");
 		spellPut("253-154", "xie");
 	}
-
+	
 	/**
 	 * 获得单个汉字的Ascii，并用"-"连接成一个字符串
 	 * 
@@ -21403,30 +21395,28 @@ public class CnToSpell {
 		System.out.println(bytes.length);
 		if (bytes == null || bytes.length > 2 || bytes.length <= 0)
 			return "";
-		//如果是英文則不再進行轉換，直接返回
+		// 如果是英文則不再進行轉換，直接返回
 		if (bytes.length == 1)
 			return new String(bytes);
-		//中文則進行轉換
+		// 中文則進行轉換
 		if (bytes.length == 2) {
 			int hightByte = 256 + bytes[0];
 			int lowByte = 256 + bytes[1];
-			String ascii = (new StringBuilder(String.valueOf(hightByte)))
-					.append("-").append(lowByte).toString();
-			System.out.println((new StringBuilder("ASCII=")).append(ascii)
-					.toString());
+			String ascii = (new StringBuilder(String.valueOf(hightByte))).append("-").append(lowByte).toString();
+			System.out.println((new StringBuilder("ASCII=")).append(ascii).toString());
 			return ascii;
 		} else {
 			return "";
 		}
 	}
-
+	
 	/**
 	 * 根据ASCII码连接成的字符串到SpellMap中查找对应的拼音
 	 * 
 	 * @param ascii 字符对应的ASCII连接的字符串
 	 * @return String 拼音,首先判断是否是中文如果是英文直接返回字符，如果是中文返回拼音,
 	 * 
-	 * 否则到SpellMap中查找,如果没有找到拼音,则返回null,如果找到则返回拼音.
+	 *         否则到SpellMap中查找,如果没有找到拼音,则返回null,如果找到则返回拼音.
 	 */
 	public static String getSpellByAscii(String ascii) {
 		if (ascii.indexOf("-") > -1)
@@ -21434,7 +21424,7 @@ public class CnToSpell {
 		else
 			return ascii;
 	}
-
+	
 	/**
 	 * 返回字符串的全拼,是汉字转化为全拼,其它字符不进行转换
 	 * 
@@ -21449,7 +21439,7 @@ public class CnToSpell {
 		int i = 0;
 		for (int Len = chars.length; i < Len; i++) {
 			String ascii = getCnAscii(chars[i]);
-			if (ascii.length() == 0) {//獲取AscII碼出錯
+			if (ascii.length() == 0) {// 獲取AscII碼出錯
 				retuBuf.append(chars[i]);
 			} else {
 				String spell = getSpellByAscii(ascii);
@@ -21459,10 +21449,10 @@ public class CnToSpell {
 					retuBuf.append(spell);
 			}
 		}
-
+		
 		return retuBuf.toString();
 	}
-
+	
 	/**
 	 * 获取汉语字符串的声母组合，每个汉字取拼音的第一个字符组成的一个字符串
 	 * @param cnStr 汉字的字符串
@@ -21488,30 +21478,28 @@ public class CnToSpell {
 					retuBuf.append(spell);
 			}
 		}
-
+		
 		return retuBuf.toString();
 	}
-
+	
 	public static void main(String args[]) {
-		//		Date start = new Date();
-		//		System.out.println(start.getTime());
+		// Date start = new Date();
+		// System.out.println(start.getTime());
 		long t1 = System.currentTimeMillis();
-
+		
 		String str = null;
-		//		str = "我 们 乐";
-		//		str="逯 闫 艾 涝 汶";
+		// str = "我 们 乐";
+		// str="逯 闫 艾 涝 汶";
 		str = "四国岛兵库县京都府中京区大宫道15町2所靳冰漩";
-		System.out.println((new StringBuilder("Spell=")).append(
-				getFullSpell(str)).toString());
-		System.out.println((new StringBuilder("Spell=")).append(
-				getFirstSpell(str)).toString());
-		//		Date end = new Date();
-		//		System.out.println(end.getTime());
+		System.out.println((new StringBuilder("Spell=")).append(getFullSpell(str)).toString());
+		System.out.println((new StringBuilder("Spell=")).append(getFirstSpell(str)).toString());
+		// Date end = new Date();
+		// System.out.println(end.getTime());
 		long t2 = System.currentTimeMillis();
-
+		
 		System.out.println(t2 - t1);
 	}
-
+	
 	static {
 		spellMap = null;
 		if (spellMap == null)

@@ -31,15 +31,15 @@
 //=======================================================================
 
 package Lzw.codec;
-                  
+
 public class IntRef {
-    public int value;
-
-    public IntRef() {
-        value = 0;
-    }
-
-    public IntRef (int initial) {
-        value = initial;
-    }
+	public int value;
+	
+	public IntRef() {
+		value = 0;
+	}
+	
+	public IntRef(int initial) {
+		value = initial;
+	}
 }

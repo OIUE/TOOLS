@@ -3,7 +3,6 @@ package org.oiue.table.structure;
 import java.io.Serializable;
 import java.sql.ResultSet;
 
-import org.oiue.table.structure.TableModel;
 import org.oiue.tools.model.COLUMN;
 
 /**

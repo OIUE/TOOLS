@@ -2,8 +2,6 @@ package org.oiue.table.structure;
 
 import java.io.Serializable;
 
-import org.oiue.table.structure.TableModel;
-
 @SuppressWarnings({ "serial" })
 public class ForeignField extends FieldExt implements Serializable {
 	public ForeignField(TableModel tm) {

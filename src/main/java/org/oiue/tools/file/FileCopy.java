@@ -20,8 +20,7 @@ public class FileCopy {
 	/**
 	 * 
 	 */
-	public FileCopy() {
-	}
+	public FileCopy() {}
 	
 	/**
 	 * 方法说明： 复制文件或文件夹 CreateTime Apr 17, 2009 11:22:21 PM

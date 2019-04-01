@@ -3,7 +3,6 @@ package org.oiue.tools.security;
 import java.util.Map;
 
 import org.oiue.tools.bytes.ByteUtil;
-import org.oiue.tools.security.SecurityUtil;
 
 public class Test {
 	// 待加密的明文

@@ -8,9 +8,6 @@ import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
 
 import org.oiue.tools.StatusResult;
 import org.oiue.tools.exception.OIUEException;

@@ -1,5 +1,7 @@
 package org.oiue.tools.date;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 /**
  * 有关日期工具类(extends TimeUtil)
  * 
@@ -20,7 +22,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
-import java.text.*;
 
 @SuppressWarnings({ "unused" })
 public class TimeUtil extends StringForDate {

@@ -30,7 +30,7 @@
 // Dictionary access class for LZW algorithm                       
 //                                                                       
 // The dictionary is implemented as a contiguous array of a DICTIONARY   
-// structure (dictionary[]) with a 12 bit pointer (for 4K dictionary)    
+// structure (Map[]) with a 12 bit pointer (for 4K dictionary)    
 // space and a 'byte' value. 
 //                                                                       
 //=======================================================================

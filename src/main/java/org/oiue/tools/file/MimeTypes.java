@@ -16,8 +16,8 @@
  */
 package org.oiue.tools.file;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 
 public final class MimeTypes {
 	private final static MimeTypes INSTANCE = new MimeTypes();

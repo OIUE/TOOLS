@@ -12,8 +12,7 @@ public class FileStringUtil {
 	/**
 	 * 
 	 */
-	public FileStringUtil() {
-	}
+	public FileStringUtil() {}
 	
 	public static String initFilePath(String file) {
 		file = file.replace("%20", " ");

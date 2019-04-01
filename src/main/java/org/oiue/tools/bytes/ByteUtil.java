@@ -537,4 +537,29 @@ public class ByteUtil {
 		str.deleteCharAt(str.length() - 1);
 		return str.toString();
 	}
+	
+	/**
+	 * 异或运算和
+	 * @param bytes
+	 * @return
+	 */
+	public static byte getXor(byte[] bytes) {
+		byte temp = bytes[0];
+		for (int i = 1; i < bytes.length; i++) {
+			temp ^= bytes[i];
+		}
+		return temp;
+	}
+	
+	/**
+	 * 高低位互换
+	 * @param bytes
+	 * @return
+	 */
+	public static byte exchangeHL(byte bytes) {
+		byte high4 = (byte) (bytes & 0xf0);
+		byte low4 = (byte) (bytes & 0xf);
+		return (byte) ((low4 << 4) + (high4 >> 4));
+	}
+	
 }

@@ -6,7 +6,7 @@ import org.oiue.tools.StatusResult;
 
 /**
  * 自定义文件无法找到异常
- * @author Every(王勤) E-mail/MSN:mwgjkf@hotmail.com QQ:30130942 ReplaceSqlException.java Apr 25, 2010 
+ * @author Every(王勤) E-mail/MSN:mwgjkf@hotmail.com QQ:30130942 ReplaceSqlException.java Apr 25, 2010
  */
 @SuppressWarnings("serial")
 public class OIUEException extends RuntimeException {
@@ -52,11 +52,11 @@ public class OIUEException extends RuntimeException {
 	}
 	
 	public Object getRtnObject() {
-		return rtnObject != null ? rtnObject : sr == null ? sr.getData() : null;
+		return rtnObject != null ? rtnObject : sr != null ? sr.getData() : null;
 	}
 	
 	@Override
 	public String toString() {
-		return super.toString() + "\n" +getRtnObject()+ "\n" + sr.getDescription();
+		return super.toString() + "\n" + getRtnObject() + "\n" + sr.getDescription();
 	}
 }

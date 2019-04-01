@@ -23,23 +23,24 @@ public class ZipSearch {
 	/**
 	 * 
 	 */
-	public ZipSearch() {
-	}
+	public ZipSearch() {}
 	
+	public static List zipLibSearch(String fileName, int searchlibNum) {
+		return zipLibSearch(fileName, searchlibNum, "UTF-8");
+	}
 	/**
 	 * 方法说明： 获取zip压缩文件中一层的目录 CreateTime May 18, 2009 3:21:47 PM
 	 * @param fileName zip压缩文件
 	 * @param searchlibNum 第几层
+	 * @param encoding 编码
 	 * @return 返回一层中的文件
 	 */
-	public static List zipLibSearch(String fileName, int searchlibNum) {
+	public static List zipLibSearch(String fileName, int searchlibNum,String encoding) {
 		
 		ZipFile slf_file = null;
 		try {
-			slf_file = new ZipFile(fileName);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+			slf_file = new ZipFile(fileName,encoding);
+		} catch (Exception e) {}
 		Enumeration e = slf_file.getEntries();
 		while (e.hasMoreElements()) {
 			ZipEntry slf_zipEntry = (ZipEntry) e.nextElement();
@@ -73,7 +74,6 @@ public class ZipSearch {
 		try {
 			slf_file.close();
 		} catch (IOException e1) {
-			// TODO 自动生成 catch 块
 			e1.printStackTrace();
 		}
 		return list;
@@ -89,7 +89,6 @@ public class ZipSearch {
 		try {
 			slf_zipFile = new ZipFile(fileName);
 		} catch (IOException e) {
-			// TODO 自动生成 catch 块
 			e.printStackTrace();
 		}
 		Enumeration e = slf_zipFile.getEntries();
@@ -98,7 +97,6 @@ public class ZipSearch {
 			if (!slf_zipEntry.isDirectory()) {
 				String filename = slf_zipEntry.getName().substring(slf_zipEntry.getName().lastIndexOf("/") + 1, slf_zipEntry.getName().length());
 				list.add(filename);
-				// System.out.println(slf_zipEntry.getName());
 			}
 		}
 		return list;

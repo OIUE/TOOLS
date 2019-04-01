@@ -20,8 +20,7 @@ public class StringForDate {
 	/**
 	 * 
 	 */
-	public StringForDate() {
-	}
+	public StringForDate() {}
 	
 	/**
 	 * 方法说明： 格式化日期到 Mysql 数据库日期格式字符串的显示.yyyy-MM-dd HH:mm:ss CreateTime Apr 18, 2009 4:25:43 PM

@@ -294,6 +294,25 @@ public class MapUtil {
 			return null;
 	}
 	
+	public static void put(List list, String keys, Object object) {
+		if (list == null) {
+			return;
+		}
+		String[] ks = keys.split("\\.", 2);
+		if (ks.length == 1) {
+			Object ov = list.get(Integer.valueOf(ks[0]));
+			if (ov instanceof List) {
+				((List)ov).add(object);
+			}
+		} else {
+			Object ov = list.get(Integer.valueOf(ks[0]));
+			if (ov instanceof Map) {
+				put((Map) ov, ks[1], object);
+			} else if (ov instanceof List) {
+				put((List) ov, ks[1], object);
+			}
+		}
+	}
 	public static void put(Map map, String keys, Object object) {
 		if (map == null) {
 			return;
@@ -305,7 +324,9 @@ public class MapUtil {
 			Object ov = map.get(ks[0]);
 			if (ov instanceof Map) {
 				put((Map) ov, ks[1], object);
-			} else {
+			} else if (ov instanceof List) {
+				put((List) ov, ks[1], object);
+			} else{
 				map.put(keys, object);
 			}
 		}
@@ -662,6 +683,11 @@ public class MapUtil {
 	}
 	
 	public static int getInt(Map<String, Object> map, String key, Integer defaultVal) {
+		Object object = get(map, key);
+		return object == null ? defaultVal : (object instanceof Number) ? ((Number) object).intValue() : Integer.parseInt(object.toString());
+	}
+	
+	public static int getInt(Dictionary map, String key, Integer defaultVal) {
 		Object object = get(map, key);
 		return object == null ? defaultVal : (object instanceof Number) ? ((Number) object).intValue() : Integer.parseInt(object.toString());
 	}

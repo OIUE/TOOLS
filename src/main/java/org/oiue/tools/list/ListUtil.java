@@ -197,6 +197,25 @@ public class ListUtil {
 		}
 		return sb.toString().substring(0, split == null ? sb.toString().length() : (sb.toString().length() - split.length()));
 	}
+	/**
+	 * 方法说明： List转换字符串 用连接符连接，实现了类似js的join方法 讲数组的每个元素用split连接
+	 * @param list 操作数组
+	 * @return 连接后的字符串
+	 */
+	public static String ListJoinCsv(List list) {
+		if (list == null) {
+			return "";
+		}
+		StringBuffer sb = new StringBuffer();
+		for (Iterator iterator = list.iterator(); iterator.hasNext();) {
+			Object object = (Object) iterator.next();
+			sb.append(object instanceof String ? ("\"" +( object.toString().contains("\"")?object.toString().replace("\"", "\"\""):object) + "\"") : object).append(",");
+		}
+		if (list.size() == 0) {
+			sb.append(",");
+		}
+		return sb.toString().substring(0,  (sb.toString().length() -1));
+	}
 	
 	/**
 	 * 方法说明： List转换字符串 用连接符连接，实现了类似js的join方法 讲数组的每个元素用split连接

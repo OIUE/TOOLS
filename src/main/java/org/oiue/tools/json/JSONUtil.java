@@ -19,9 +19,10 @@ import com.google.gson.reflect.TypeToken;
 public class JSONUtil {
 	
 	public static List<Object> toList(JSONArray array) {
-		return toList(array,true);
+		return toList(array, true);
 	}
-	public static List<Object> toList(JSONArray array,boolean force) {
+	
+	public static List<Object> toList(JSONArray array, boolean force) {
 		List<Object> result = new ArrayList<Object>();
 		if (array == null) {
 			return result;
@@ -29,13 +30,13 @@ public class JSONUtil {
 		for (int i = 0; i < array.length(); i++) {
 			Object value = array.opt(i);
 			if (value instanceof JSONObject) {
-				result.add(toMap((JSONObject) value,force));
+				result.add(toMap((JSONObject) value, force));
 			} else if (value instanceof JSONArray) {
-				result.add(toList((JSONArray) value,force));
+				result.add(toList((JSONArray) value, force));
 			} else {
-				if (value.toString().startsWith("{")&&force) {
+				if (value.toString().startsWith("{") && force) {
 					result.add(parserToMap(new JSONObject(value.toString())));
-				} else if (value.toString().startsWith("[")&&force) {
+				} else if (value.toString().startsWith("[") && force) {
 					result.add(parserToList(new JSONArray(value.toString())));
 				} else
 					result.add(value);
@@ -47,7 +48,8 @@ public class JSONUtil {
 	public static Map<String, Object> toMap(JSONObject json) {
 		return toMap(json, true);
 	}
-	public static Map<String, Object> toMap(JSONObject json,boolean force) {
+	
+	public static Map<String, Object> toMap(JSONObject json, boolean force) {
 		Map<String, Object> result = new HashMap<String, Object>();
 		if ((json == null) || (json.length() == 0)) {
 			return result;
@@ -55,15 +57,15 @@ public class JSONUtil {
 		for (String e : JSONObject.getNames(json)) {
 			Object value = json.opt(e);
 			if (value instanceof JSONObject) {
-				result.put(e, toMap((JSONObject) value,force));
+				result.put(e, toMap((JSONObject) value, force));
 			} else if (value instanceof JSONArray) {
-				result.put(e, toList((JSONArray) value,force));
+				result.put(e, toList((JSONArray) value, force));
 			} else {
 				if (value == null) {
 					result.put(e, value);
-				} else if (value.toString().startsWith("{")&&force) {
+				} else if (value.toString().startsWith("{") && force) {
 					result.put(e, parserToMap(new JSONObject(value.toString())));
-				} else if (value.toString().startsWith("[")&&force) {
+				} else if (value.toString().startsWith("[") && force) {
 					result.put(e, parserToList(new JSONArray(value.toString())));
 				} else
 					result.put(e, value);
@@ -79,7 +81,10 @@ public class JSONUtil {
 	 * @return map
 	 */
 	public static Map<?, Object> parserToMap(JSONObject json) {
-		return JSONUtil.toMap(json);
+		return parserToMap(json,true);
+	}
+	public static Map<?, Object> parserToMap(JSONObject json, boolean force) {
+		return JSONUtil.toMap(json,force);
 	}
 	
 	/**
@@ -91,13 +96,17 @@ public class JSONUtil {
 	public static List<?> parserToList(JSONArray json) {
 		return parserToList(json, true);
 	}
-	public static List<?> parserToList(JSONArray json,boolean force) {
-		return JSONUtil.toList(json,force);
+	
+	public static List<?> parserToList(JSONArray json, boolean force) {
+		return JSONUtil.toList(json, force);
 	}
 	
 	public static Map<?, Object> parserStrToMap(String jsonStr) throws JSONException {
+		return parserStrToMap(jsonStr, true);
+	}
+	public static Map<?, Object> parserStrToMap(String jsonStr, boolean force) throws JSONException {
 		try {
-			return parserToMap(new JSONObject(jsonStr));
+			return parserToMap(new JSONObject(jsonStr),force);
 		} catch (Throwable e) {
 			GsonBuilder gb = new GsonBuilder();
 			Gson g = gb.create();
@@ -109,8 +118,9 @@ public class JSONUtil {
 	public static List<?> parserStrToList(String jsonAry) throws JSONException {
 		return parserStrToList(jsonAry, true);
 	}
-	public static List<?> parserStrToList(String jsonAry,boolean force) throws JSONException {
-		return parserToList(new JSONArray(jsonAry),force);
+	
+	public static List<?> parserStrToList(String jsonAry, boolean force) throws JSONException {
+		return parserToList(new JSONArray(jsonAry), force);
 	}
 	
 	public static String parserToStr(Map map) {

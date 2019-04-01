@@ -31,8 +31,7 @@ public class StringUtil {
 	/**
 	 * 
 	 */
-	public StringUtil() {
-	}
+	public StringUtil() {}
 	
 	/**
 	 * 方法说明： 判断字符串是否为空, 如果为 null 或者长度为0, 均返回 true CreateTime Apr 18, 2009 2:07:23 PM
@@ -511,24 +510,24 @@ public class StringUtil {
 		return engine.eval(epStr);
 	}
 	
-	public static Collection<String> analyzeStringPer(String source,String start,String end){
+	public static Collection<String> analyzeStringPer(String source, String start, String end) {
 		Collection<String> pers = new ArrayList<>();
 		StringBuffer s = new StringBuffer();
 		String sourcetemp = source;
-		sourcetemp=sourcetemp.replace(start, "<oiue>");
+		sourcetemp = sourcetemp.replace(start, "<oiue>");
 		String[] SQLtemps = sourcetemp.split("<oiue>");
 		s.append(SQLtemps[0]);
 		for (int i = 1; i < SQLtemps.length; i++) {
 			String tt = SQLtemps[i];
-			tt= tt.replace(end, "<oiue>");
+			tt = tt.replace(end, "<oiue>");
 			String[] temps = tt.split("<oiue>");
 			if (temps.length == 2) {
 				pers.add(temps[0]);
 			} else {
-				if(tt.length()==temps[0].length()+6){
+				if (tt.length() == temps[0].length() + 6) {
 					pers.add(temps[0]);
-				}else
-					throw new RuntimeException("source["+source+"] tt["+tt+"] temps:"+Arrays.toString(temps));
+				} else
+					throw new RuntimeException("source[" + source + "] tt[" + tt + "] temps:" + Arrays.toString(temps));
 			}
 		}
 		return pers;

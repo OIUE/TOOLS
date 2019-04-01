@@ -33,7 +33,7 @@
 // its top level method called.
 //=======================================================================
 
-import Lzw.codec.*;
+import Lzw.codec.Codec;
 
 public class Lzw {
 	public static void main(String[] argv) {

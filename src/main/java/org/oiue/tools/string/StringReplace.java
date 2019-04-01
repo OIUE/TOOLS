@@ -13,8 +13,7 @@ public class StringReplace {
 	/**
 	 * 
 	 */
-	public StringReplace() {
-	}
+	public StringReplace() {}
 	
 	/**
 	 * 方法说明： 将字符串 sourceStr 中的 oldChar 替换为 newChar CreateTime Apr 18, 2009 12:15:54 PM

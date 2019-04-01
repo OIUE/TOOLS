@@ -33,8 +33,7 @@ import com.github.junrar.rarfile.FileHeader;
 public class Decompression {
 	private static final int BUFFEREDSIZE = 1024;
 	
-	public Decompression() {
-	}
+	public Decompression() {}
 	
 	/**
 	 * 解压zip格式的压缩文件到当前文件夹

@@ -9,7 +9,7 @@ import java.io.InputStream;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
-@SuppressWarnings({ "resource", "unused"})
+@SuppressWarnings({ "resource", "unused" })
 public class FileBase64Convert {
 	
 	public static String ioToBase64(String fileName) throws IOException {

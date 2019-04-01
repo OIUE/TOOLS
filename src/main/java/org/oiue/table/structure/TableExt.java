@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
-import org.oiue.table.structure.TableModel;
 import org.oiue.tools.list.ListUtil;
 
 /**
